@@ -1,6 +1,7 @@
 {
   "scripts": {
-    "prettier:all": "prettier **/*.{js,jsx,ts,tsx,json,css,scss,graphql,md} --write"
+    "prettier:all": "prettier **/*.{js,jsx,ts,tsx,json,css,scss,graphql,md} --write",
+    "lint": "(cd client && yarn lint) && (cd server && yarn lint)"
   },
   "devDependencies": {
     "husky": "^1.3.1",

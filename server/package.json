@@ -3,7 +3,8 @@
   "license": "MIT",
   "scripts": {
     "start": "ts-node-dev --no-notify --respawn --transpileOnly ./src",
-    "prisma": "prisma"
+    "prisma": "prisma",
+    "lint": "eslint . --ext .js,.ts,.tsx"
   },
   "dependencies": {
     "bcrypt": "3.0.5",
@@ -22,6 +23,8 @@
     "@types/jsonwebtoken": "8.3.2",
     "@types/node": "10.14.3",
     "@types/ws": "6.0.1",
+    "@typescript-eslint/eslint-plugin": "^1.5.0",
+    "eslint": "^5.15.3",
     "prisma": "^1.29.1",
     "ts-node-dev": "1.0.0-pre.32",
     "typescript": "3.3.4000"
