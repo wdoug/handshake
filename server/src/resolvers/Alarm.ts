@@ -1,7 +1,7 @@
 import { prismaObjectType } from 'nexus-prisma';
 
-export const Post = prismaObjectType({
-  name: 'Post',
+export const Alarm = prismaObjectType({
+  name: 'Alarm',
   definition(t) {
     t.prismaFields(['*']);
   },

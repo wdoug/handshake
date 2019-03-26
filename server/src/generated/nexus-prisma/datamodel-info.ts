@@ -5,8 +5,7 @@
 
 export default {
   uniqueFieldsByModel: {
-    Post: ['id'],
-    User: ['id', 'email'],
+    Alarm: ['id', 'intId'],
   },
   embeddedTypes: [],
   clientPath: 'src/generated/prisma-client',
@@ -28,7 +27,7 @@ export default {
           description: null,
           fields: [
             {
-              name: 'post',
+              name: 'alarm',
               description: null,
               args: [
                 {
@@ -39,7 +38,7 @@ export default {
                     name: null,
                     ofType: {
                       kind: 'INPUT_OBJECT',
-                      name: 'PostWhereUniqueInput',
+                      name: 'AlarmWhereUniqueInput',
                       ofType: null,
                     },
                   },
@@ -48,14 +47,14 @@ export default {
               ],
               type: {
                 kind: 'OBJECT',
-                name: 'Post',
+                name: 'Alarm',
                 ofType: null,
               },
               isDeprecated: false,
               deprecationReason: null,
             },
             {
-              name: 'posts',
+              name: 'alarms',
               description: null,
               args: [
                 {
@@ -63,7 +62,7 @@ export default {
                   description: null,
                   type: {
                     kind: 'INPUT_OBJECT',
-                    name: 'PostWhereInput',
+                    name: 'AlarmWhereInput',
                     ofType: null,
                   },
                   defaultValue: null,
@@ -73,7 +72,7 @@ export default {
                   description: null,
                   type: {
                     kind: 'ENUM',
-                    name: 'PostOrderByInput',
+                    name: 'AlarmOrderByInput',
                     ofType: null,
                   },
                   defaultValue: null,
@@ -137,7 +136,7 @@ export default {
                   name: null,
                   ofType: {
                     kind: 'OBJECT',
-                    name: 'Post',
+                    name: 'Alarm',
                     ofType: null,
                   },
                 },
@@ -146,7 +145,7 @@ export default {
               deprecationReason: null,
             },
             {
-              name: 'postsConnection',
+              name: 'alarmsConnection',
               description: null,
               args: [
                 {
@@ -154,7 +153,7 @@ export default {
                   description: null,
                   type: {
                     kind: 'INPUT_OBJECT',
-                    name: 'PostWhereInput',
+                    name: 'AlarmWhereInput',
                     ofType: null,
                   },
                   defaultValue: null,
@@ -164,7 +163,7 @@ export default {
                   description: null,
                   type: {
                     kind: 'ENUM',
-                    name: 'PostOrderByInput',
+                    name: 'AlarmOrderByInput',
                     ofType: null,
                   },
                   defaultValue: null,
@@ -225,212 +224,7 @@ export default {
                 name: null,
                 ofType: {
                   kind: 'OBJECT',
-                  name: 'PostConnection',
-                  ofType: null,
-                },
-              },
-              isDeprecated: false,
-              deprecationReason: null,
-            },
-            {
-              name: 'user',
-              description: null,
-              args: [
-                {
-                  name: 'where',
-                  description: null,
-                  type: {
-                    kind: 'NON_NULL',
-                    name: null,
-                    ofType: {
-                      kind: 'INPUT_OBJECT',
-                      name: 'UserWhereUniqueInput',
-                      ofType: null,
-                    },
-                  },
-                  defaultValue: null,
-                },
-              ],
-              type: {
-                kind: 'OBJECT',
-                name: 'User',
-                ofType: null,
-              },
-              isDeprecated: false,
-              deprecationReason: null,
-            },
-            {
-              name: 'users',
-              description: null,
-              args: [
-                {
-                  name: 'where',
-                  description: null,
-                  type: {
-                    kind: 'INPUT_OBJECT',
-                    name: 'UserWhereInput',
-                    ofType: null,
-                  },
-                  defaultValue: null,
-                },
-                {
-                  name: 'orderBy',
-                  description: null,
-                  type: {
-                    kind: 'ENUM',
-                    name: 'UserOrderByInput',
-                    ofType: null,
-                  },
-                  defaultValue: null,
-                },
-                {
-                  name: 'skip',
-                  description: null,
-                  type: {
-                    kind: 'SCALAR',
-                    name: 'Int',
-                    ofType: null,
-                  },
-                  defaultValue: null,
-                },
-                {
-                  name: 'after',
-                  description: null,
-                  type: {
-                    kind: 'SCALAR',
-                    name: 'String',
-                    ofType: null,
-                  },
-                  defaultValue: null,
-                },
-                {
-                  name: 'before',
-                  description: null,
-                  type: {
-                    kind: 'SCALAR',
-                    name: 'String',
-                    ofType: null,
-                  },
-                  defaultValue: null,
-                },
-                {
-                  name: 'first',
-                  description: null,
-                  type: {
-                    kind: 'SCALAR',
-                    name: 'Int',
-                    ofType: null,
-                  },
-                  defaultValue: null,
-                },
-                {
-                  name: 'last',
-                  description: null,
-                  type: {
-                    kind: 'SCALAR',
-                    name: 'Int',
-                    ofType: null,
-                  },
-                  defaultValue: null,
-                },
-              ],
-              type: {
-                kind: 'NON_NULL',
-                name: null,
-                ofType: {
-                  kind: 'LIST',
-                  name: null,
-                  ofType: {
-                    kind: 'OBJECT',
-                    name: 'User',
-                    ofType: null,
-                  },
-                },
-              },
-              isDeprecated: false,
-              deprecationReason: null,
-            },
-            {
-              name: 'usersConnection',
-              description: null,
-              args: [
-                {
-                  name: 'where',
-                  description: null,
-                  type: {
-                    kind: 'INPUT_OBJECT',
-                    name: 'UserWhereInput',
-                    ofType: null,
-                  },
-                  defaultValue: null,
-                },
-                {
-                  name: 'orderBy',
-                  description: null,
-                  type: {
-                    kind: 'ENUM',
-                    name: 'UserOrderByInput',
-                    ofType: null,
-                  },
-                  defaultValue: null,
-                },
-                {
-                  name: 'skip',
-                  description: null,
-                  type: {
-                    kind: 'SCALAR',
-                    name: 'Int',
-                    ofType: null,
-                  },
-                  defaultValue: null,
-                },
-                {
-                  name: 'after',
-                  description: null,
-                  type: {
-                    kind: 'SCALAR',
-                    name: 'String',
-                    ofType: null,
-                  },
-                  defaultValue: null,
-                },
-                {
-                  name: 'before',
-                  description: null,
-                  type: {
-                    kind: 'SCALAR',
-                    name: 'String',
-                    ofType: null,
-                  },
-                  defaultValue: null,
-                },
-                {
-                  name: 'first',
-                  description: null,
-                  type: {
-                    kind: 'SCALAR',
-                    name: 'Int',
-                    ofType: null,
-                  },
-                  defaultValue: null,
-                },
-                {
-                  name: 'last',
-                  description: null,
-                  type: {
-                    kind: 'SCALAR',
-                    name: 'Int',
-                    ofType: null,
-                  },
-                  defaultValue: null,
-                },
-              ],
-              type: {
-                kind: 'NON_NULL',
-                name: null,
-                ofType: {
-                  kind: 'OBJECT',
-                  name: 'UserConnection',
+                  name: 'AlarmConnection',
                   ofType: null,
                 },
               },
@@ -472,7 +266,7 @@ export default {
         },
         {
           kind: 'INPUT_OBJECT',
-          name: 'PostWhereUniqueInput',
+          name: 'AlarmWhereUniqueInput',
           description: null,
           fields: null,
           inputFields: [
@@ -482,6 +276,16 @@ export default {
               type: {
                 kind: 'SCALAR',
                 name: 'ID',
+                ofType: null,
+              },
+              defaultValue: null,
+            },
+            {
+              name: 'intId',
+              description: null,
+              type: {
+                kind: 'SCALAR',
+                name: 'Int',
                 ofType: null,
               },
               defaultValue: null,
@@ -503,8 +307,19 @@ export default {
           possibleTypes: null,
         },
         {
+          kind: 'SCALAR',
+          name: 'Int',
+          description:
+            'The `Int` scalar type represents non-fractional signed whole numeric values. Int can represent values between -(2^31) and 2^31 - 1. ',
+          fields: null,
+          inputFields: null,
+          interfaces: null,
+          enumValues: null,
+          possibleTypes: null,
+        },
+        {
           kind: 'OBJECT',
-          name: 'Post',
+          name: 'Alarm',
           description: null,
           fields: [
             {
@@ -524,7 +339,7 @@ export default {
               deprecationReason: null,
             },
             {
-              name: 'createdAt',
+              name: 'intId',
               description: null,
               args: [],
               type: {
@@ -532,7 +347,7 @@ export default {
                 name: null,
                 ofType: {
                   kind: 'SCALAR',
-                  name: 'DateTime',
+                  name: 'Int',
                   ofType: null,
                 },
               },
@@ -540,55 +355,7 @@ export default {
               deprecationReason: null,
             },
             {
-              name: 'updatedAt',
-              description: null,
-              args: [],
-              type: {
-                kind: 'NON_NULL',
-                name: null,
-                ofType: {
-                  kind: 'SCALAR',
-                  name: 'DateTime',
-                  ofType: null,
-                },
-              },
-              isDeprecated: false,
-              deprecationReason: null,
-            },
-            {
-              name: 'published',
-              description: null,
-              args: [],
-              type: {
-                kind: 'NON_NULL',
-                name: null,
-                ofType: {
-                  kind: 'SCALAR',
-                  name: 'Boolean',
-                  ofType: null,
-                },
-              },
-              isDeprecated: false,
-              deprecationReason: null,
-            },
-            {
-              name: 'title',
-              description: null,
-              args: [],
-              type: {
-                kind: 'NON_NULL',
-                name: null,
-                ofType: {
-                  kind: 'SCALAR',
-                  name: 'String',
-                  ofType: null,
-                },
-              },
-              isDeprecated: false,
-              deprecationReason: null,
-            },
-            {
-              name: 'content',
+              name: 'text',
               description: null,
               args: [],
               type: {
@@ -599,46 +366,9 @@ export default {
               isDeprecated: false,
               deprecationReason: null,
             },
-            {
-              name: 'author',
-              description: null,
-              args: [],
-              type: {
-                kind: 'NON_NULL',
-                name: null,
-                ofType: {
-                  kind: 'OBJECT',
-                  name: 'User',
-                  ofType: null,
-                },
-              },
-              isDeprecated: false,
-              deprecationReason: null,
-            },
           ],
           inputFields: null,
           interfaces: [],
-          enumValues: null,
-          possibleTypes: null,
-        },
-        {
-          kind: 'SCALAR',
-          name: 'DateTime',
-          description: null,
-          fields: null,
-          inputFields: null,
-          interfaces: null,
-          enumValues: null,
-          possibleTypes: null,
-        },
-        {
-          kind: 'SCALAR',
-          name: 'Boolean',
-          description:
-            'The `Boolean` scalar type represents `true` or `false`.',
-          fields: null,
-          inputFields: null,
-          interfaces: null,
           enumValues: null,
           possibleTypes: null,
         },
@@ -654,170 +384,8 @@ export default {
           possibleTypes: null,
         },
         {
-          kind: 'OBJECT',
-          name: 'User',
-          description: null,
-          fields: [
-            {
-              name: 'id',
-              description: null,
-              args: [],
-              type: {
-                kind: 'NON_NULL',
-                name: null,
-                ofType: {
-                  kind: 'SCALAR',
-                  name: 'ID',
-                  ofType: null,
-                },
-              },
-              isDeprecated: false,
-              deprecationReason: null,
-            },
-            {
-              name: 'email',
-              description: null,
-              args: [],
-              type: {
-                kind: 'NON_NULL',
-                name: null,
-                ofType: {
-                  kind: 'SCALAR',
-                  name: 'String',
-                  ofType: null,
-                },
-              },
-              isDeprecated: false,
-              deprecationReason: null,
-            },
-            {
-              name: 'password',
-              description: null,
-              args: [],
-              type: {
-                kind: 'NON_NULL',
-                name: null,
-                ofType: {
-                  kind: 'SCALAR',
-                  name: 'String',
-                  ofType: null,
-                },
-              },
-              isDeprecated: false,
-              deprecationReason: null,
-            },
-            {
-              name: 'name',
-              description: null,
-              args: [],
-              type: {
-                kind: 'SCALAR',
-                name: 'String',
-                ofType: null,
-              },
-              isDeprecated: false,
-              deprecationReason: null,
-            },
-            {
-              name: 'posts',
-              description: null,
-              args: [
-                {
-                  name: 'where',
-                  description: null,
-                  type: {
-                    kind: 'INPUT_OBJECT',
-                    name: 'PostWhereInput',
-                    ofType: null,
-                  },
-                  defaultValue: null,
-                },
-                {
-                  name: 'orderBy',
-                  description: null,
-                  type: {
-                    kind: 'ENUM',
-                    name: 'PostOrderByInput',
-                    ofType: null,
-                  },
-                  defaultValue: null,
-                },
-                {
-                  name: 'skip',
-                  description: null,
-                  type: {
-                    kind: 'SCALAR',
-                    name: 'Int',
-                    ofType: null,
-                  },
-                  defaultValue: null,
-                },
-                {
-                  name: 'after',
-                  description: null,
-                  type: {
-                    kind: 'SCALAR',
-                    name: 'String',
-                    ofType: null,
-                  },
-                  defaultValue: null,
-                },
-                {
-                  name: 'before',
-                  description: null,
-                  type: {
-                    kind: 'SCALAR',
-                    name: 'String',
-                    ofType: null,
-                  },
-                  defaultValue: null,
-                },
-                {
-                  name: 'first',
-                  description: null,
-                  type: {
-                    kind: 'SCALAR',
-                    name: 'Int',
-                    ofType: null,
-                  },
-                  defaultValue: null,
-                },
-                {
-                  name: 'last',
-                  description: null,
-                  type: {
-                    kind: 'SCALAR',
-                    name: 'Int',
-                    ofType: null,
-                  },
-                  defaultValue: null,
-                },
-              ],
-              type: {
-                kind: 'LIST',
-                name: null,
-                ofType: {
-                  kind: 'NON_NULL',
-                  name: null,
-                  ofType: {
-                    kind: 'OBJECT',
-                    name: 'Post',
-                    ofType: null,
-                  },
-                },
-              },
-              isDeprecated: false,
-              deprecationReason: null,
-            },
-          ],
-          inputFields: null,
-          interfaces: [],
-          enumValues: null,
-          possibleTypes: null,
-        },
-        {
           kind: 'INPUT_OBJECT',
-          name: 'PostWhereInput',
+          name: 'AlarmWhereInput',
           description: null,
           fields: null,
           inputFields: [
@@ -978,27 +546,27 @@ export default {
               defaultValue: null,
             },
             {
-              name: 'createdAt',
+              name: 'intId',
               description: null,
               type: {
                 kind: 'SCALAR',
-                name: 'DateTime',
+                name: 'Int',
                 ofType: null,
               },
               defaultValue: null,
             },
             {
-              name: 'createdAt_not',
+              name: 'intId_not',
               description: null,
               type: {
                 kind: 'SCALAR',
-                name: 'DateTime',
+                name: 'Int',
                 ofType: null,
               },
               defaultValue: null,
             },
             {
-              name: 'createdAt_in',
+              name: 'intId_in',
               description: null,
               type: {
                 kind: 'LIST',
@@ -1008,7 +576,7 @@ export default {
                   name: null,
                   ofType: {
                     kind: 'SCALAR',
-                    name: 'DateTime',
+                    name: 'Int',
                     ofType: null,
                   },
                 },
@@ -1016,7 +584,7 @@ export default {
               defaultValue: null,
             },
             {
-              name: 'createdAt_not_in',
+              name: 'intId_not_in',
               description: null,
               type: {
                 kind: 'LIST',
@@ -1026,7 +594,7 @@ export default {
                   name: null,
                   ofType: {
                     kind: 'SCALAR',
-                    name: 'DateTime',
+                    name: 'Int',
                     ofType: null,
                   },
                 },
@@ -1034,163 +602,47 @@ export default {
               defaultValue: null,
             },
             {
-              name: 'createdAt_lt',
+              name: 'intId_lt',
               description: null,
               type: {
                 kind: 'SCALAR',
-                name: 'DateTime',
+                name: 'Int',
                 ofType: null,
               },
               defaultValue: null,
             },
             {
-              name: 'createdAt_lte',
+              name: 'intId_lte',
               description: null,
               type: {
                 kind: 'SCALAR',
-                name: 'DateTime',
+                name: 'Int',
                 ofType: null,
               },
               defaultValue: null,
             },
             {
-              name: 'createdAt_gt',
+              name: 'intId_gt',
               description: null,
               type: {
                 kind: 'SCALAR',
-                name: 'DateTime',
+                name: 'Int',
                 ofType: null,
               },
               defaultValue: null,
             },
             {
-              name: 'createdAt_gte',
+              name: 'intId_gte',
               description: null,
               type: {
                 kind: 'SCALAR',
-                name: 'DateTime',
+                name: 'Int',
                 ofType: null,
               },
               defaultValue: null,
             },
             {
-              name: 'updatedAt',
-              description: null,
-              type: {
-                kind: 'SCALAR',
-                name: 'DateTime',
-                ofType: null,
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'updatedAt_not',
-              description: null,
-              type: {
-                kind: 'SCALAR',
-                name: 'DateTime',
-                ofType: null,
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'updatedAt_in',
-              description: null,
-              type: {
-                kind: 'LIST',
-                name: null,
-                ofType: {
-                  kind: 'NON_NULL',
-                  name: null,
-                  ofType: {
-                    kind: 'SCALAR',
-                    name: 'DateTime',
-                    ofType: null,
-                  },
-                },
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'updatedAt_not_in',
-              description: null,
-              type: {
-                kind: 'LIST',
-                name: null,
-                ofType: {
-                  kind: 'NON_NULL',
-                  name: null,
-                  ofType: {
-                    kind: 'SCALAR',
-                    name: 'DateTime',
-                    ofType: null,
-                  },
-                },
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'updatedAt_lt',
-              description: null,
-              type: {
-                kind: 'SCALAR',
-                name: 'DateTime',
-                ofType: null,
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'updatedAt_lte',
-              description: null,
-              type: {
-                kind: 'SCALAR',
-                name: 'DateTime',
-                ofType: null,
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'updatedAt_gt',
-              description: null,
-              type: {
-                kind: 'SCALAR',
-                name: 'DateTime',
-                ofType: null,
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'updatedAt_gte',
-              description: null,
-              type: {
-                kind: 'SCALAR',
-                name: 'DateTime',
-                ofType: null,
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'published',
-              description: null,
-              type: {
-                kind: 'SCALAR',
-                name: 'Boolean',
-                ofType: null,
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'published_not',
-              description: null,
-              type: {
-                kind: 'SCALAR',
-                name: 'Boolean',
-                ofType: null,
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'title',
+              name: 'text',
               description: null,
               type: {
                 kind: 'SCALAR',
@@ -1200,7 +652,7 @@ export default {
               defaultValue: null,
             },
             {
-              name: 'title_not',
+              name: 'text_not',
               description: null,
               type: {
                 kind: 'SCALAR',
@@ -1210,7 +662,7 @@ export default {
               defaultValue: null,
             },
             {
-              name: 'title_in',
+              name: 'text_in',
               description: null,
               type: {
                 kind: 'LIST',
@@ -1228,7 +680,7 @@ export default {
               defaultValue: null,
             },
             {
-              name: 'title_not_in',
+              name: 'text_not_in',
               description: null,
               type: {
                 kind: 'LIST',
@@ -1246,7 +698,7 @@ export default {
               defaultValue: null,
             },
             {
-              name: 'title_lt',
+              name: 'text_lt',
               description: null,
               type: {
                 kind: 'SCALAR',
@@ -1256,7 +708,7 @@ export default {
               defaultValue: null,
             },
             {
-              name: 'title_lte',
+              name: 'text_lte',
               description: null,
               type: {
                 kind: 'SCALAR',
@@ -1266,7 +718,7 @@ export default {
               defaultValue: null,
             },
             {
-              name: 'title_gt',
+              name: 'text_gt',
               description: null,
               type: {
                 kind: 'SCALAR',
@@ -1276,7 +728,7 @@ export default {
               defaultValue: null,
             },
             {
-              name: 'title_gte',
+              name: 'text_gte',
               description: null,
               type: {
                 kind: 'SCALAR',
@@ -1286,7 +738,7 @@ export default {
               defaultValue: null,
             },
             {
-              name: 'title_contains',
+              name: 'text_contains',
               description: null,
               type: {
                 kind: 'SCALAR',
@@ -1296,7 +748,7 @@ export default {
               defaultValue: null,
             },
             {
-              name: 'title_not_contains',
+              name: 'text_not_contains',
               description: null,
               type: {
                 kind: 'SCALAR',
@@ -1306,7 +758,7 @@ export default {
               defaultValue: null,
             },
             {
-              name: 'title_starts_with',
+              name: 'text_starts_with',
               description: null,
               type: {
                 kind: 'SCALAR',
@@ -1316,7 +768,7 @@ export default {
               defaultValue: null,
             },
             {
-              name: 'title_not_starts_with',
+              name: 'text_not_starts_with',
               description: null,
               type: {
                 kind: 'SCALAR',
@@ -1326,7 +778,7 @@ export default {
               defaultValue: null,
             },
             {
-              name: 'title_ends_with',
+              name: 'text_ends_with',
               description: null,
               type: {
                 kind: 'SCALAR',
@@ -1336,177 +788,11 @@ export default {
               defaultValue: null,
             },
             {
-              name: 'title_not_ends_with',
+              name: 'text_not_ends_with',
               description: null,
               type: {
                 kind: 'SCALAR',
                 name: 'String',
-                ofType: null,
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'content',
-              description: null,
-              type: {
-                kind: 'SCALAR',
-                name: 'String',
-                ofType: null,
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'content_not',
-              description: null,
-              type: {
-                kind: 'SCALAR',
-                name: 'String',
-                ofType: null,
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'content_in',
-              description: null,
-              type: {
-                kind: 'LIST',
-                name: null,
-                ofType: {
-                  kind: 'NON_NULL',
-                  name: null,
-                  ofType: {
-                    kind: 'SCALAR',
-                    name: 'String',
-                    ofType: null,
-                  },
-                },
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'content_not_in',
-              description: null,
-              type: {
-                kind: 'LIST',
-                name: null,
-                ofType: {
-                  kind: 'NON_NULL',
-                  name: null,
-                  ofType: {
-                    kind: 'SCALAR',
-                    name: 'String',
-                    ofType: null,
-                  },
-                },
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'content_lt',
-              description: null,
-              type: {
-                kind: 'SCALAR',
-                name: 'String',
-                ofType: null,
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'content_lte',
-              description: null,
-              type: {
-                kind: 'SCALAR',
-                name: 'String',
-                ofType: null,
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'content_gt',
-              description: null,
-              type: {
-                kind: 'SCALAR',
-                name: 'String',
-                ofType: null,
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'content_gte',
-              description: null,
-              type: {
-                kind: 'SCALAR',
-                name: 'String',
-                ofType: null,
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'content_contains',
-              description: null,
-              type: {
-                kind: 'SCALAR',
-                name: 'String',
-                ofType: null,
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'content_not_contains',
-              description: null,
-              type: {
-                kind: 'SCALAR',
-                name: 'String',
-                ofType: null,
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'content_starts_with',
-              description: null,
-              type: {
-                kind: 'SCALAR',
-                name: 'String',
-                ofType: null,
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'content_not_starts_with',
-              description: null,
-              type: {
-                kind: 'SCALAR',
-                name: 'String',
-                ofType: null,
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'content_ends_with',
-              description: null,
-              type: {
-                kind: 'SCALAR',
-                name: 'String',
-                ofType: null,
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'content_not_ends_with',
-              description: null,
-              type: {
-                kind: 'SCALAR',
-                name: 'String',
-                ofType: null,
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'author',
-              description: null,
-              type: {
-                kind: 'INPUT_OBJECT',
-                name: 'UserWhereInput',
                 ofType: null,
               },
               defaultValue: null,
@@ -1522,7 +808,7 @@ export default {
                   name: null,
                   ofType: {
                     kind: 'INPUT_OBJECT',
-                    name: 'PostWhereInput',
+                    name: 'AlarmWhereInput',
                     ofType: null,
                   },
                 },
@@ -1540,7 +826,7 @@ export default {
                   name: null,
                   ofType: {
                     kind: 'INPUT_OBJECT',
-                    name: 'PostWhereInput',
+                    name: 'AlarmWhereInput',
                     ofType: null,
                   },
                 },
@@ -1558,726 +844,7 @@ export default {
                   name: null,
                   ofType: {
                     kind: 'INPUT_OBJECT',
-                    name: 'PostWhereInput',
-                    ofType: null,
-                  },
-                },
-              },
-              defaultValue: null,
-            },
-          ],
-          interfaces: null,
-          enumValues: null,
-          possibleTypes: null,
-        },
-        {
-          kind: 'INPUT_OBJECT',
-          name: 'UserWhereInput',
-          description: null,
-          fields: null,
-          inputFields: [
-            {
-              name: 'id',
-              description: null,
-              type: {
-                kind: 'SCALAR',
-                name: 'ID',
-                ofType: null,
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'id_not',
-              description: null,
-              type: {
-                kind: 'SCALAR',
-                name: 'ID',
-                ofType: null,
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'id_in',
-              description: null,
-              type: {
-                kind: 'LIST',
-                name: null,
-                ofType: {
-                  kind: 'NON_NULL',
-                  name: null,
-                  ofType: {
-                    kind: 'SCALAR',
-                    name: 'ID',
-                    ofType: null,
-                  },
-                },
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'id_not_in',
-              description: null,
-              type: {
-                kind: 'LIST',
-                name: null,
-                ofType: {
-                  kind: 'NON_NULL',
-                  name: null,
-                  ofType: {
-                    kind: 'SCALAR',
-                    name: 'ID',
-                    ofType: null,
-                  },
-                },
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'id_lt',
-              description: null,
-              type: {
-                kind: 'SCALAR',
-                name: 'ID',
-                ofType: null,
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'id_lte',
-              description: null,
-              type: {
-                kind: 'SCALAR',
-                name: 'ID',
-                ofType: null,
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'id_gt',
-              description: null,
-              type: {
-                kind: 'SCALAR',
-                name: 'ID',
-                ofType: null,
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'id_gte',
-              description: null,
-              type: {
-                kind: 'SCALAR',
-                name: 'ID',
-                ofType: null,
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'id_contains',
-              description: null,
-              type: {
-                kind: 'SCALAR',
-                name: 'ID',
-                ofType: null,
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'id_not_contains',
-              description: null,
-              type: {
-                kind: 'SCALAR',
-                name: 'ID',
-                ofType: null,
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'id_starts_with',
-              description: null,
-              type: {
-                kind: 'SCALAR',
-                name: 'ID',
-                ofType: null,
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'id_not_starts_with',
-              description: null,
-              type: {
-                kind: 'SCALAR',
-                name: 'ID',
-                ofType: null,
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'id_ends_with',
-              description: null,
-              type: {
-                kind: 'SCALAR',
-                name: 'ID',
-                ofType: null,
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'id_not_ends_with',
-              description: null,
-              type: {
-                kind: 'SCALAR',
-                name: 'ID',
-                ofType: null,
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'email',
-              description: null,
-              type: {
-                kind: 'SCALAR',
-                name: 'String',
-                ofType: null,
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'email_not',
-              description: null,
-              type: {
-                kind: 'SCALAR',
-                name: 'String',
-                ofType: null,
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'email_in',
-              description: null,
-              type: {
-                kind: 'LIST',
-                name: null,
-                ofType: {
-                  kind: 'NON_NULL',
-                  name: null,
-                  ofType: {
-                    kind: 'SCALAR',
-                    name: 'String',
-                    ofType: null,
-                  },
-                },
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'email_not_in',
-              description: null,
-              type: {
-                kind: 'LIST',
-                name: null,
-                ofType: {
-                  kind: 'NON_NULL',
-                  name: null,
-                  ofType: {
-                    kind: 'SCALAR',
-                    name: 'String',
-                    ofType: null,
-                  },
-                },
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'email_lt',
-              description: null,
-              type: {
-                kind: 'SCALAR',
-                name: 'String',
-                ofType: null,
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'email_lte',
-              description: null,
-              type: {
-                kind: 'SCALAR',
-                name: 'String',
-                ofType: null,
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'email_gt',
-              description: null,
-              type: {
-                kind: 'SCALAR',
-                name: 'String',
-                ofType: null,
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'email_gte',
-              description: null,
-              type: {
-                kind: 'SCALAR',
-                name: 'String',
-                ofType: null,
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'email_contains',
-              description: null,
-              type: {
-                kind: 'SCALAR',
-                name: 'String',
-                ofType: null,
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'email_not_contains',
-              description: null,
-              type: {
-                kind: 'SCALAR',
-                name: 'String',
-                ofType: null,
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'email_starts_with',
-              description: null,
-              type: {
-                kind: 'SCALAR',
-                name: 'String',
-                ofType: null,
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'email_not_starts_with',
-              description: null,
-              type: {
-                kind: 'SCALAR',
-                name: 'String',
-                ofType: null,
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'email_ends_with',
-              description: null,
-              type: {
-                kind: 'SCALAR',
-                name: 'String',
-                ofType: null,
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'email_not_ends_with',
-              description: null,
-              type: {
-                kind: 'SCALAR',
-                name: 'String',
-                ofType: null,
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'password',
-              description: null,
-              type: {
-                kind: 'SCALAR',
-                name: 'String',
-                ofType: null,
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'password_not',
-              description: null,
-              type: {
-                kind: 'SCALAR',
-                name: 'String',
-                ofType: null,
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'password_in',
-              description: null,
-              type: {
-                kind: 'LIST',
-                name: null,
-                ofType: {
-                  kind: 'NON_NULL',
-                  name: null,
-                  ofType: {
-                    kind: 'SCALAR',
-                    name: 'String',
-                    ofType: null,
-                  },
-                },
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'password_not_in',
-              description: null,
-              type: {
-                kind: 'LIST',
-                name: null,
-                ofType: {
-                  kind: 'NON_NULL',
-                  name: null,
-                  ofType: {
-                    kind: 'SCALAR',
-                    name: 'String',
-                    ofType: null,
-                  },
-                },
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'password_lt',
-              description: null,
-              type: {
-                kind: 'SCALAR',
-                name: 'String',
-                ofType: null,
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'password_lte',
-              description: null,
-              type: {
-                kind: 'SCALAR',
-                name: 'String',
-                ofType: null,
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'password_gt',
-              description: null,
-              type: {
-                kind: 'SCALAR',
-                name: 'String',
-                ofType: null,
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'password_gte',
-              description: null,
-              type: {
-                kind: 'SCALAR',
-                name: 'String',
-                ofType: null,
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'password_contains',
-              description: null,
-              type: {
-                kind: 'SCALAR',
-                name: 'String',
-                ofType: null,
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'password_not_contains',
-              description: null,
-              type: {
-                kind: 'SCALAR',
-                name: 'String',
-                ofType: null,
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'password_starts_with',
-              description: null,
-              type: {
-                kind: 'SCALAR',
-                name: 'String',
-                ofType: null,
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'password_not_starts_with',
-              description: null,
-              type: {
-                kind: 'SCALAR',
-                name: 'String',
-                ofType: null,
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'password_ends_with',
-              description: null,
-              type: {
-                kind: 'SCALAR',
-                name: 'String',
-                ofType: null,
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'password_not_ends_with',
-              description: null,
-              type: {
-                kind: 'SCALAR',
-                name: 'String',
-                ofType: null,
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'name',
-              description: null,
-              type: {
-                kind: 'SCALAR',
-                name: 'String',
-                ofType: null,
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'name_not',
-              description: null,
-              type: {
-                kind: 'SCALAR',
-                name: 'String',
-                ofType: null,
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'name_in',
-              description: null,
-              type: {
-                kind: 'LIST',
-                name: null,
-                ofType: {
-                  kind: 'NON_NULL',
-                  name: null,
-                  ofType: {
-                    kind: 'SCALAR',
-                    name: 'String',
-                    ofType: null,
-                  },
-                },
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'name_not_in',
-              description: null,
-              type: {
-                kind: 'LIST',
-                name: null,
-                ofType: {
-                  kind: 'NON_NULL',
-                  name: null,
-                  ofType: {
-                    kind: 'SCALAR',
-                    name: 'String',
-                    ofType: null,
-                  },
-                },
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'name_lt',
-              description: null,
-              type: {
-                kind: 'SCALAR',
-                name: 'String',
-                ofType: null,
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'name_lte',
-              description: null,
-              type: {
-                kind: 'SCALAR',
-                name: 'String',
-                ofType: null,
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'name_gt',
-              description: null,
-              type: {
-                kind: 'SCALAR',
-                name: 'String',
-                ofType: null,
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'name_gte',
-              description: null,
-              type: {
-                kind: 'SCALAR',
-                name: 'String',
-                ofType: null,
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'name_contains',
-              description: null,
-              type: {
-                kind: 'SCALAR',
-                name: 'String',
-                ofType: null,
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'name_not_contains',
-              description: null,
-              type: {
-                kind: 'SCALAR',
-                name: 'String',
-                ofType: null,
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'name_starts_with',
-              description: null,
-              type: {
-                kind: 'SCALAR',
-                name: 'String',
-                ofType: null,
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'name_not_starts_with',
-              description: null,
-              type: {
-                kind: 'SCALAR',
-                name: 'String',
-                ofType: null,
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'name_ends_with',
-              description: null,
-              type: {
-                kind: 'SCALAR',
-                name: 'String',
-                ofType: null,
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'name_not_ends_with',
-              description: null,
-              type: {
-                kind: 'SCALAR',
-                name: 'String',
-                ofType: null,
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'posts_every',
-              description: null,
-              type: {
-                kind: 'INPUT_OBJECT',
-                name: 'PostWhereInput',
-                ofType: null,
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'posts_some',
-              description: null,
-              type: {
-                kind: 'INPUT_OBJECT',
-                name: 'PostWhereInput',
-                ofType: null,
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'posts_none',
-              description: null,
-              type: {
-                kind: 'INPUT_OBJECT',
-                name: 'PostWhereInput',
-                ofType: null,
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'AND',
-              description: null,
-              type: {
-                kind: 'LIST',
-                name: null,
-                ofType: {
-                  kind: 'NON_NULL',
-                  name: null,
-                  ofType: {
-                    kind: 'INPUT_OBJECT',
-                    name: 'UserWhereInput',
-                    ofType: null,
-                  },
-                },
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'OR',
-              description: null,
-              type: {
-                kind: 'LIST',
-                name: null,
-                ofType: {
-                  kind: 'NON_NULL',
-                  name: null,
-                  ofType: {
-                    kind: 'INPUT_OBJECT',
-                    name: 'UserWhereInput',
-                    ofType: null,
-                  },
-                },
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'NOT',
-              description: null,
-              type: {
-                kind: 'LIST',
-                name: null,
-                ofType: {
-                  kind: 'NON_NULL',
-                  name: null,
-                  ofType: {
-                    kind: 'INPUT_OBJECT',
-                    name: 'UserWhereInput',
+                    name: 'AlarmWhereInput',
                     ofType: null,
                   },
                 },
@@ -2291,7 +858,7 @@ export default {
         },
         {
           kind: 'ENUM',
-          name: 'PostOrderByInput',
+          name: 'AlarmOrderByInput',
           description: null,
           fields: null,
           inputFields: null,
@@ -2305,6 +872,30 @@ export default {
             },
             {
               name: 'id_DESC',
+              description: null,
+              isDeprecated: false,
+              deprecationReason: null,
+            },
+            {
+              name: 'intId_ASC',
+              description: null,
+              isDeprecated: false,
+              deprecationReason: null,
+            },
+            {
+              name: 'intId_DESC',
+              description: null,
+              isDeprecated: false,
+              deprecationReason: null,
+            },
+            {
+              name: 'text_ASC',
+              description: null,
+              isDeprecated: false,
+              deprecationReason: null,
+            },
+            {
+              name: 'text_DESC',
               description: null,
               isDeprecated: false,
               deprecationReason: null,
@@ -2333,59 +924,12 @@ export default {
               isDeprecated: false,
               deprecationReason: null,
             },
-            {
-              name: 'published_ASC',
-              description: null,
-              isDeprecated: false,
-              deprecationReason: null,
-            },
-            {
-              name: 'published_DESC',
-              description: null,
-              isDeprecated: false,
-              deprecationReason: null,
-            },
-            {
-              name: 'title_ASC',
-              description: null,
-              isDeprecated: false,
-              deprecationReason: null,
-            },
-            {
-              name: 'title_DESC',
-              description: null,
-              isDeprecated: false,
-              deprecationReason: null,
-            },
-            {
-              name: 'content_ASC',
-              description: null,
-              isDeprecated: false,
-              deprecationReason: null,
-            },
-            {
-              name: 'content_DESC',
-              description: null,
-              isDeprecated: false,
-              deprecationReason: null,
-            },
           ],
           possibleTypes: null,
         },
         {
-          kind: 'SCALAR',
-          name: 'Int',
-          description:
-            'The `Int` scalar type represents non-fractional signed whole numeric values. Int can represent values between -(2^31) and 2^31 - 1. ',
-          fields: null,
-          inputFields: null,
-          interfaces: null,
-          enumValues: null,
-          possibleTypes: null,
-        },
-        {
           kind: 'OBJECT',
-          name: 'PostConnection',
+          name: 'AlarmConnection',
           description: null,
           fields: [
             {
@@ -2416,7 +960,7 @@ export default {
                   name: null,
                   ofType: {
                     kind: 'OBJECT',
-                    name: 'PostEdge',
+                    name: 'AlarmEdge',
                     ofType: null,
                   },
                 },
@@ -2433,7 +977,7 @@ export default {
                 name: null,
                 ofType: {
                   kind: 'OBJECT',
-                  name: 'AggregatePost',
+                  name: 'AggregateAlarm',
                   ofType: null,
                 },
               },
@@ -2514,8 +1058,19 @@ export default {
           possibleTypes: null,
         },
         {
+          kind: 'SCALAR',
+          name: 'Boolean',
+          description:
+            'The `Boolean` scalar type represents `true` or `false`.',
+          fields: null,
+          inputFields: null,
+          interfaces: null,
+          enumValues: null,
+          possibleTypes: null,
+        },
+        {
           kind: 'OBJECT',
-          name: 'PostEdge',
+          name: 'AlarmEdge',
           description: null,
           fields: [
             {
@@ -2527,7 +1082,7 @@ export default {
                 name: null,
                 ofType: {
                   kind: 'OBJECT',
-                  name: 'Post',
+                  name: 'Alarm',
                   ofType: null,
                 },
               },
@@ -2558,254 +1113,7 @@ export default {
         },
         {
           kind: 'OBJECT',
-          name: 'AggregatePost',
-          description: null,
-          fields: [
-            {
-              name: 'count',
-              description: null,
-              args: [],
-              type: {
-                kind: 'NON_NULL',
-                name: null,
-                ofType: {
-                  kind: 'SCALAR',
-                  name: 'Int',
-                  ofType: null,
-                },
-              },
-              isDeprecated: false,
-              deprecationReason: null,
-            },
-          ],
-          inputFields: null,
-          interfaces: [],
-          enumValues: null,
-          possibleTypes: null,
-        },
-        {
-          kind: 'INPUT_OBJECT',
-          name: 'UserWhereUniqueInput',
-          description: null,
-          fields: null,
-          inputFields: [
-            {
-              name: 'id',
-              description: null,
-              type: {
-                kind: 'SCALAR',
-                name: 'ID',
-                ofType: null,
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'email',
-              description: null,
-              type: {
-                kind: 'SCALAR',
-                name: 'String',
-                ofType: null,
-              },
-              defaultValue: null,
-            },
-          ],
-          interfaces: null,
-          enumValues: null,
-          possibleTypes: null,
-        },
-        {
-          kind: 'ENUM',
-          name: 'UserOrderByInput',
-          description: null,
-          fields: null,
-          inputFields: null,
-          interfaces: null,
-          enumValues: [
-            {
-              name: 'id_ASC',
-              description: null,
-              isDeprecated: false,
-              deprecationReason: null,
-            },
-            {
-              name: 'id_DESC',
-              description: null,
-              isDeprecated: false,
-              deprecationReason: null,
-            },
-            {
-              name: 'email_ASC',
-              description: null,
-              isDeprecated: false,
-              deprecationReason: null,
-            },
-            {
-              name: 'email_DESC',
-              description: null,
-              isDeprecated: false,
-              deprecationReason: null,
-            },
-            {
-              name: 'password_ASC',
-              description: null,
-              isDeprecated: false,
-              deprecationReason: null,
-            },
-            {
-              name: 'password_DESC',
-              description: null,
-              isDeprecated: false,
-              deprecationReason: null,
-            },
-            {
-              name: 'name_ASC',
-              description: null,
-              isDeprecated: false,
-              deprecationReason: null,
-            },
-            {
-              name: 'name_DESC',
-              description: null,
-              isDeprecated: false,
-              deprecationReason: null,
-            },
-            {
-              name: 'createdAt_ASC',
-              description: null,
-              isDeprecated: false,
-              deprecationReason: null,
-            },
-            {
-              name: 'createdAt_DESC',
-              description: null,
-              isDeprecated: false,
-              deprecationReason: null,
-            },
-            {
-              name: 'updatedAt_ASC',
-              description: null,
-              isDeprecated: false,
-              deprecationReason: null,
-            },
-            {
-              name: 'updatedAt_DESC',
-              description: null,
-              isDeprecated: false,
-              deprecationReason: null,
-            },
-          ],
-          possibleTypes: null,
-        },
-        {
-          kind: 'OBJECT',
-          name: 'UserConnection',
-          description: null,
-          fields: [
-            {
-              name: 'pageInfo',
-              description: null,
-              args: [],
-              type: {
-                kind: 'NON_NULL',
-                name: null,
-                ofType: {
-                  kind: 'OBJECT',
-                  name: 'PageInfo',
-                  ofType: null,
-                },
-              },
-              isDeprecated: false,
-              deprecationReason: null,
-            },
-            {
-              name: 'edges',
-              description: null,
-              args: [],
-              type: {
-                kind: 'NON_NULL',
-                name: null,
-                ofType: {
-                  kind: 'LIST',
-                  name: null,
-                  ofType: {
-                    kind: 'OBJECT',
-                    name: 'UserEdge',
-                    ofType: null,
-                  },
-                },
-              },
-              isDeprecated: false,
-              deprecationReason: null,
-            },
-            {
-              name: 'aggregate',
-              description: null,
-              args: [],
-              type: {
-                kind: 'NON_NULL',
-                name: null,
-                ofType: {
-                  kind: 'OBJECT',
-                  name: 'AggregateUser',
-                  ofType: null,
-                },
-              },
-              isDeprecated: false,
-              deprecationReason: null,
-            },
-          ],
-          inputFields: null,
-          interfaces: [],
-          enumValues: null,
-          possibleTypes: null,
-        },
-        {
-          kind: 'OBJECT',
-          name: 'UserEdge',
-          description: null,
-          fields: [
-            {
-              name: 'node',
-              description: null,
-              args: [],
-              type: {
-                kind: 'NON_NULL',
-                name: null,
-                ofType: {
-                  kind: 'OBJECT',
-                  name: 'User',
-                  ofType: null,
-                },
-              },
-              isDeprecated: false,
-              deprecationReason: null,
-            },
-            {
-              name: 'cursor',
-              description: null,
-              args: [],
-              type: {
-                kind: 'NON_NULL',
-                name: null,
-                ofType: {
-                  kind: 'SCALAR',
-                  name: 'String',
-                  ofType: null,
-                },
-              },
-              isDeprecated: false,
-              deprecationReason: null,
-            },
-          ],
-          inputFields: null,
-          interfaces: [],
-          enumValues: null,
-          possibleTypes: null,
-        },
-        {
-          kind: 'OBJECT',
-          name: 'AggregateUser',
+          name: 'AggregateAlarm',
           description: null,
           fields: [
             {
@@ -2863,7 +1171,7 @@ export default {
           description: null,
           fields: [
             {
-              name: 'createPost',
+              name: 'createAlarm',
               description: null,
               args: [
                 {
@@ -2874,7 +1182,7 @@ export default {
                     name: null,
                     ofType: {
                       kind: 'INPUT_OBJECT',
-                      name: 'PostCreateInput',
+                      name: 'AlarmCreateInput',
                       ofType: null,
                     },
                   },
@@ -2886,7 +1194,7 @@ export default {
                 name: null,
                 ofType: {
                   kind: 'OBJECT',
-                  name: 'Post',
+                  name: 'Alarm',
                   ofType: null,
                 },
               },
@@ -2894,7 +1202,7 @@ export default {
               deprecationReason: null,
             },
             {
-              name: 'updatePost',
+              name: 'updateAlarm',
               description: null,
               args: [
                 {
@@ -2905,7 +1213,7 @@ export default {
                     name: null,
                     ofType: {
                       kind: 'INPUT_OBJECT',
-                      name: 'PostUpdateInput',
+                      name: 'AlarmUpdateInput',
                       ofType: null,
                     },
                   },
@@ -2919,7 +1227,7 @@ export default {
                     name: null,
                     ofType: {
                       kind: 'INPUT_OBJECT',
-                      name: 'PostWhereUniqueInput',
+                      name: 'AlarmWhereUniqueInput',
                       ofType: null,
                     },
                   },
@@ -2928,14 +1236,14 @@ export default {
               ],
               type: {
                 kind: 'OBJECT',
-                name: 'Post',
+                name: 'Alarm',
                 ofType: null,
               },
               isDeprecated: false,
               deprecationReason: null,
             },
             {
-              name: 'updateManyPosts',
+              name: 'updateManyAlarms',
               description: null,
               args: [
                 {
@@ -2946,7 +1254,7 @@ export default {
                     name: null,
                     ofType: {
                       kind: 'INPUT_OBJECT',
-                      name: 'PostUpdateManyMutationInput',
+                      name: 'AlarmUpdateManyMutationInput',
                       ofType: null,
                     },
                   },
@@ -2957,7 +1265,7 @@ export default {
                   description: null,
                   type: {
                     kind: 'INPUT_OBJECT',
-                    name: 'PostWhereInput',
+                    name: 'AlarmWhereInput',
                     ofType: null,
                   },
                   defaultValue: null,
@@ -2976,7 +1284,7 @@ export default {
               deprecationReason: null,
             },
             {
-              name: 'upsertPost',
+              name: 'upsertAlarm',
               description: null,
               args: [
                 {
@@ -2987,7 +1295,7 @@ export default {
                     name: null,
                     ofType: {
                       kind: 'INPUT_OBJECT',
-                      name: 'PostWhereUniqueInput',
+                      name: 'AlarmWhereUniqueInput',
                       ofType: null,
                     },
                   },
@@ -3001,7 +1309,7 @@ export default {
                     name: null,
                     ofType: {
                       kind: 'INPUT_OBJECT',
-                      name: 'PostCreateInput',
+                      name: 'AlarmCreateInput',
                       ofType: null,
                     },
                   },
@@ -3015,7 +1323,7 @@ export default {
                     name: null,
                     ofType: {
                       kind: 'INPUT_OBJECT',
-                      name: 'PostUpdateInput',
+                      name: 'AlarmUpdateInput',
                       ofType: null,
                     },
                   },
@@ -3027,7 +1335,7 @@ export default {
                 name: null,
                 ofType: {
                   kind: 'OBJECT',
-                  name: 'Post',
+                  name: 'Alarm',
                   ofType: null,
                 },
               },
@@ -3035,7 +1343,7 @@ export default {
               deprecationReason: null,
             },
             {
-              name: 'deletePost',
+              name: 'deleteAlarm',
               description: null,
               args: [
                 {
@@ -3046,7 +1354,7 @@ export default {
                     name: null,
                     ofType: {
                       kind: 'INPUT_OBJECT',
-                      name: 'PostWhereUniqueInput',
+                      name: 'AlarmWhereUniqueInput',
                       ofType: null,
                     },
                   },
@@ -3055,14 +1363,14 @@ export default {
               ],
               type: {
                 kind: 'OBJECT',
-                name: 'Post',
+                name: 'Alarm',
                 ofType: null,
               },
               isDeprecated: false,
               deprecationReason: null,
             },
             {
-              name: 'deleteManyPosts',
+              name: 'deleteManyAlarms',
               description: null,
               args: [
                 {
@@ -3070,233 +1378,7 @@ export default {
                   description: null,
                   type: {
                     kind: 'INPUT_OBJECT',
-                    name: 'PostWhereInput',
-                    ofType: null,
-                  },
-                  defaultValue: null,
-                },
-              ],
-              type: {
-                kind: 'NON_NULL',
-                name: null,
-                ofType: {
-                  kind: 'OBJECT',
-                  name: 'BatchPayload',
-                  ofType: null,
-                },
-              },
-              isDeprecated: false,
-              deprecationReason: null,
-            },
-            {
-              name: 'createUser',
-              description: null,
-              args: [
-                {
-                  name: 'data',
-                  description: null,
-                  type: {
-                    kind: 'NON_NULL',
-                    name: null,
-                    ofType: {
-                      kind: 'INPUT_OBJECT',
-                      name: 'UserCreateInput',
-                      ofType: null,
-                    },
-                  },
-                  defaultValue: null,
-                },
-              ],
-              type: {
-                kind: 'NON_NULL',
-                name: null,
-                ofType: {
-                  kind: 'OBJECT',
-                  name: 'User',
-                  ofType: null,
-                },
-              },
-              isDeprecated: false,
-              deprecationReason: null,
-            },
-            {
-              name: 'updateUser',
-              description: null,
-              args: [
-                {
-                  name: 'data',
-                  description: null,
-                  type: {
-                    kind: 'NON_NULL',
-                    name: null,
-                    ofType: {
-                      kind: 'INPUT_OBJECT',
-                      name: 'UserUpdateInput',
-                      ofType: null,
-                    },
-                  },
-                  defaultValue: null,
-                },
-                {
-                  name: 'where',
-                  description: null,
-                  type: {
-                    kind: 'NON_NULL',
-                    name: null,
-                    ofType: {
-                      kind: 'INPUT_OBJECT',
-                      name: 'UserWhereUniqueInput',
-                      ofType: null,
-                    },
-                  },
-                  defaultValue: null,
-                },
-              ],
-              type: {
-                kind: 'OBJECT',
-                name: 'User',
-                ofType: null,
-              },
-              isDeprecated: false,
-              deprecationReason: null,
-            },
-            {
-              name: 'updateManyUsers',
-              description: null,
-              args: [
-                {
-                  name: 'data',
-                  description: null,
-                  type: {
-                    kind: 'NON_NULL',
-                    name: null,
-                    ofType: {
-                      kind: 'INPUT_OBJECT',
-                      name: 'UserUpdateManyMutationInput',
-                      ofType: null,
-                    },
-                  },
-                  defaultValue: null,
-                },
-                {
-                  name: 'where',
-                  description: null,
-                  type: {
-                    kind: 'INPUT_OBJECT',
-                    name: 'UserWhereInput',
-                    ofType: null,
-                  },
-                  defaultValue: null,
-                },
-              ],
-              type: {
-                kind: 'NON_NULL',
-                name: null,
-                ofType: {
-                  kind: 'OBJECT',
-                  name: 'BatchPayload',
-                  ofType: null,
-                },
-              },
-              isDeprecated: false,
-              deprecationReason: null,
-            },
-            {
-              name: 'upsertUser',
-              description: null,
-              args: [
-                {
-                  name: 'where',
-                  description: null,
-                  type: {
-                    kind: 'NON_NULL',
-                    name: null,
-                    ofType: {
-                      kind: 'INPUT_OBJECT',
-                      name: 'UserWhereUniqueInput',
-                      ofType: null,
-                    },
-                  },
-                  defaultValue: null,
-                },
-                {
-                  name: 'create',
-                  description: null,
-                  type: {
-                    kind: 'NON_NULL',
-                    name: null,
-                    ofType: {
-                      kind: 'INPUT_OBJECT',
-                      name: 'UserCreateInput',
-                      ofType: null,
-                    },
-                  },
-                  defaultValue: null,
-                },
-                {
-                  name: 'update',
-                  description: null,
-                  type: {
-                    kind: 'NON_NULL',
-                    name: null,
-                    ofType: {
-                      kind: 'INPUT_OBJECT',
-                      name: 'UserUpdateInput',
-                      ofType: null,
-                    },
-                  },
-                  defaultValue: null,
-                },
-              ],
-              type: {
-                kind: 'NON_NULL',
-                name: null,
-                ofType: {
-                  kind: 'OBJECT',
-                  name: 'User',
-                  ofType: null,
-                },
-              },
-              isDeprecated: false,
-              deprecationReason: null,
-            },
-            {
-              name: 'deleteUser',
-              description: null,
-              args: [
-                {
-                  name: 'where',
-                  description: null,
-                  type: {
-                    kind: 'NON_NULL',
-                    name: null,
-                    ofType: {
-                      kind: 'INPUT_OBJECT',
-                      name: 'UserWhereUniqueInput',
-                      ofType: null,
-                    },
-                  },
-                  defaultValue: null,
-                },
-              ],
-              type: {
-                kind: 'OBJECT',
-                name: 'User',
-                ofType: null,
-              },
-              isDeprecated: false,
-              deprecationReason: null,
-            },
-            {
-              name: 'deleteManyUsers',
-              description: null,
-              args: [
-                {
-                  name: 'where',
-                  description: null,
-                  type: {
-                    kind: 'INPUT_OBJECT',
-                    name: 'UserWhereInput',
+                    name: 'AlarmWhereInput',
                     ofType: null,
                   },
                   defaultValue: null,
@@ -3322,130 +1404,26 @@ export default {
         },
         {
           kind: 'INPUT_OBJECT',
-          name: 'PostCreateInput',
+          name: 'AlarmCreateInput',
           description: null,
           fields: null,
           inputFields: [
             {
-              name: 'published',
-              description: null,
-              type: {
-                kind: 'SCALAR',
-                name: 'Boolean',
-                ofType: null,
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'title',
+              name: 'intId',
               description: null,
               type: {
                 kind: 'NON_NULL',
                 name: null,
                 ofType: {
                   kind: 'SCALAR',
-                  name: 'String',
+                  name: 'Int',
                   ofType: null,
                 },
               },
               defaultValue: null,
             },
             {
-              name: 'content',
-              description: null,
-              type: {
-                kind: 'SCALAR',
-                name: 'String',
-                ofType: null,
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'author',
-              description: null,
-              type: {
-                kind: 'NON_NULL',
-                name: null,
-                ofType: {
-                  kind: 'INPUT_OBJECT',
-                  name: 'UserCreateOneWithoutPostsInput',
-                  ofType: null,
-                },
-              },
-              defaultValue: null,
-            },
-          ],
-          interfaces: null,
-          enumValues: null,
-          possibleTypes: null,
-        },
-        {
-          kind: 'INPUT_OBJECT',
-          name: 'UserCreateOneWithoutPostsInput',
-          description: null,
-          fields: null,
-          inputFields: [
-            {
-              name: 'create',
-              description: null,
-              type: {
-                kind: 'INPUT_OBJECT',
-                name: 'UserCreateWithoutPostsInput',
-                ofType: null,
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'connect',
-              description: null,
-              type: {
-                kind: 'INPUT_OBJECT',
-                name: 'UserWhereUniqueInput',
-                ofType: null,
-              },
-              defaultValue: null,
-            },
-          ],
-          interfaces: null,
-          enumValues: null,
-          possibleTypes: null,
-        },
-        {
-          kind: 'INPUT_OBJECT',
-          name: 'UserCreateWithoutPostsInput',
-          description: null,
-          fields: null,
-          inputFields: [
-            {
-              name: 'email',
-              description: null,
-              type: {
-                kind: 'NON_NULL',
-                name: null,
-                ofType: {
-                  kind: 'SCALAR',
-                  name: 'String',
-                  ofType: null,
-                },
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'password',
-              description: null,
-              type: {
-                kind: 'NON_NULL',
-                name: null,
-                ofType: {
-                  kind: 'SCALAR',
-                  name: 'String',
-                  ofType: null,
-                },
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'name',
+              name: 'text',
               description: null,
               type: {
                 kind: 'SCALAR',
@@ -3461,134 +1439,22 @@ export default {
         },
         {
           kind: 'INPUT_OBJECT',
-          name: 'PostUpdateInput',
+          name: 'AlarmUpdateInput',
           description: null,
           fields: null,
           inputFields: [
             {
-              name: 'published',
+              name: 'intId',
               description: null,
               type: {
                 kind: 'SCALAR',
-                name: 'Boolean',
+                name: 'Int',
                 ofType: null,
               },
               defaultValue: null,
             },
             {
-              name: 'title',
-              description: null,
-              type: {
-                kind: 'SCALAR',
-                name: 'String',
-                ofType: null,
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'content',
-              description: null,
-              type: {
-                kind: 'SCALAR',
-                name: 'String',
-                ofType: null,
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'author',
-              description: null,
-              type: {
-                kind: 'INPUT_OBJECT',
-                name: 'UserUpdateOneRequiredWithoutPostsInput',
-                ofType: null,
-              },
-              defaultValue: null,
-            },
-          ],
-          interfaces: null,
-          enumValues: null,
-          possibleTypes: null,
-        },
-        {
-          kind: 'INPUT_OBJECT',
-          name: 'UserUpdateOneRequiredWithoutPostsInput',
-          description: null,
-          fields: null,
-          inputFields: [
-            {
-              name: 'create',
-              description: null,
-              type: {
-                kind: 'INPUT_OBJECT',
-                name: 'UserCreateWithoutPostsInput',
-                ofType: null,
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'update',
-              description: null,
-              type: {
-                kind: 'INPUT_OBJECT',
-                name: 'UserUpdateWithoutPostsDataInput',
-                ofType: null,
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'upsert',
-              description: null,
-              type: {
-                kind: 'INPUT_OBJECT',
-                name: 'UserUpsertWithoutPostsInput',
-                ofType: null,
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'connect',
-              description: null,
-              type: {
-                kind: 'INPUT_OBJECT',
-                name: 'UserWhereUniqueInput',
-                ofType: null,
-              },
-              defaultValue: null,
-            },
-          ],
-          interfaces: null,
-          enumValues: null,
-          possibleTypes: null,
-        },
-        {
-          kind: 'INPUT_OBJECT',
-          name: 'UserUpdateWithoutPostsDataInput',
-          description: null,
-          fields: null,
-          inputFields: [
-            {
-              name: 'email',
-              description: null,
-              type: {
-                kind: 'SCALAR',
-                name: 'String',
-                ofType: null,
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'password',
-              description: null,
-              type: {
-                kind: 'SCALAR',
-                name: 'String',
-                ofType: null,
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'name',
+              name: 'text',
               description: null,
               type: {
                 kind: 'SCALAR',
@@ -3604,71 +1470,22 @@ export default {
         },
         {
           kind: 'INPUT_OBJECT',
-          name: 'UserUpsertWithoutPostsInput',
+          name: 'AlarmUpdateManyMutationInput',
           description: null,
           fields: null,
           inputFields: [
             {
-              name: 'update',
-              description: null,
-              type: {
-                kind: 'NON_NULL',
-                name: null,
-                ofType: {
-                  kind: 'INPUT_OBJECT',
-                  name: 'UserUpdateWithoutPostsDataInput',
-                  ofType: null,
-                },
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'create',
-              description: null,
-              type: {
-                kind: 'NON_NULL',
-                name: null,
-                ofType: {
-                  kind: 'INPUT_OBJECT',
-                  name: 'UserCreateWithoutPostsInput',
-                  ofType: null,
-                },
-              },
-              defaultValue: null,
-            },
-          ],
-          interfaces: null,
-          enumValues: null,
-          possibleTypes: null,
-        },
-        {
-          kind: 'INPUT_OBJECT',
-          name: 'PostUpdateManyMutationInput',
-          description: null,
-          fields: null,
-          inputFields: [
-            {
-              name: 'published',
+              name: 'intId',
               description: null,
               type: {
                 kind: 'SCALAR',
-                name: 'Boolean',
+                name: 'Int',
                 ofType: null,
               },
               defaultValue: null,
             },
             {
-              name: 'title',
-              description: null,
-              type: {
-                kind: 'SCALAR',
-                name: 'String',
-                ofType: null,
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'content',
+              name: 'text',
               description: null,
               type: {
                 kind: 'SCALAR',
@@ -3720,1386 +1537,12 @@ export default {
           possibleTypes: null,
         },
         {
-          kind: 'INPUT_OBJECT',
-          name: 'UserCreateInput',
-          description: null,
-          fields: null,
-          inputFields: [
-            {
-              name: 'email',
-              description: null,
-              type: {
-                kind: 'NON_NULL',
-                name: null,
-                ofType: {
-                  kind: 'SCALAR',
-                  name: 'String',
-                  ofType: null,
-                },
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'password',
-              description: null,
-              type: {
-                kind: 'NON_NULL',
-                name: null,
-                ofType: {
-                  kind: 'SCALAR',
-                  name: 'String',
-                  ofType: null,
-                },
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'name',
-              description: null,
-              type: {
-                kind: 'SCALAR',
-                name: 'String',
-                ofType: null,
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'posts',
-              description: null,
-              type: {
-                kind: 'INPUT_OBJECT',
-                name: 'PostCreateManyWithoutAuthorInput',
-                ofType: null,
-              },
-              defaultValue: null,
-            },
-          ],
-          interfaces: null,
-          enumValues: null,
-          possibleTypes: null,
-        },
-        {
-          kind: 'INPUT_OBJECT',
-          name: 'PostCreateManyWithoutAuthorInput',
-          description: null,
-          fields: null,
-          inputFields: [
-            {
-              name: 'create',
-              description: null,
-              type: {
-                kind: 'LIST',
-                name: null,
-                ofType: {
-                  kind: 'NON_NULL',
-                  name: null,
-                  ofType: {
-                    kind: 'INPUT_OBJECT',
-                    name: 'PostCreateWithoutAuthorInput',
-                    ofType: null,
-                  },
-                },
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'connect',
-              description: null,
-              type: {
-                kind: 'LIST',
-                name: null,
-                ofType: {
-                  kind: 'NON_NULL',
-                  name: null,
-                  ofType: {
-                    kind: 'INPUT_OBJECT',
-                    name: 'PostWhereUniqueInput',
-                    ofType: null,
-                  },
-                },
-              },
-              defaultValue: null,
-            },
-          ],
-          interfaces: null,
-          enumValues: null,
-          possibleTypes: null,
-        },
-        {
-          kind: 'INPUT_OBJECT',
-          name: 'PostCreateWithoutAuthorInput',
-          description: null,
-          fields: null,
-          inputFields: [
-            {
-              name: 'published',
-              description: null,
-              type: {
-                kind: 'SCALAR',
-                name: 'Boolean',
-                ofType: null,
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'title',
-              description: null,
-              type: {
-                kind: 'NON_NULL',
-                name: null,
-                ofType: {
-                  kind: 'SCALAR',
-                  name: 'String',
-                  ofType: null,
-                },
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'content',
-              description: null,
-              type: {
-                kind: 'SCALAR',
-                name: 'String',
-                ofType: null,
-              },
-              defaultValue: null,
-            },
-          ],
-          interfaces: null,
-          enumValues: null,
-          possibleTypes: null,
-        },
-        {
-          kind: 'INPUT_OBJECT',
-          name: 'UserUpdateInput',
-          description: null,
-          fields: null,
-          inputFields: [
-            {
-              name: 'email',
-              description: null,
-              type: {
-                kind: 'SCALAR',
-                name: 'String',
-                ofType: null,
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'password',
-              description: null,
-              type: {
-                kind: 'SCALAR',
-                name: 'String',
-                ofType: null,
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'name',
-              description: null,
-              type: {
-                kind: 'SCALAR',
-                name: 'String',
-                ofType: null,
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'posts',
-              description: null,
-              type: {
-                kind: 'INPUT_OBJECT',
-                name: 'PostUpdateManyWithoutAuthorInput',
-                ofType: null,
-              },
-              defaultValue: null,
-            },
-          ],
-          interfaces: null,
-          enumValues: null,
-          possibleTypes: null,
-        },
-        {
-          kind: 'INPUT_OBJECT',
-          name: 'PostUpdateManyWithoutAuthorInput',
-          description: null,
-          fields: null,
-          inputFields: [
-            {
-              name: 'create',
-              description: null,
-              type: {
-                kind: 'LIST',
-                name: null,
-                ofType: {
-                  kind: 'NON_NULL',
-                  name: null,
-                  ofType: {
-                    kind: 'INPUT_OBJECT',
-                    name: 'PostCreateWithoutAuthorInput',
-                    ofType: null,
-                  },
-                },
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'delete',
-              description: null,
-              type: {
-                kind: 'LIST',
-                name: null,
-                ofType: {
-                  kind: 'NON_NULL',
-                  name: null,
-                  ofType: {
-                    kind: 'INPUT_OBJECT',
-                    name: 'PostWhereUniqueInput',
-                    ofType: null,
-                  },
-                },
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'connect',
-              description: null,
-              type: {
-                kind: 'LIST',
-                name: null,
-                ofType: {
-                  kind: 'NON_NULL',
-                  name: null,
-                  ofType: {
-                    kind: 'INPUT_OBJECT',
-                    name: 'PostWhereUniqueInput',
-                    ofType: null,
-                  },
-                },
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'set',
-              description: null,
-              type: {
-                kind: 'LIST',
-                name: null,
-                ofType: {
-                  kind: 'NON_NULL',
-                  name: null,
-                  ofType: {
-                    kind: 'INPUT_OBJECT',
-                    name: 'PostWhereUniqueInput',
-                    ofType: null,
-                  },
-                },
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'disconnect',
-              description: null,
-              type: {
-                kind: 'LIST',
-                name: null,
-                ofType: {
-                  kind: 'NON_NULL',
-                  name: null,
-                  ofType: {
-                    kind: 'INPUT_OBJECT',
-                    name: 'PostWhereUniqueInput',
-                    ofType: null,
-                  },
-                },
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'update',
-              description: null,
-              type: {
-                kind: 'LIST',
-                name: null,
-                ofType: {
-                  kind: 'NON_NULL',
-                  name: null,
-                  ofType: {
-                    kind: 'INPUT_OBJECT',
-                    name: 'PostUpdateWithWhereUniqueWithoutAuthorInput',
-                    ofType: null,
-                  },
-                },
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'upsert',
-              description: null,
-              type: {
-                kind: 'LIST',
-                name: null,
-                ofType: {
-                  kind: 'NON_NULL',
-                  name: null,
-                  ofType: {
-                    kind: 'INPUT_OBJECT',
-                    name: 'PostUpsertWithWhereUniqueWithoutAuthorInput',
-                    ofType: null,
-                  },
-                },
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'deleteMany',
-              description: null,
-              type: {
-                kind: 'LIST',
-                name: null,
-                ofType: {
-                  kind: 'NON_NULL',
-                  name: null,
-                  ofType: {
-                    kind: 'INPUT_OBJECT',
-                    name: 'PostScalarWhereInput',
-                    ofType: null,
-                  },
-                },
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'updateMany',
-              description: null,
-              type: {
-                kind: 'LIST',
-                name: null,
-                ofType: {
-                  kind: 'NON_NULL',
-                  name: null,
-                  ofType: {
-                    kind: 'INPUT_OBJECT',
-                    name: 'PostUpdateManyWithWhereNestedInput',
-                    ofType: null,
-                  },
-                },
-              },
-              defaultValue: null,
-            },
-          ],
-          interfaces: null,
-          enumValues: null,
-          possibleTypes: null,
-        },
-        {
-          kind: 'INPUT_OBJECT',
-          name: 'PostUpdateWithWhereUniqueWithoutAuthorInput',
-          description: null,
-          fields: null,
-          inputFields: [
-            {
-              name: 'where',
-              description: null,
-              type: {
-                kind: 'NON_NULL',
-                name: null,
-                ofType: {
-                  kind: 'INPUT_OBJECT',
-                  name: 'PostWhereUniqueInput',
-                  ofType: null,
-                },
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'data',
-              description: null,
-              type: {
-                kind: 'NON_NULL',
-                name: null,
-                ofType: {
-                  kind: 'INPUT_OBJECT',
-                  name: 'PostUpdateWithoutAuthorDataInput',
-                  ofType: null,
-                },
-              },
-              defaultValue: null,
-            },
-          ],
-          interfaces: null,
-          enumValues: null,
-          possibleTypes: null,
-        },
-        {
-          kind: 'INPUT_OBJECT',
-          name: 'PostUpdateWithoutAuthorDataInput',
-          description: null,
-          fields: null,
-          inputFields: [
-            {
-              name: 'published',
-              description: null,
-              type: {
-                kind: 'SCALAR',
-                name: 'Boolean',
-                ofType: null,
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'title',
-              description: null,
-              type: {
-                kind: 'SCALAR',
-                name: 'String',
-                ofType: null,
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'content',
-              description: null,
-              type: {
-                kind: 'SCALAR',
-                name: 'String',
-                ofType: null,
-              },
-              defaultValue: null,
-            },
-          ],
-          interfaces: null,
-          enumValues: null,
-          possibleTypes: null,
-        },
-        {
-          kind: 'INPUT_OBJECT',
-          name: 'PostUpsertWithWhereUniqueWithoutAuthorInput',
-          description: null,
-          fields: null,
-          inputFields: [
-            {
-              name: 'where',
-              description: null,
-              type: {
-                kind: 'NON_NULL',
-                name: null,
-                ofType: {
-                  kind: 'INPUT_OBJECT',
-                  name: 'PostWhereUniqueInput',
-                  ofType: null,
-                },
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'update',
-              description: null,
-              type: {
-                kind: 'NON_NULL',
-                name: null,
-                ofType: {
-                  kind: 'INPUT_OBJECT',
-                  name: 'PostUpdateWithoutAuthorDataInput',
-                  ofType: null,
-                },
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'create',
-              description: null,
-              type: {
-                kind: 'NON_NULL',
-                name: null,
-                ofType: {
-                  kind: 'INPUT_OBJECT',
-                  name: 'PostCreateWithoutAuthorInput',
-                  ofType: null,
-                },
-              },
-              defaultValue: null,
-            },
-          ],
-          interfaces: null,
-          enumValues: null,
-          possibleTypes: null,
-        },
-        {
-          kind: 'INPUT_OBJECT',
-          name: 'PostScalarWhereInput',
-          description: null,
-          fields: null,
-          inputFields: [
-            {
-              name: 'id',
-              description: null,
-              type: {
-                kind: 'SCALAR',
-                name: 'ID',
-                ofType: null,
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'id_not',
-              description: null,
-              type: {
-                kind: 'SCALAR',
-                name: 'ID',
-                ofType: null,
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'id_in',
-              description: null,
-              type: {
-                kind: 'LIST',
-                name: null,
-                ofType: {
-                  kind: 'NON_NULL',
-                  name: null,
-                  ofType: {
-                    kind: 'SCALAR',
-                    name: 'ID',
-                    ofType: null,
-                  },
-                },
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'id_not_in',
-              description: null,
-              type: {
-                kind: 'LIST',
-                name: null,
-                ofType: {
-                  kind: 'NON_NULL',
-                  name: null,
-                  ofType: {
-                    kind: 'SCALAR',
-                    name: 'ID',
-                    ofType: null,
-                  },
-                },
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'id_lt',
-              description: null,
-              type: {
-                kind: 'SCALAR',
-                name: 'ID',
-                ofType: null,
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'id_lte',
-              description: null,
-              type: {
-                kind: 'SCALAR',
-                name: 'ID',
-                ofType: null,
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'id_gt',
-              description: null,
-              type: {
-                kind: 'SCALAR',
-                name: 'ID',
-                ofType: null,
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'id_gte',
-              description: null,
-              type: {
-                kind: 'SCALAR',
-                name: 'ID',
-                ofType: null,
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'id_contains',
-              description: null,
-              type: {
-                kind: 'SCALAR',
-                name: 'ID',
-                ofType: null,
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'id_not_contains',
-              description: null,
-              type: {
-                kind: 'SCALAR',
-                name: 'ID',
-                ofType: null,
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'id_starts_with',
-              description: null,
-              type: {
-                kind: 'SCALAR',
-                name: 'ID',
-                ofType: null,
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'id_not_starts_with',
-              description: null,
-              type: {
-                kind: 'SCALAR',
-                name: 'ID',
-                ofType: null,
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'id_ends_with',
-              description: null,
-              type: {
-                kind: 'SCALAR',
-                name: 'ID',
-                ofType: null,
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'id_not_ends_with',
-              description: null,
-              type: {
-                kind: 'SCALAR',
-                name: 'ID',
-                ofType: null,
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'createdAt',
-              description: null,
-              type: {
-                kind: 'SCALAR',
-                name: 'DateTime',
-                ofType: null,
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'createdAt_not',
-              description: null,
-              type: {
-                kind: 'SCALAR',
-                name: 'DateTime',
-                ofType: null,
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'createdAt_in',
-              description: null,
-              type: {
-                kind: 'LIST',
-                name: null,
-                ofType: {
-                  kind: 'NON_NULL',
-                  name: null,
-                  ofType: {
-                    kind: 'SCALAR',
-                    name: 'DateTime',
-                    ofType: null,
-                  },
-                },
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'createdAt_not_in',
-              description: null,
-              type: {
-                kind: 'LIST',
-                name: null,
-                ofType: {
-                  kind: 'NON_NULL',
-                  name: null,
-                  ofType: {
-                    kind: 'SCALAR',
-                    name: 'DateTime',
-                    ofType: null,
-                  },
-                },
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'createdAt_lt',
-              description: null,
-              type: {
-                kind: 'SCALAR',
-                name: 'DateTime',
-                ofType: null,
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'createdAt_lte',
-              description: null,
-              type: {
-                kind: 'SCALAR',
-                name: 'DateTime',
-                ofType: null,
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'createdAt_gt',
-              description: null,
-              type: {
-                kind: 'SCALAR',
-                name: 'DateTime',
-                ofType: null,
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'createdAt_gte',
-              description: null,
-              type: {
-                kind: 'SCALAR',
-                name: 'DateTime',
-                ofType: null,
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'updatedAt',
-              description: null,
-              type: {
-                kind: 'SCALAR',
-                name: 'DateTime',
-                ofType: null,
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'updatedAt_not',
-              description: null,
-              type: {
-                kind: 'SCALAR',
-                name: 'DateTime',
-                ofType: null,
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'updatedAt_in',
-              description: null,
-              type: {
-                kind: 'LIST',
-                name: null,
-                ofType: {
-                  kind: 'NON_NULL',
-                  name: null,
-                  ofType: {
-                    kind: 'SCALAR',
-                    name: 'DateTime',
-                    ofType: null,
-                  },
-                },
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'updatedAt_not_in',
-              description: null,
-              type: {
-                kind: 'LIST',
-                name: null,
-                ofType: {
-                  kind: 'NON_NULL',
-                  name: null,
-                  ofType: {
-                    kind: 'SCALAR',
-                    name: 'DateTime',
-                    ofType: null,
-                  },
-                },
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'updatedAt_lt',
-              description: null,
-              type: {
-                kind: 'SCALAR',
-                name: 'DateTime',
-                ofType: null,
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'updatedAt_lte',
-              description: null,
-              type: {
-                kind: 'SCALAR',
-                name: 'DateTime',
-                ofType: null,
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'updatedAt_gt',
-              description: null,
-              type: {
-                kind: 'SCALAR',
-                name: 'DateTime',
-                ofType: null,
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'updatedAt_gte',
-              description: null,
-              type: {
-                kind: 'SCALAR',
-                name: 'DateTime',
-                ofType: null,
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'published',
-              description: null,
-              type: {
-                kind: 'SCALAR',
-                name: 'Boolean',
-                ofType: null,
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'published_not',
-              description: null,
-              type: {
-                kind: 'SCALAR',
-                name: 'Boolean',
-                ofType: null,
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'title',
-              description: null,
-              type: {
-                kind: 'SCALAR',
-                name: 'String',
-                ofType: null,
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'title_not',
-              description: null,
-              type: {
-                kind: 'SCALAR',
-                name: 'String',
-                ofType: null,
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'title_in',
-              description: null,
-              type: {
-                kind: 'LIST',
-                name: null,
-                ofType: {
-                  kind: 'NON_NULL',
-                  name: null,
-                  ofType: {
-                    kind: 'SCALAR',
-                    name: 'String',
-                    ofType: null,
-                  },
-                },
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'title_not_in',
-              description: null,
-              type: {
-                kind: 'LIST',
-                name: null,
-                ofType: {
-                  kind: 'NON_NULL',
-                  name: null,
-                  ofType: {
-                    kind: 'SCALAR',
-                    name: 'String',
-                    ofType: null,
-                  },
-                },
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'title_lt',
-              description: null,
-              type: {
-                kind: 'SCALAR',
-                name: 'String',
-                ofType: null,
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'title_lte',
-              description: null,
-              type: {
-                kind: 'SCALAR',
-                name: 'String',
-                ofType: null,
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'title_gt',
-              description: null,
-              type: {
-                kind: 'SCALAR',
-                name: 'String',
-                ofType: null,
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'title_gte',
-              description: null,
-              type: {
-                kind: 'SCALAR',
-                name: 'String',
-                ofType: null,
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'title_contains',
-              description: null,
-              type: {
-                kind: 'SCALAR',
-                name: 'String',
-                ofType: null,
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'title_not_contains',
-              description: null,
-              type: {
-                kind: 'SCALAR',
-                name: 'String',
-                ofType: null,
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'title_starts_with',
-              description: null,
-              type: {
-                kind: 'SCALAR',
-                name: 'String',
-                ofType: null,
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'title_not_starts_with',
-              description: null,
-              type: {
-                kind: 'SCALAR',
-                name: 'String',
-                ofType: null,
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'title_ends_with',
-              description: null,
-              type: {
-                kind: 'SCALAR',
-                name: 'String',
-                ofType: null,
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'title_not_ends_with',
-              description: null,
-              type: {
-                kind: 'SCALAR',
-                name: 'String',
-                ofType: null,
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'content',
-              description: null,
-              type: {
-                kind: 'SCALAR',
-                name: 'String',
-                ofType: null,
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'content_not',
-              description: null,
-              type: {
-                kind: 'SCALAR',
-                name: 'String',
-                ofType: null,
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'content_in',
-              description: null,
-              type: {
-                kind: 'LIST',
-                name: null,
-                ofType: {
-                  kind: 'NON_NULL',
-                  name: null,
-                  ofType: {
-                    kind: 'SCALAR',
-                    name: 'String',
-                    ofType: null,
-                  },
-                },
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'content_not_in',
-              description: null,
-              type: {
-                kind: 'LIST',
-                name: null,
-                ofType: {
-                  kind: 'NON_NULL',
-                  name: null,
-                  ofType: {
-                    kind: 'SCALAR',
-                    name: 'String',
-                    ofType: null,
-                  },
-                },
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'content_lt',
-              description: null,
-              type: {
-                kind: 'SCALAR',
-                name: 'String',
-                ofType: null,
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'content_lte',
-              description: null,
-              type: {
-                kind: 'SCALAR',
-                name: 'String',
-                ofType: null,
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'content_gt',
-              description: null,
-              type: {
-                kind: 'SCALAR',
-                name: 'String',
-                ofType: null,
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'content_gte',
-              description: null,
-              type: {
-                kind: 'SCALAR',
-                name: 'String',
-                ofType: null,
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'content_contains',
-              description: null,
-              type: {
-                kind: 'SCALAR',
-                name: 'String',
-                ofType: null,
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'content_not_contains',
-              description: null,
-              type: {
-                kind: 'SCALAR',
-                name: 'String',
-                ofType: null,
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'content_starts_with',
-              description: null,
-              type: {
-                kind: 'SCALAR',
-                name: 'String',
-                ofType: null,
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'content_not_starts_with',
-              description: null,
-              type: {
-                kind: 'SCALAR',
-                name: 'String',
-                ofType: null,
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'content_ends_with',
-              description: null,
-              type: {
-                kind: 'SCALAR',
-                name: 'String',
-                ofType: null,
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'content_not_ends_with',
-              description: null,
-              type: {
-                kind: 'SCALAR',
-                name: 'String',
-                ofType: null,
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'AND',
-              description: null,
-              type: {
-                kind: 'LIST',
-                name: null,
-                ofType: {
-                  kind: 'NON_NULL',
-                  name: null,
-                  ofType: {
-                    kind: 'INPUT_OBJECT',
-                    name: 'PostScalarWhereInput',
-                    ofType: null,
-                  },
-                },
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'OR',
-              description: null,
-              type: {
-                kind: 'LIST',
-                name: null,
-                ofType: {
-                  kind: 'NON_NULL',
-                  name: null,
-                  ofType: {
-                    kind: 'INPUT_OBJECT',
-                    name: 'PostScalarWhereInput',
-                    ofType: null,
-                  },
-                },
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'NOT',
-              description: null,
-              type: {
-                kind: 'LIST',
-                name: null,
-                ofType: {
-                  kind: 'NON_NULL',
-                  name: null,
-                  ofType: {
-                    kind: 'INPUT_OBJECT',
-                    name: 'PostScalarWhereInput',
-                    ofType: null,
-                  },
-                },
-              },
-              defaultValue: null,
-            },
-          ],
-          interfaces: null,
-          enumValues: null,
-          possibleTypes: null,
-        },
-        {
-          kind: 'INPUT_OBJECT',
-          name: 'PostUpdateManyWithWhereNestedInput',
-          description: null,
-          fields: null,
-          inputFields: [
-            {
-              name: 'where',
-              description: null,
-              type: {
-                kind: 'NON_NULL',
-                name: null,
-                ofType: {
-                  kind: 'INPUT_OBJECT',
-                  name: 'PostScalarWhereInput',
-                  ofType: null,
-                },
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'data',
-              description: null,
-              type: {
-                kind: 'NON_NULL',
-                name: null,
-                ofType: {
-                  kind: 'INPUT_OBJECT',
-                  name: 'PostUpdateManyDataInput',
-                  ofType: null,
-                },
-              },
-              defaultValue: null,
-            },
-          ],
-          interfaces: null,
-          enumValues: null,
-          possibleTypes: null,
-        },
-        {
-          kind: 'INPUT_OBJECT',
-          name: 'PostUpdateManyDataInput',
-          description: null,
-          fields: null,
-          inputFields: [
-            {
-              name: 'published',
-              description: null,
-              type: {
-                kind: 'SCALAR',
-                name: 'Boolean',
-                ofType: null,
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'title',
-              description: null,
-              type: {
-                kind: 'SCALAR',
-                name: 'String',
-                ofType: null,
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'content',
-              description: null,
-              type: {
-                kind: 'SCALAR',
-                name: 'String',
-                ofType: null,
-              },
-              defaultValue: null,
-            },
-          ],
-          interfaces: null,
-          enumValues: null,
-          possibleTypes: null,
-        },
-        {
-          kind: 'INPUT_OBJECT',
-          name: 'UserUpdateManyMutationInput',
-          description: null,
-          fields: null,
-          inputFields: [
-            {
-              name: 'email',
-              description: null,
-              type: {
-                kind: 'SCALAR',
-                name: 'String',
-                ofType: null,
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'password',
-              description: null,
-              type: {
-                kind: 'SCALAR',
-                name: 'String',
-                ofType: null,
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'name',
-              description: null,
-              type: {
-                kind: 'SCALAR',
-                name: 'String',
-                ofType: null,
-              },
-              defaultValue: null,
-            },
-          ],
-          interfaces: null,
-          enumValues: null,
-          possibleTypes: null,
-        },
-        {
           kind: 'OBJECT',
           name: 'Subscription',
           description: null,
           fields: [
             {
-              name: 'post',
+              name: 'alarm',
               description: null,
               args: [
                 {
@@ -5107,7 +1550,7 @@ export default {
                   description: null,
                   type: {
                     kind: 'INPUT_OBJECT',
-                    name: 'PostSubscriptionWhereInput',
+                    name: 'AlarmSubscriptionWhereInput',
                     ofType: null,
                   },
                   defaultValue: null,
@@ -5115,30 +1558,7 @@ export default {
               ],
               type: {
                 kind: 'OBJECT',
-                name: 'PostSubscriptionPayload',
-                ofType: null,
-              },
-              isDeprecated: false,
-              deprecationReason: null,
-            },
-            {
-              name: 'user',
-              description: null,
-              args: [
-                {
-                  name: 'where',
-                  description: null,
-                  type: {
-                    kind: 'INPUT_OBJECT',
-                    name: 'UserSubscriptionWhereInput',
-                    ofType: null,
-                  },
-                  defaultValue: null,
-                },
-              ],
-              type: {
-                kind: 'OBJECT',
-                name: 'UserSubscriptionPayload',
+                name: 'AlarmSubscriptionPayload',
                 ofType: null,
               },
               isDeprecated: false,
@@ -5152,7 +1572,7 @@ export default {
         },
         {
           kind: 'INPUT_OBJECT',
-          name: 'PostSubscriptionWhereInput',
+          name: 'AlarmSubscriptionWhereInput',
           description: null,
           fields: null,
           inputFields: [
@@ -5225,7 +1645,7 @@ export default {
               description: null,
               type: {
                 kind: 'INPUT_OBJECT',
-                name: 'PostWhereInput',
+                name: 'AlarmWhereInput',
                 ofType: null,
               },
               defaultValue: null,
@@ -5241,7 +1661,7 @@ export default {
                   name: null,
                   ofType: {
                     kind: 'INPUT_OBJECT',
-                    name: 'PostSubscriptionWhereInput',
+                    name: 'AlarmSubscriptionWhereInput',
                     ofType: null,
                   },
                 },
@@ -5259,7 +1679,7 @@ export default {
                   name: null,
                   ofType: {
                     kind: 'INPUT_OBJECT',
-                    name: 'PostSubscriptionWhereInput',
+                    name: 'AlarmSubscriptionWhereInput',
                     ofType: null,
                   },
                 },
@@ -5277,7 +1697,7 @@ export default {
                   name: null,
                   ofType: {
                     kind: 'INPUT_OBJECT',
-                    name: 'PostSubscriptionWhereInput',
+                    name: 'AlarmSubscriptionWhereInput',
                     ofType: null,
                   },
                 },
@@ -5320,7 +1740,7 @@ export default {
         },
         {
           kind: 'OBJECT',
-          name: 'PostSubscriptionPayload',
+          name: 'AlarmSubscriptionPayload',
           description: null,
           fields: [
             {
@@ -5345,7 +1765,7 @@ export default {
               args: [],
               type: {
                 kind: 'OBJECT',
-                name: 'Post',
+                name: 'Alarm',
                 ofType: null,
               },
               isDeprecated: false,
@@ -5377,7 +1797,7 @@ export default {
               args: [],
               type: {
                 kind: 'OBJECT',
-                name: 'PostPreviousValues',
+                name: 'AlarmPreviousValues',
                 ofType: null,
               },
               isDeprecated: false,
@@ -5391,7 +1811,7 @@ export default {
         },
         {
           kind: 'OBJECT',
-          name: 'PostPreviousValues',
+          name: 'AlarmPreviousValues',
           description: null,
           fields: [
             {
@@ -5411,7 +1831,7 @@ export default {
               deprecationReason: null,
             },
             {
-              name: 'createdAt',
+              name: 'intId',
               description: null,
               args: [],
               type: {
@@ -5419,7 +1839,7 @@ export default {
                 name: null,
                 ofType: {
                   kind: 'SCALAR',
-                  name: 'DateTime',
+                  name: 'Int',
                   ofType: null,
                 },
               },
@@ -5427,336 +1847,7 @@ export default {
               deprecationReason: null,
             },
             {
-              name: 'updatedAt',
-              description: null,
-              args: [],
-              type: {
-                kind: 'NON_NULL',
-                name: null,
-                ofType: {
-                  kind: 'SCALAR',
-                  name: 'DateTime',
-                  ofType: null,
-                },
-              },
-              isDeprecated: false,
-              deprecationReason: null,
-            },
-            {
-              name: 'published',
-              description: null,
-              args: [],
-              type: {
-                kind: 'NON_NULL',
-                name: null,
-                ofType: {
-                  kind: 'SCALAR',
-                  name: 'Boolean',
-                  ofType: null,
-                },
-              },
-              isDeprecated: false,
-              deprecationReason: null,
-            },
-            {
-              name: 'title',
-              description: null,
-              args: [],
-              type: {
-                kind: 'NON_NULL',
-                name: null,
-                ofType: {
-                  kind: 'SCALAR',
-                  name: 'String',
-                  ofType: null,
-                },
-              },
-              isDeprecated: false,
-              deprecationReason: null,
-            },
-            {
-              name: 'content',
-              description: null,
-              args: [],
-              type: {
-                kind: 'SCALAR',
-                name: 'String',
-                ofType: null,
-              },
-              isDeprecated: false,
-              deprecationReason: null,
-            },
-          ],
-          inputFields: null,
-          interfaces: [],
-          enumValues: null,
-          possibleTypes: null,
-        },
-        {
-          kind: 'INPUT_OBJECT',
-          name: 'UserSubscriptionWhereInput',
-          description: null,
-          fields: null,
-          inputFields: [
-            {
-              name: 'mutation_in',
-              description: null,
-              type: {
-                kind: 'LIST',
-                name: null,
-                ofType: {
-                  kind: 'NON_NULL',
-                  name: null,
-                  ofType: {
-                    kind: 'ENUM',
-                    name: 'MutationType',
-                    ofType: null,
-                  },
-                },
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'updatedFields_contains',
-              description: null,
-              type: {
-                kind: 'SCALAR',
-                name: 'String',
-                ofType: null,
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'updatedFields_contains_every',
-              description: null,
-              type: {
-                kind: 'LIST',
-                name: null,
-                ofType: {
-                  kind: 'NON_NULL',
-                  name: null,
-                  ofType: {
-                    kind: 'SCALAR',
-                    name: 'String',
-                    ofType: null,
-                  },
-                },
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'updatedFields_contains_some',
-              description: null,
-              type: {
-                kind: 'LIST',
-                name: null,
-                ofType: {
-                  kind: 'NON_NULL',
-                  name: null,
-                  ofType: {
-                    kind: 'SCALAR',
-                    name: 'String',
-                    ofType: null,
-                  },
-                },
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'node',
-              description: null,
-              type: {
-                kind: 'INPUT_OBJECT',
-                name: 'UserWhereInput',
-                ofType: null,
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'AND',
-              description: null,
-              type: {
-                kind: 'LIST',
-                name: null,
-                ofType: {
-                  kind: 'NON_NULL',
-                  name: null,
-                  ofType: {
-                    kind: 'INPUT_OBJECT',
-                    name: 'UserSubscriptionWhereInput',
-                    ofType: null,
-                  },
-                },
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'OR',
-              description: null,
-              type: {
-                kind: 'LIST',
-                name: null,
-                ofType: {
-                  kind: 'NON_NULL',
-                  name: null,
-                  ofType: {
-                    kind: 'INPUT_OBJECT',
-                    name: 'UserSubscriptionWhereInput',
-                    ofType: null,
-                  },
-                },
-              },
-              defaultValue: null,
-            },
-            {
-              name: 'NOT',
-              description: null,
-              type: {
-                kind: 'LIST',
-                name: null,
-                ofType: {
-                  kind: 'NON_NULL',
-                  name: null,
-                  ofType: {
-                    kind: 'INPUT_OBJECT',
-                    name: 'UserSubscriptionWhereInput',
-                    ofType: null,
-                  },
-                },
-              },
-              defaultValue: null,
-            },
-          ],
-          interfaces: null,
-          enumValues: null,
-          possibleTypes: null,
-        },
-        {
-          kind: 'OBJECT',
-          name: 'UserSubscriptionPayload',
-          description: null,
-          fields: [
-            {
-              name: 'mutation',
-              description: null,
-              args: [],
-              type: {
-                kind: 'NON_NULL',
-                name: null,
-                ofType: {
-                  kind: 'ENUM',
-                  name: 'MutationType',
-                  ofType: null,
-                },
-              },
-              isDeprecated: false,
-              deprecationReason: null,
-            },
-            {
-              name: 'node',
-              description: null,
-              args: [],
-              type: {
-                kind: 'OBJECT',
-                name: 'User',
-                ofType: null,
-              },
-              isDeprecated: false,
-              deprecationReason: null,
-            },
-            {
-              name: 'updatedFields',
-              description: null,
-              args: [],
-              type: {
-                kind: 'LIST',
-                name: null,
-                ofType: {
-                  kind: 'NON_NULL',
-                  name: null,
-                  ofType: {
-                    kind: 'SCALAR',
-                    name: 'String',
-                    ofType: null,
-                  },
-                },
-              },
-              isDeprecated: false,
-              deprecationReason: null,
-            },
-            {
-              name: 'previousValues',
-              description: null,
-              args: [],
-              type: {
-                kind: 'OBJECT',
-                name: 'UserPreviousValues',
-                ofType: null,
-              },
-              isDeprecated: false,
-              deprecationReason: null,
-            },
-          ],
-          inputFields: null,
-          interfaces: [],
-          enumValues: null,
-          possibleTypes: null,
-        },
-        {
-          kind: 'OBJECT',
-          name: 'UserPreviousValues',
-          description: null,
-          fields: [
-            {
-              name: 'id',
-              description: null,
-              args: [],
-              type: {
-                kind: 'NON_NULL',
-                name: null,
-                ofType: {
-                  kind: 'SCALAR',
-                  name: 'ID',
-                  ofType: null,
-                },
-              },
-              isDeprecated: false,
-              deprecationReason: null,
-            },
-            {
-              name: 'email',
-              description: null,
-              args: [],
-              type: {
-                kind: 'NON_NULL',
-                name: null,
-                ofType: {
-                  kind: 'SCALAR',
-                  name: 'String',
-                  ofType: null,
-                },
-              },
-              isDeprecated: false,
-              deprecationReason: null,
-            },
-            {
-              name: 'password',
-              description: null,
-              args: [],
-              type: {
-                kind: 'NON_NULL',
-                name: null,
-                ofType: {
-                  kind: 'SCALAR',
-                  name: 'String',
-                  ofType: null,
-                },
-              },
-              isDeprecated: false,
-              deprecationReason: null,
-            },
-            {
-              name: 'name',
+              name: 'text',
               description: null,
               args: [],
               type: {

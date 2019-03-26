@@ -15,76 +15,43 @@ export interface NexusPrismaTypes {
   objectTypes: {
     fields: {
       Query: QueryObject;
-      Post: PostObject;
-      User: UserObject;
-      PostConnection: PostConnectionObject;
+      Alarm: AlarmObject;
+      AlarmConnection: AlarmConnectionObject;
       PageInfo: PageInfoObject;
-      PostEdge: PostEdgeObject;
-      AggregatePost: AggregatePostObject;
-      UserConnection: UserConnectionObject;
-      UserEdge: UserEdgeObject;
-      AggregateUser: AggregateUserObject;
+      AlarmEdge: AlarmEdgeObject;
+      AggregateAlarm: AggregateAlarmObject;
       Mutation: MutationObject;
       BatchPayload: BatchPayloadObject;
       Subscription: SubscriptionObject;
-      PostSubscriptionPayload: PostSubscriptionPayloadObject;
-      PostPreviousValues: PostPreviousValuesObject;
-      UserSubscriptionPayload: UserSubscriptionPayloadObject;
-      UserPreviousValues: UserPreviousValuesObject;
+      AlarmSubscriptionPayload: AlarmSubscriptionPayloadObject;
+      AlarmPreviousValues: AlarmPreviousValuesObject;
     };
     fieldsDetails: {
       Query: QueryFieldDetails;
-      Post: PostFieldDetails;
-      User: UserFieldDetails;
-      PostConnection: PostConnectionFieldDetails;
+      Alarm: AlarmFieldDetails;
+      AlarmConnection: AlarmConnectionFieldDetails;
       PageInfo: PageInfoFieldDetails;
-      PostEdge: PostEdgeFieldDetails;
-      AggregatePost: AggregatePostFieldDetails;
-      UserConnection: UserConnectionFieldDetails;
-      UserEdge: UserEdgeFieldDetails;
-      AggregateUser: AggregateUserFieldDetails;
+      AlarmEdge: AlarmEdgeFieldDetails;
+      AggregateAlarm: AggregateAlarmFieldDetails;
       Mutation: MutationFieldDetails;
       BatchPayload: BatchPayloadFieldDetails;
       Subscription: SubscriptionFieldDetails;
-      PostSubscriptionPayload: PostSubscriptionPayloadFieldDetails;
-      PostPreviousValues: PostPreviousValuesFieldDetails;
-      UserSubscriptionPayload: UserSubscriptionPayloadFieldDetails;
-      UserPreviousValues: UserPreviousValuesFieldDetails;
+      AlarmSubscriptionPayload: AlarmSubscriptionPayloadFieldDetails;
+      AlarmPreviousValues: AlarmPreviousValuesFieldDetails;
     };
   };
   inputTypes: {
     fields: {
-      PostWhereUniqueInput: PostWhereUniqueInputInputObject;
-      PostWhereInput: PostWhereInputInputObject;
-      UserWhereInput: UserWhereInputInputObject;
-      UserWhereUniqueInput: UserWhereUniqueInputInputObject;
-      PostCreateInput: PostCreateInputInputObject;
-      UserCreateOneWithoutPostsInput: UserCreateOneWithoutPostsInputInputObject;
-      UserCreateWithoutPostsInput: UserCreateWithoutPostsInputInputObject;
-      PostUpdateInput: PostUpdateInputInputObject;
-      UserUpdateOneRequiredWithoutPostsInput: UserUpdateOneRequiredWithoutPostsInputInputObject;
-      UserUpdateWithoutPostsDataInput: UserUpdateWithoutPostsDataInputInputObject;
-      UserUpsertWithoutPostsInput: UserUpsertWithoutPostsInputInputObject;
-      PostUpdateManyMutationInput: PostUpdateManyMutationInputInputObject;
-      UserCreateInput: UserCreateInputInputObject;
-      PostCreateManyWithoutAuthorInput: PostCreateManyWithoutAuthorInputInputObject;
-      PostCreateWithoutAuthorInput: PostCreateWithoutAuthorInputInputObject;
-      UserUpdateInput: UserUpdateInputInputObject;
-      PostUpdateManyWithoutAuthorInput: PostUpdateManyWithoutAuthorInputInputObject;
-      PostUpdateWithWhereUniqueWithoutAuthorInput: PostUpdateWithWhereUniqueWithoutAuthorInputInputObject;
-      PostUpdateWithoutAuthorDataInput: PostUpdateWithoutAuthorDataInputInputObject;
-      PostUpsertWithWhereUniqueWithoutAuthorInput: PostUpsertWithWhereUniqueWithoutAuthorInputInputObject;
-      PostScalarWhereInput: PostScalarWhereInputInputObject;
-      PostUpdateManyWithWhereNestedInput: PostUpdateManyWithWhereNestedInputInputObject;
-      PostUpdateManyDataInput: PostUpdateManyDataInputInputObject;
-      UserUpdateManyMutationInput: UserUpdateManyMutationInputInputObject;
-      PostSubscriptionWhereInput: PostSubscriptionWhereInputInputObject;
-      UserSubscriptionWhereInput: UserSubscriptionWhereInputInputObject;
+      AlarmWhereUniqueInput: AlarmWhereUniqueInputInputObject;
+      AlarmWhereInput: AlarmWhereInputInputObject;
+      AlarmCreateInput: AlarmCreateInputInputObject;
+      AlarmUpdateInput: AlarmUpdateInputInputObject;
+      AlarmUpdateManyMutationInput: AlarmUpdateManyMutationInputInputObject;
+      AlarmSubscriptionWhereInput: AlarmSubscriptionWhereInputInputObject;
     };
   };
   enumTypes: {
-    PostOrderByInput: PostOrderByInputValues;
-    UserOrderByInput: UserOrderByInputValues;
+    AlarmOrderByInput: AlarmOrderByInputValues;
     MutationType: MutationTypeValues;
   };
 }
@@ -93,31 +60,18 @@ export interface NexusPrismaTypes {
 
 type QueryObject =
   | QueryFields
-  | { name: 'post'; args?: QueryPostArgs[] | false; alias?: string }
-  | { name: 'posts'; args?: QueryPostsArgs[] | false; alias?: string }
+  | { name: 'alarm'; args?: QueryAlarmArgs[] | false; alias?: string }
+  | { name: 'alarms'; args?: QueryAlarmsArgs[] | false; alias?: string }
   | {
-      name: 'postsConnection';
-      args?: QueryPostsConnectionArgs[] | false;
-      alias?: string;
-    }
-  | { name: 'user'; args?: QueryUserArgs[] | false; alias?: string }
-  | { name: 'users'; args?: QueryUsersArgs[] | false; alias?: string }
-  | {
-      name: 'usersConnection';
-      args?: QueryUsersConnectionArgs[] | false;
+      name: 'alarmsConnection';
+      args?: QueryAlarmsConnectionArgs[] | false;
       alias?: string;
     };
 
-type QueryFields =
-  | 'post'
-  | 'posts'
-  | 'postsConnection'
-  | 'user'
-  | 'users'
-  | 'usersConnection';
+type QueryFields = 'alarm' | 'alarms' | 'alarmsConnection';
 
-type QueryPostArgs = 'where';
-type QueryPostsArgs =
+type QueryAlarmArgs = 'where';
+type QueryAlarmsArgs =
   | 'where'
   | 'orderBy'
   | 'skip'
@@ -125,24 +79,7 @@ type QueryPostsArgs =
   | 'before'
   | 'first'
   | 'last';
-type QueryPostsConnectionArgs =
-  | 'where'
-  | 'orderBy'
-  | 'skip'
-  | 'after'
-  | 'before'
-  | 'first'
-  | 'last';
-type QueryUserArgs = 'where';
-type QueryUsersArgs =
-  | 'where'
-  | 'orderBy'
-  | 'skip'
-  | 'after'
-  | 'before'
-  | 'first'
-  | 'last';
-type QueryUsersConnectionArgs =
+type QueryAlarmsConnectionArgs =
   | 'where'
   | 'orderBy'
   | 'skip'
@@ -152,30 +89,30 @@ type QueryUsersConnectionArgs =
   | 'last';
 
 export interface QueryFieldDetails {
-  post: {
-    type: 'Post';
-    args: Record<QueryPostArgs, core.NexusArgDef<string>>;
+  alarm: {
+    type: 'Alarm';
+    args: Record<QueryAlarmArgs, core.NexusArgDef<string>>;
     description: string;
     list: undefined;
     nullable: true;
     resolve: (
       root: core.RootValue<'Query'>,
-      args: { where: PostWhereUniqueInput },
+      args: { where: AlarmWhereUniqueInput },
       context: core.GetGen<'context'>,
       info?: GraphQLResolveInfo,
-    ) => Promise<prisma.Post | null> | prisma.Post | null;
+    ) => Promise<prisma.Alarm | null> | prisma.Alarm | null;
   };
-  posts: {
-    type: 'Post';
-    args: Record<QueryPostsArgs, core.NexusArgDef<string>>;
+  alarms: {
+    type: 'Alarm';
+    args: Record<QueryAlarmsArgs, core.NexusArgDef<string>>;
     description: string;
     list: true;
     nullable: false;
     resolve: (
       root: core.RootValue<'Query'>,
       args: {
-        where?: PostWhereInput | null;
-        orderBy?: prisma.PostOrderByInput | null;
+        where?: AlarmWhereInput | null;
+        orderBy?: prisma.AlarmOrderByInput | null;
         skip?: number | null;
         after?: string | null;
         before?: string | null;
@@ -184,19 +121,19 @@ export interface QueryFieldDetails {
       },
       context: core.GetGen<'context'>,
       info?: GraphQLResolveInfo,
-    ) => Promise<prisma.Post[]> | prisma.Post[];
+    ) => Promise<prisma.Alarm[]> | prisma.Alarm[];
   };
-  postsConnection: {
-    type: 'PostConnection';
-    args: Record<QueryPostsConnectionArgs, core.NexusArgDef<string>>;
+  alarmsConnection: {
+    type: 'AlarmConnection';
+    args: Record<QueryAlarmsConnectionArgs, core.NexusArgDef<string>>;
     description: string;
     list: undefined;
     nullable: false;
     resolve: (
       root: core.RootValue<'Query'>,
       args: {
-        where?: PostWhereInput | null;
-        orderBy?: prisma.PostOrderByInput | null;
+        where?: AlarmWhereInput | null;
+        orderBy?: prisma.AlarmOrderByInput | null;
         skip?: number | null;
         after?: string | null;
         before?: string | null;
@@ -205,87 +142,21 @@ export interface QueryFieldDetails {
       },
       context: core.GetGen<'context'>,
       info?: GraphQLResolveInfo,
-    ) => Promise<prisma.PostConnection> | prisma.PostConnection;
-  };
-  user: {
-    type: 'User';
-    args: Record<QueryUserArgs, core.NexusArgDef<string>>;
-    description: string;
-    list: undefined;
-    nullable: true;
-    resolve: (
-      root: core.RootValue<'Query'>,
-      args: { where: UserWhereUniqueInput },
-      context: core.GetGen<'context'>,
-      info?: GraphQLResolveInfo,
-    ) => Promise<prisma.User | null> | prisma.User | null;
-  };
-  users: {
-    type: 'User';
-    args: Record<QueryUsersArgs, core.NexusArgDef<string>>;
-    description: string;
-    list: true;
-    nullable: false;
-    resolve: (
-      root: core.RootValue<'Query'>,
-      args: {
-        where?: UserWhereInput | null;
-        orderBy?: prisma.UserOrderByInput | null;
-        skip?: number | null;
-        after?: string | null;
-        before?: string | null;
-        first?: number | null;
-        last?: number | null;
-      },
-      context: core.GetGen<'context'>,
-      info?: GraphQLResolveInfo,
-    ) => Promise<prisma.User[]> | prisma.User[];
-  };
-  usersConnection: {
-    type: 'UserConnection';
-    args: Record<QueryUsersConnectionArgs, core.NexusArgDef<string>>;
-    description: string;
-    list: undefined;
-    nullable: false;
-    resolve: (
-      root: core.RootValue<'Query'>,
-      args: {
-        where?: UserWhereInput | null;
-        orderBy?: prisma.UserOrderByInput | null;
-        skip?: number | null;
-        after?: string | null;
-        before?: string | null;
-        first?: number | null;
-        last?: number | null;
-      },
-      context: core.GetGen<'context'>,
-      info?: GraphQLResolveInfo,
-    ) => Promise<prisma.UserConnection> | prisma.UserConnection;
+    ) => Promise<prisma.AlarmConnection> | prisma.AlarmConnection;
   };
 }
 
-// Types for Post
+// Types for Alarm
 
-type PostObject =
-  | PostFields
+type AlarmObject =
+  | AlarmFields
   | { name: 'id'; args?: [] | false; alias?: string }
-  | { name: 'createdAt'; args?: [] | false; alias?: string }
-  | { name: 'updatedAt'; args?: [] | false; alias?: string }
-  | { name: 'published'; args?: [] | false; alias?: string }
-  | { name: 'title'; args?: [] | false; alias?: string }
-  | { name: 'content'; args?: [] | false; alias?: string }
-  | { name: 'author'; args?: [] | false; alias?: string };
+  | { name: 'intId'; args?: [] | false; alias?: string }
+  | { name: 'text'; args?: [] | false; alias?: string };
 
-type PostFields =
-  | 'id'
-  | 'createdAt'
-  | 'updatedAt'
-  | 'published'
-  | 'title'
-  | 'content'
-  | 'author';
+type AlarmFields = 'id' | 'intId' | 'text';
 
-export interface PostFieldDetails {
+export interface AlarmFieldDetails {
   id: {
     type: 'ID';
     args: {};
@@ -294,39 +165,15 @@ export interface PostFieldDetails {
     nullable: false;
     resolve: undefined;
   };
-  createdAt: {
-    type: 'DateTime';
+  intId: {
+    type: 'Int';
     args: {};
     description: string;
     list: undefined;
     nullable: false;
     resolve: undefined;
   };
-  updatedAt: {
-    type: 'DateTime';
-    args: {};
-    description: string;
-    list: undefined;
-    nullable: false;
-    resolve: undefined;
-  };
-  published: {
-    type: 'Boolean';
-    args: {};
-    description: string;
-    list: undefined;
-    nullable: false;
-    resolve: undefined;
-  };
-  title: {
-    type: 'String';
-    args: {};
-    description: string;
-    list: undefined;
-    nullable: false;
-    resolve: undefined;
-  };
-  content: {
+  text: {
     type: 'String';
     args: {};
     description: string;
@@ -334,109 +181,19 @@ export interface PostFieldDetails {
     nullable: true;
     resolve: undefined;
   };
-  author: {
-    type: 'User';
-    args: {};
-    description: string;
-    list: undefined;
-    nullable: false;
-    resolve: (
-      root: core.RootValue<'Post'>,
-      args: {},
-      context: core.GetGen<'context'>,
-      info?: GraphQLResolveInfo,
-    ) => Promise<prisma.User> | prisma.User;
-  };
 }
 
-// Types for User
+// Types for AlarmConnection
 
-type UserObject =
-  | UserFields
-  | { name: 'id'; args?: [] | false; alias?: string }
-  | { name: 'email'; args?: [] | false; alias?: string }
-  | { name: 'password'; args?: [] | false; alias?: string }
-  | { name: 'name'; args?: [] | false; alias?: string }
-  | { name: 'posts'; args?: UserPostsArgs[] | false; alias?: string };
-
-type UserFields = 'id' | 'email' | 'password' | 'name' | 'posts';
-
-type UserPostsArgs =
-  | 'where'
-  | 'orderBy'
-  | 'skip'
-  | 'after'
-  | 'before'
-  | 'first'
-  | 'last';
-
-export interface UserFieldDetails {
-  id: {
-    type: 'ID';
-    args: {};
-    description: string;
-    list: undefined;
-    nullable: false;
-    resolve: undefined;
-  };
-  email: {
-    type: 'String';
-    args: {};
-    description: string;
-    list: undefined;
-    nullable: false;
-    resolve: undefined;
-  };
-  password: {
-    type: 'String';
-    args: {};
-    description: string;
-    list: undefined;
-    nullable: false;
-    resolve: undefined;
-  };
-  name: {
-    type: 'String';
-    args: {};
-    description: string;
-    list: undefined;
-    nullable: true;
-    resolve: undefined;
-  };
-  posts: {
-    type: 'Post';
-    args: Record<UserPostsArgs, core.NexusArgDef<string>>;
-    description: string;
-    list: true;
-    nullable: false;
-    resolve: (
-      root: core.RootValue<'User'>,
-      args: {
-        where?: PostWhereInput | null;
-        orderBy?: prisma.PostOrderByInput | null;
-        skip?: number | null;
-        after?: string | null;
-        before?: string | null;
-        first?: number | null;
-        last?: number | null;
-      },
-      context: core.GetGen<'context'>,
-      info?: GraphQLResolveInfo,
-    ) => Promise<prisma.Post[]> | prisma.Post[];
-  };
-}
-
-// Types for PostConnection
-
-type PostConnectionObject =
-  | PostConnectionFields
+type AlarmConnectionObject =
+  | AlarmConnectionFields
   | { name: 'pageInfo'; args?: [] | false; alias?: string }
   | { name: 'edges'; args?: [] | false; alias?: string }
   | { name: 'aggregate'; args?: [] | false; alias?: string };
 
-type PostConnectionFields = 'pageInfo' | 'edges' | 'aggregate';
+type AlarmConnectionFields = 'pageInfo' | 'edges' | 'aggregate';
 
-export interface PostConnectionFieldDetails {
+export interface AlarmConnectionFieldDetails {
   pageInfo: {
     type: 'PageInfo';
     args: {};
@@ -444,37 +201,37 @@ export interface PostConnectionFieldDetails {
     list: undefined;
     nullable: false;
     resolve: (
-      root: core.RootValue<'PostConnection'>,
+      root: core.RootValue<'AlarmConnection'>,
       args: {},
       context: core.GetGen<'context'>,
       info?: GraphQLResolveInfo,
     ) => Promise<prisma.PageInfo> | prisma.PageInfo;
   };
   edges: {
-    type: 'PostEdge';
+    type: 'AlarmEdge';
     args: {};
     description: string;
     list: true;
     nullable: false;
     resolve: (
-      root: core.RootValue<'PostConnection'>,
+      root: core.RootValue<'AlarmConnection'>,
       args: {},
       context: core.GetGen<'context'>,
       info?: GraphQLResolveInfo,
-    ) => Promise<prisma.PostEdge[]> | prisma.PostEdge[];
+    ) => Promise<prisma.AlarmEdge[]> | prisma.AlarmEdge[];
   };
   aggregate: {
-    type: 'AggregatePost';
+    type: 'AggregateAlarm';
     args: {};
     description: string;
     list: undefined;
     nullable: false;
     resolve: (
-      root: core.RootValue<'PostConnection'>,
+      root: core.RootValue<'AlarmConnection'>,
       args: {},
       context: core.GetGen<'context'>,
       info?: GraphQLResolveInfo,
-    ) => Promise<prisma.AggregatePost> | prisma.AggregatePost;
+    ) => Promise<prisma.AggregateAlarm> | prisma.AggregateAlarm;
   };
 }
 
@@ -528,28 +285,28 @@ export interface PageInfoFieldDetails {
   };
 }
 
-// Types for PostEdge
+// Types for AlarmEdge
 
-type PostEdgeObject =
-  | PostEdgeFields
+type AlarmEdgeObject =
+  | AlarmEdgeFields
   | { name: 'node'; args?: [] | false; alias?: string }
   | { name: 'cursor'; args?: [] | false; alias?: string };
 
-type PostEdgeFields = 'node' | 'cursor';
+type AlarmEdgeFields = 'node' | 'cursor';
 
-export interface PostEdgeFieldDetails {
+export interface AlarmEdgeFieldDetails {
   node: {
-    type: 'Post';
+    type: 'Alarm';
     args: {};
     description: string;
     list: undefined;
     nullable: false;
     resolve: (
-      root: core.RootValue<'PostEdge'>,
+      root: core.RootValue<'AlarmEdge'>,
       args: {},
       context: core.GetGen<'context'>,
       info?: GraphQLResolveInfo,
-    ) => Promise<prisma.Post> | prisma.Post;
+    ) => Promise<prisma.Alarm> | prisma.Alarm;
   };
   cursor: {
     type: 'String';
@@ -561,119 +318,15 @@ export interface PostEdgeFieldDetails {
   };
 }
 
-// Types for AggregatePost
+// Types for AggregateAlarm
 
-type AggregatePostObject =
-  | AggregatePostFields
+type AggregateAlarmObject =
+  | AggregateAlarmFields
   | { name: 'count'; args?: [] | false; alias?: string };
 
-type AggregatePostFields = 'count';
+type AggregateAlarmFields = 'count';
 
-export interface AggregatePostFieldDetails {
-  count: {
-    type: 'Int';
-    args: {};
-    description: string;
-    list: undefined;
-    nullable: false;
-    resolve: undefined;
-  };
-}
-
-// Types for UserConnection
-
-type UserConnectionObject =
-  | UserConnectionFields
-  | { name: 'pageInfo'; args?: [] | false; alias?: string }
-  | { name: 'edges'; args?: [] | false; alias?: string }
-  | { name: 'aggregate'; args?: [] | false; alias?: string };
-
-type UserConnectionFields = 'pageInfo' | 'edges' | 'aggregate';
-
-export interface UserConnectionFieldDetails {
-  pageInfo: {
-    type: 'PageInfo';
-    args: {};
-    description: string;
-    list: undefined;
-    nullable: false;
-    resolve: (
-      root: core.RootValue<'UserConnection'>,
-      args: {},
-      context: core.GetGen<'context'>,
-      info?: GraphQLResolveInfo,
-    ) => Promise<prisma.PageInfo> | prisma.PageInfo;
-  };
-  edges: {
-    type: 'UserEdge';
-    args: {};
-    description: string;
-    list: true;
-    nullable: false;
-    resolve: (
-      root: core.RootValue<'UserConnection'>,
-      args: {},
-      context: core.GetGen<'context'>,
-      info?: GraphQLResolveInfo,
-    ) => Promise<prisma.UserEdge[]> | prisma.UserEdge[];
-  };
-  aggregate: {
-    type: 'AggregateUser';
-    args: {};
-    description: string;
-    list: undefined;
-    nullable: false;
-    resolve: (
-      root: core.RootValue<'UserConnection'>,
-      args: {},
-      context: core.GetGen<'context'>,
-      info?: GraphQLResolveInfo,
-    ) => Promise<prisma.AggregateUser> | prisma.AggregateUser;
-  };
-}
-
-// Types for UserEdge
-
-type UserEdgeObject =
-  | UserEdgeFields
-  | { name: 'node'; args?: [] | false; alias?: string }
-  | { name: 'cursor'; args?: [] | false; alias?: string };
-
-type UserEdgeFields = 'node' | 'cursor';
-
-export interface UserEdgeFieldDetails {
-  node: {
-    type: 'User';
-    args: {};
-    description: string;
-    list: undefined;
-    nullable: false;
-    resolve: (
-      root: core.RootValue<'UserEdge'>,
-      args: {},
-      context: core.GetGen<'context'>,
-      info?: GraphQLResolveInfo,
-    ) => Promise<prisma.User> | prisma.User;
-  };
-  cursor: {
-    type: 'String';
-    args: {};
-    description: string;
-    list: undefined;
-    nullable: false;
-    resolve: undefined;
-  };
-}
-
-// Types for AggregateUser
-
-type AggregateUserObject =
-  | AggregateUserFields
-  | { name: 'count'; args?: [] | false; alias?: string };
-
-type AggregateUserFields = 'count';
-
-export interface AggregateUserFieldDetails {
+export interface AggregateAlarmFieldDetails {
   count: {
     type: 'Int';
     args: {};
@@ -689,260 +342,133 @@ export interface AggregateUserFieldDetails {
 type MutationObject =
   | MutationFields
   | {
-      name: 'createPost';
-      args?: MutationCreatePostArgs[] | false;
+      name: 'createAlarm';
+      args?: MutationCreateAlarmArgs[] | false;
       alias?: string;
     }
   | {
-      name: 'updatePost';
-      args?: MutationUpdatePostArgs[] | false;
+      name: 'updateAlarm';
+      args?: MutationUpdateAlarmArgs[] | false;
       alias?: string;
     }
   | {
-      name: 'updateManyPosts';
-      args?: MutationUpdateManyPostsArgs[] | false;
+      name: 'updateManyAlarms';
+      args?: MutationUpdateManyAlarmsArgs[] | false;
       alias?: string;
     }
   | {
-      name: 'upsertPost';
-      args?: MutationUpsertPostArgs[] | false;
+      name: 'upsertAlarm';
+      args?: MutationUpsertAlarmArgs[] | false;
       alias?: string;
     }
   | {
-      name: 'deletePost';
-      args?: MutationDeletePostArgs[] | false;
+      name: 'deleteAlarm';
+      args?: MutationDeleteAlarmArgs[] | false;
       alias?: string;
     }
   | {
-      name: 'deleteManyPosts';
-      args?: MutationDeleteManyPostsArgs[] | false;
-      alias?: string;
-    }
-  | {
-      name: 'createUser';
-      args?: MutationCreateUserArgs[] | false;
-      alias?: string;
-    }
-  | {
-      name: 'updateUser';
-      args?: MutationUpdateUserArgs[] | false;
-      alias?: string;
-    }
-  | {
-      name: 'updateManyUsers';
-      args?: MutationUpdateManyUsersArgs[] | false;
-      alias?: string;
-    }
-  | {
-      name: 'upsertUser';
-      args?: MutationUpsertUserArgs[] | false;
-      alias?: string;
-    }
-  | {
-      name: 'deleteUser';
-      args?: MutationDeleteUserArgs[] | false;
-      alias?: string;
-    }
-  | {
-      name: 'deleteManyUsers';
-      args?: MutationDeleteManyUsersArgs[] | false;
+      name: 'deleteManyAlarms';
+      args?: MutationDeleteManyAlarmsArgs[] | false;
       alias?: string;
     };
 
 type MutationFields =
-  | 'createPost'
-  | 'updatePost'
-  | 'updateManyPosts'
-  | 'upsertPost'
-  | 'deletePost'
-  | 'deleteManyPosts'
-  | 'createUser'
-  | 'updateUser'
-  | 'updateManyUsers'
-  | 'upsertUser'
-  | 'deleteUser'
-  | 'deleteManyUsers';
+  | 'createAlarm'
+  | 'updateAlarm'
+  | 'updateManyAlarms'
+  | 'upsertAlarm'
+  | 'deleteAlarm'
+  | 'deleteManyAlarms';
 
-type MutationCreatePostArgs = 'data';
-type MutationUpdatePostArgs = 'data' | 'where';
-type MutationUpdateManyPostsArgs = 'data' | 'where';
-type MutationUpsertPostArgs = 'where' | 'create' | 'update';
-type MutationDeletePostArgs = 'where';
-type MutationDeleteManyPostsArgs = 'where';
-type MutationCreateUserArgs = 'data';
-type MutationUpdateUserArgs = 'data' | 'where';
-type MutationUpdateManyUsersArgs = 'data' | 'where';
-type MutationUpsertUserArgs = 'where' | 'create' | 'update';
-type MutationDeleteUserArgs = 'where';
-type MutationDeleteManyUsersArgs = 'where';
+type MutationCreateAlarmArgs = 'data';
+type MutationUpdateAlarmArgs = 'data' | 'where';
+type MutationUpdateManyAlarmsArgs = 'data' | 'where';
+type MutationUpsertAlarmArgs = 'where' | 'create' | 'update';
+type MutationDeleteAlarmArgs = 'where';
+type MutationDeleteManyAlarmsArgs = 'where';
 
 export interface MutationFieldDetails {
-  createPost: {
-    type: 'Post';
-    args: Record<MutationCreatePostArgs, core.NexusArgDef<string>>;
+  createAlarm: {
+    type: 'Alarm';
+    args: Record<MutationCreateAlarmArgs, core.NexusArgDef<string>>;
     description: string;
     list: undefined;
     nullable: false;
     resolve: (
       root: core.RootValue<'Mutation'>,
-      args: { data: PostCreateInput },
+      args: { data: AlarmCreateInput },
       context: core.GetGen<'context'>,
       info?: GraphQLResolveInfo,
-    ) => Promise<prisma.Post> | prisma.Post;
+    ) => Promise<prisma.Alarm> | prisma.Alarm;
   };
-  updatePost: {
-    type: 'Post';
-    args: Record<MutationUpdatePostArgs, core.NexusArgDef<string>>;
+  updateAlarm: {
+    type: 'Alarm';
+    args: Record<MutationUpdateAlarmArgs, core.NexusArgDef<string>>;
     description: string;
     list: undefined;
     nullable: true;
     resolve: (
       root: core.RootValue<'Mutation'>,
-      args: { data: PostUpdateInput; where: PostWhereUniqueInput },
+      args: { data: AlarmUpdateInput; where: AlarmWhereUniqueInput },
       context: core.GetGen<'context'>,
       info?: GraphQLResolveInfo,
-    ) => Promise<prisma.Post | null> | prisma.Post | null;
+    ) => Promise<prisma.Alarm | null> | prisma.Alarm | null;
   };
-  updateManyPosts: {
+  updateManyAlarms: {
     type: 'BatchPayload';
-    args: Record<MutationUpdateManyPostsArgs, core.NexusArgDef<string>>;
+    args: Record<MutationUpdateManyAlarmsArgs, core.NexusArgDef<string>>;
     description: string;
     list: undefined;
     nullable: false;
     resolve: (
       root: core.RootValue<'Mutation'>,
       args: {
-        data: PostUpdateManyMutationInput;
-        where?: PostWhereInput | null;
+        data: AlarmUpdateManyMutationInput;
+        where?: AlarmWhereInput | null;
       },
       context: core.GetGen<'context'>,
       info?: GraphQLResolveInfo,
     ) => Promise<prisma.BatchPayload> | prisma.BatchPayload;
   };
-  upsertPost: {
-    type: 'Post';
-    args: Record<MutationUpsertPostArgs, core.NexusArgDef<string>>;
+  upsertAlarm: {
+    type: 'Alarm';
+    args: Record<MutationUpsertAlarmArgs, core.NexusArgDef<string>>;
     description: string;
     list: undefined;
     nullable: false;
     resolve: (
       root: core.RootValue<'Mutation'>,
       args: {
-        where: PostWhereUniqueInput;
-        create: PostCreateInput;
-        update: PostUpdateInput;
+        where: AlarmWhereUniqueInput;
+        create: AlarmCreateInput;
+        update: AlarmUpdateInput;
       },
       context: core.GetGen<'context'>,
       info?: GraphQLResolveInfo,
-    ) => Promise<prisma.Post> | prisma.Post;
+    ) => Promise<prisma.Alarm> | prisma.Alarm;
   };
-  deletePost: {
-    type: 'Post';
-    args: Record<MutationDeletePostArgs, core.NexusArgDef<string>>;
+  deleteAlarm: {
+    type: 'Alarm';
+    args: Record<MutationDeleteAlarmArgs, core.NexusArgDef<string>>;
     description: string;
     list: undefined;
     nullable: true;
     resolve: (
       root: core.RootValue<'Mutation'>,
-      args: { where: PostWhereUniqueInput },
+      args: { where: AlarmWhereUniqueInput },
       context: core.GetGen<'context'>,
       info?: GraphQLResolveInfo,
-    ) => Promise<prisma.Post | null> | prisma.Post | null;
+    ) => Promise<prisma.Alarm | null> | prisma.Alarm | null;
   };
-  deleteManyPosts: {
+  deleteManyAlarms: {
     type: 'BatchPayload';
-    args: Record<MutationDeleteManyPostsArgs, core.NexusArgDef<string>>;
+    args: Record<MutationDeleteManyAlarmsArgs, core.NexusArgDef<string>>;
     description: string;
     list: undefined;
     nullable: false;
     resolve: (
       root: core.RootValue<'Mutation'>,
-      args: { where?: PostWhereInput | null },
-      context: core.GetGen<'context'>,
-      info?: GraphQLResolveInfo,
-    ) => Promise<prisma.BatchPayload> | prisma.BatchPayload;
-  };
-  createUser: {
-    type: 'User';
-    args: Record<MutationCreateUserArgs, core.NexusArgDef<string>>;
-    description: string;
-    list: undefined;
-    nullable: false;
-    resolve: (
-      root: core.RootValue<'Mutation'>,
-      args: { data: UserCreateInput },
-      context: core.GetGen<'context'>,
-      info?: GraphQLResolveInfo,
-    ) => Promise<prisma.User> | prisma.User;
-  };
-  updateUser: {
-    type: 'User';
-    args: Record<MutationUpdateUserArgs, core.NexusArgDef<string>>;
-    description: string;
-    list: undefined;
-    nullable: true;
-    resolve: (
-      root: core.RootValue<'Mutation'>,
-      args: { data: UserUpdateInput; where: UserWhereUniqueInput },
-      context: core.GetGen<'context'>,
-      info?: GraphQLResolveInfo,
-    ) => Promise<prisma.User | null> | prisma.User | null;
-  };
-  updateManyUsers: {
-    type: 'BatchPayload';
-    args: Record<MutationUpdateManyUsersArgs, core.NexusArgDef<string>>;
-    description: string;
-    list: undefined;
-    nullable: false;
-    resolve: (
-      root: core.RootValue<'Mutation'>,
-      args: {
-        data: UserUpdateManyMutationInput;
-        where?: UserWhereInput | null;
-      },
-      context: core.GetGen<'context'>,
-      info?: GraphQLResolveInfo,
-    ) => Promise<prisma.BatchPayload> | prisma.BatchPayload;
-  };
-  upsertUser: {
-    type: 'User';
-    args: Record<MutationUpsertUserArgs, core.NexusArgDef<string>>;
-    description: string;
-    list: undefined;
-    nullable: false;
-    resolve: (
-      root: core.RootValue<'Mutation'>,
-      args: {
-        where: UserWhereUniqueInput;
-        create: UserCreateInput;
-        update: UserUpdateInput;
-      },
-      context: core.GetGen<'context'>,
-      info?: GraphQLResolveInfo,
-    ) => Promise<prisma.User> | prisma.User;
-  };
-  deleteUser: {
-    type: 'User';
-    args: Record<MutationDeleteUserArgs, core.NexusArgDef<string>>;
-    description: string;
-    list: undefined;
-    nullable: true;
-    resolve: (
-      root: core.RootValue<'Mutation'>,
-      args: { where: UserWhereUniqueInput },
-      context: core.GetGen<'context'>,
-      info?: GraphQLResolveInfo,
-    ) => Promise<prisma.User | null> | prisma.User | null;
-  };
-  deleteManyUsers: {
-    type: 'BatchPayload';
-    args: Record<MutationDeleteManyUsersArgs, core.NexusArgDef<string>>;
-    description: string;
-    list: undefined;
-    nullable: false;
-    resolve: (
-      root: core.RootValue<'Mutation'>,
-      args: { where?: UserWhereInput | null },
+      args: { where?: AlarmWhereInput | null },
       context: core.GetGen<'context'>,
       info?: GraphQLResolveInfo,
     ) => Promise<prisma.BatchPayload> | prisma.BatchPayload;
@@ -972,65 +498,47 @@ export interface BatchPayloadFieldDetails {
 
 type SubscriptionObject =
   | SubscriptionFields
-  | { name: 'post'; args?: SubscriptionPostArgs[] | false; alias?: string }
-  | { name: 'user'; args?: SubscriptionUserArgs[] | false; alias?: string };
+  | { name: 'alarm'; args?: SubscriptionAlarmArgs[] | false; alias?: string };
 
-type SubscriptionFields = 'post' | 'user';
+type SubscriptionFields = 'alarm';
 
-type SubscriptionPostArgs = 'where';
-type SubscriptionUserArgs = 'where';
+type SubscriptionAlarmArgs = 'where';
 
 export interface SubscriptionFieldDetails {
-  post: {
-    type: 'PostSubscriptionPayload';
-    args: Record<SubscriptionPostArgs, core.NexusArgDef<string>>;
+  alarm: {
+    type: 'AlarmSubscriptionPayload';
+    args: Record<SubscriptionAlarmArgs, core.NexusArgDef<string>>;
     description: string;
     list: undefined;
     nullable: true;
     resolve: (
       root: core.RootValue<'Subscription'>,
-      args: { where?: PostSubscriptionWhereInput | null },
+      args: { where?: AlarmSubscriptionWhereInput | null },
       context: core.GetGen<'context'>,
       info?: GraphQLResolveInfo,
     ) =>
-      | Promise<prisma.PostSubscriptionPayload | null>
-      | prisma.PostSubscriptionPayload
-      | null;
-  };
-  user: {
-    type: 'UserSubscriptionPayload';
-    args: Record<SubscriptionUserArgs, core.NexusArgDef<string>>;
-    description: string;
-    list: undefined;
-    nullable: true;
-    resolve: (
-      root: core.RootValue<'Subscription'>,
-      args: { where?: UserSubscriptionWhereInput | null },
-      context: core.GetGen<'context'>,
-      info?: GraphQLResolveInfo,
-    ) =>
-      | Promise<prisma.UserSubscriptionPayload | null>
-      | prisma.UserSubscriptionPayload
+      | Promise<prisma.AlarmSubscriptionPayload | null>
+      | prisma.AlarmSubscriptionPayload
       | null;
   };
 }
 
-// Types for PostSubscriptionPayload
+// Types for AlarmSubscriptionPayload
 
-type PostSubscriptionPayloadObject =
-  | PostSubscriptionPayloadFields
+type AlarmSubscriptionPayloadObject =
+  | AlarmSubscriptionPayloadFields
   | { name: 'mutation'; args?: [] | false; alias?: string }
   | { name: 'node'; args?: [] | false; alias?: string }
   | { name: 'updatedFields'; args?: [] | false; alias?: string }
   | { name: 'previousValues'; args?: [] | false; alias?: string };
 
-type PostSubscriptionPayloadFields =
+type AlarmSubscriptionPayloadFields =
   | 'mutation'
   | 'node'
   | 'updatedFields'
   | 'previousValues';
 
-export interface PostSubscriptionPayloadFieldDetails {
+export interface AlarmSubscriptionPayloadFieldDetails {
   mutation: {
     type: 'MutationType';
     args: {};
@@ -1038,24 +546,24 @@ export interface PostSubscriptionPayloadFieldDetails {
     list: undefined;
     nullable: false;
     resolve: (
-      root: core.RootValue<'PostSubscriptionPayload'>,
+      root: core.RootValue<'AlarmSubscriptionPayload'>,
       args: {},
       context: core.GetGen<'context'>,
       info?: GraphQLResolveInfo,
     ) => Promise<prisma.MutationType> | prisma.MutationType;
   };
   node: {
-    type: 'Post';
+    type: 'Alarm';
     args: {};
     description: string;
     list: undefined;
     nullable: true;
     resolve: (
-      root: core.RootValue<'PostSubscriptionPayload'>,
+      root: core.RootValue<'AlarmSubscriptionPayload'>,
       args: {},
       context: core.GetGen<'context'>,
       info?: GraphQLResolveInfo,
-    ) => Promise<prisma.Post | null> | prisma.Post | null;
+    ) => Promise<prisma.Alarm | null> | prisma.Alarm | null;
   };
   updatedFields: {
     type: 'String';
@@ -1066,43 +574,34 @@ export interface PostSubscriptionPayloadFieldDetails {
     resolve: undefined;
   };
   previousValues: {
-    type: 'PostPreviousValues';
+    type: 'AlarmPreviousValues';
     args: {};
     description: string;
     list: undefined;
     nullable: true;
     resolve: (
-      root: core.RootValue<'PostSubscriptionPayload'>,
+      root: core.RootValue<'AlarmSubscriptionPayload'>,
       args: {},
       context: core.GetGen<'context'>,
       info?: GraphQLResolveInfo,
     ) =>
-      | Promise<prisma.PostPreviousValues | null>
-      | prisma.PostPreviousValues
+      | Promise<prisma.AlarmPreviousValues | null>
+      | prisma.AlarmPreviousValues
       | null;
   };
 }
 
-// Types for PostPreviousValues
+// Types for AlarmPreviousValues
 
-type PostPreviousValuesObject =
-  | PostPreviousValuesFields
+type AlarmPreviousValuesObject =
+  | AlarmPreviousValuesFields
   | { name: 'id'; args?: [] | false; alias?: string }
-  | { name: 'createdAt'; args?: [] | false; alias?: string }
-  | { name: 'updatedAt'; args?: [] | false; alias?: string }
-  | { name: 'published'; args?: [] | false; alias?: string }
-  | { name: 'title'; args?: [] | false; alias?: string }
-  | { name: 'content'; args?: [] | false; alias?: string };
+  | { name: 'intId'; args?: [] | false; alias?: string }
+  | { name: 'text'; args?: [] | false; alias?: string };
 
-type PostPreviousValuesFields =
-  | 'id'
-  | 'createdAt'
-  | 'updatedAt'
-  | 'published'
-  | 'title'
-  | 'content';
+type AlarmPreviousValuesFields = 'id' | 'intId' | 'text';
 
-export interface PostPreviousValuesFieldDetails {
+export interface AlarmPreviousValuesFieldDetails {
   id: {
     type: 'ID';
     args: {};
@@ -1111,39 +610,15 @@ export interface PostPreviousValuesFieldDetails {
     nullable: false;
     resolve: undefined;
   };
-  createdAt: {
-    type: 'DateTime';
+  intId: {
+    type: 'Int';
     args: {};
     description: string;
     list: undefined;
     nullable: false;
     resolve: undefined;
   };
-  updatedAt: {
-    type: 'DateTime';
-    args: {};
-    description: string;
-    list: undefined;
-    nullable: false;
-    resolve: undefined;
-  };
-  published: {
-    type: 'Boolean';
-    args: {};
-    description: string;
-    list: undefined;
-    nullable: false;
-    resolve: undefined;
-  };
-  title: {
-    type: 'String';
-    args: {};
-    description: string;
-    list: undefined;
-    nullable: false;
-    resolve: undefined;
-  };
-  content: {
+  text: {
     type: 'String';
     args: {};
     description: string;
@@ -1153,128 +628,16 @@ export interface PostPreviousValuesFieldDetails {
   };
 }
 
-// Types for UserSubscriptionPayload
-
-type UserSubscriptionPayloadObject =
-  | UserSubscriptionPayloadFields
-  | { name: 'mutation'; args?: [] | false; alias?: string }
-  | { name: 'node'; args?: [] | false; alias?: string }
-  | { name: 'updatedFields'; args?: [] | false; alias?: string }
-  | { name: 'previousValues'; args?: [] | false; alias?: string };
-
-type UserSubscriptionPayloadFields =
-  | 'mutation'
-  | 'node'
-  | 'updatedFields'
-  | 'previousValues';
-
-export interface UserSubscriptionPayloadFieldDetails {
-  mutation: {
-    type: 'MutationType';
-    args: {};
-    description: string;
-    list: undefined;
-    nullable: false;
-    resolve: (
-      root: core.RootValue<'UserSubscriptionPayload'>,
-      args: {},
-      context: core.GetGen<'context'>,
-      info?: GraphQLResolveInfo,
-    ) => Promise<prisma.MutationType> | prisma.MutationType;
-  };
-  node: {
-    type: 'User';
-    args: {};
-    description: string;
-    list: undefined;
-    nullable: true;
-    resolve: (
-      root: core.RootValue<'UserSubscriptionPayload'>,
-      args: {},
-      context: core.GetGen<'context'>,
-      info?: GraphQLResolveInfo,
-    ) => Promise<prisma.User | null> | prisma.User | null;
-  };
-  updatedFields: {
-    type: 'String';
-    args: {};
-    description: string;
-    list: true;
-    nullable: false;
-    resolve: undefined;
-  };
-  previousValues: {
-    type: 'UserPreviousValues';
-    args: {};
-    description: string;
-    list: undefined;
-    nullable: true;
-    resolve: (
-      root: core.RootValue<'UserSubscriptionPayload'>,
-      args: {},
-      context: core.GetGen<'context'>,
-      info?: GraphQLResolveInfo,
-    ) =>
-      | Promise<prisma.UserPreviousValues | null>
-      | prisma.UserPreviousValues
-      | null;
-  };
-}
-
-// Types for UserPreviousValues
-
-type UserPreviousValuesObject =
-  | UserPreviousValuesFields
-  | { name: 'id'; args?: [] | false; alias?: string }
-  | { name: 'email'; args?: [] | false; alias?: string }
-  | { name: 'password'; args?: [] | false; alias?: string }
-  | { name: 'name'; args?: [] | false; alias?: string };
-
-type UserPreviousValuesFields = 'id' | 'email' | 'password' | 'name';
-
-export interface UserPreviousValuesFieldDetails {
-  id: {
-    type: 'ID';
-    args: {};
-    description: string;
-    list: undefined;
-    nullable: false;
-    resolve: undefined;
-  };
-  email: {
-    type: 'String';
-    args: {};
-    description: string;
-    list: undefined;
-    nullable: false;
-    resolve: undefined;
-  };
-  password: {
-    type: 'String';
-    args: {};
-    description: string;
-    list: undefined;
-    nullable: false;
-    resolve: undefined;
-  };
-  name: {
-    type: 'String';
-    args: {};
-    description: string;
-    list: undefined;
-    nullable: true;
-    resolve: undefined;
-  };
-}
-
-export interface PostWhereUniqueInput {
+export interface AlarmWhereUniqueInput {
   id?: string | null;
+  intId?: number | null;
 }
-export type PostWhereUniqueInputInputObject =
-  | Extract<keyof PostWhereUniqueInput, string>
-  | { name: 'id'; alias?: string };
+export type AlarmWhereUniqueInputInputObject =
+  | Extract<keyof AlarmWhereUniqueInput, string>
+  | { name: 'id'; alias?: string }
+  | { name: 'intId'; alias?: string };
 
-export interface PostWhereInput {
+export interface AlarmWhereInput {
   id?: string | null;
   id_not?: string | null;
   id_in?: string[];
@@ -1289,59 +652,34 @@ export interface PostWhereInput {
   id_not_starts_with?: string | null;
   id_ends_with?: string | null;
   id_not_ends_with?: string | null;
-  createdAt?: string | null;
-  createdAt_not?: string | null;
-  createdAt_in?: string[];
-  createdAt_not_in?: string[];
-  createdAt_lt?: string | null;
-  createdAt_lte?: string | null;
-  createdAt_gt?: string | null;
-  createdAt_gte?: string | null;
-  updatedAt?: string | null;
-  updatedAt_not?: string | null;
-  updatedAt_in?: string[];
-  updatedAt_not_in?: string[];
-  updatedAt_lt?: string | null;
-  updatedAt_lte?: string | null;
-  updatedAt_gt?: string | null;
-  updatedAt_gte?: string | null;
-  published?: boolean | null;
-  published_not?: boolean | null;
-  title?: string | null;
-  title_not?: string | null;
-  title_in?: string[];
-  title_not_in?: string[];
-  title_lt?: string | null;
-  title_lte?: string | null;
-  title_gt?: string | null;
-  title_gte?: string | null;
-  title_contains?: string | null;
-  title_not_contains?: string | null;
-  title_starts_with?: string | null;
-  title_not_starts_with?: string | null;
-  title_ends_with?: string | null;
-  title_not_ends_with?: string | null;
-  content?: string | null;
-  content_not?: string | null;
-  content_in?: string[];
-  content_not_in?: string[];
-  content_lt?: string | null;
-  content_lte?: string | null;
-  content_gt?: string | null;
-  content_gte?: string | null;
-  content_contains?: string | null;
-  content_not_contains?: string | null;
-  content_starts_with?: string | null;
-  content_not_starts_with?: string | null;
-  content_ends_with?: string | null;
-  content_not_ends_with?: string | null;
-  author?: UserWhereInput | null;
-  AND?: PostWhereInput[];
-  OR?: PostWhereInput[];
-  NOT?: PostWhereInput[];
+  intId?: number | null;
+  intId_not?: number | null;
+  intId_in?: number[];
+  intId_not_in?: number[];
+  intId_lt?: number | null;
+  intId_lte?: number | null;
+  intId_gt?: number | null;
+  intId_gte?: number | null;
+  text?: string | null;
+  text_not?: string | null;
+  text_in?: string[];
+  text_not_in?: string[];
+  text_lt?: string | null;
+  text_lte?: string | null;
+  text_gt?: string | null;
+  text_gte?: string | null;
+  text_contains?: string | null;
+  text_not_contains?: string | null;
+  text_starts_with?: string | null;
+  text_not_starts_with?: string | null;
+  text_ends_with?: string | null;
+  text_not_ends_with?: string | null;
+  AND?: AlarmWhereInput[];
+  OR?: AlarmWhereInput[];
+  NOT?: AlarmWhereInput[];
 }
-export type PostWhereInputInputObject =
-  | Extract<keyof PostWhereInput, string>
+export type AlarmWhereInputInputObject =
+  | Extract<keyof AlarmWhereInput, string>
   | { name: 'id'; alias?: string }
   | { name: 'id_not'; alias?: string }
   | { name: 'id_in'; alias?: string }
@@ -1356,559 +694,71 @@ export type PostWhereInputInputObject =
   | { name: 'id_not_starts_with'; alias?: string }
   | { name: 'id_ends_with'; alias?: string }
   | { name: 'id_not_ends_with'; alias?: string }
-  | { name: 'createdAt'; alias?: string }
-  | { name: 'createdAt_not'; alias?: string }
-  | { name: 'createdAt_in'; alias?: string }
-  | { name: 'createdAt_not_in'; alias?: string }
-  | { name: 'createdAt_lt'; alias?: string }
-  | { name: 'createdAt_lte'; alias?: string }
-  | { name: 'createdAt_gt'; alias?: string }
-  | { name: 'createdAt_gte'; alias?: string }
-  | { name: 'updatedAt'; alias?: string }
-  | { name: 'updatedAt_not'; alias?: string }
-  | { name: 'updatedAt_in'; alias?: string }
-  | { name: 'updatedAt_not_in'; alias?: string }
-  | { name: 'updatedAt_lt'; alias?: string }
-  | { name: 'updatedAt_lte'; alias?: string }
-  | { name: 'updatedAt_gt'; alias?: string }
-  | { name: 'updatedAt_gte'; alias?: string }
-  | { name: 'published'; alias?: string }
-  | { name: 'published_not'; alias?: string }
-  | { name: 'title'; alias?: string }
-  | { name: 'title_not'; alias?: string }
-  | { name: 'title_in'; alias?: string }
-  | { name: 'title_not_in'; alias?: string }
-  | { name: 'title_lt'; alias?: string }
-  | { name: 'title_lte'; alias?: string }
-  | { name: 'title_gt'; alias?: string }
-  | { name: 'title_gte'; alias?: string }
-  | { name: 'title_contains'; alias?: string }
-  | { name: 'title_not_contains'; alias?: string }
-  | { name: 'title_starts_with'; alias?: string }
-  | { name: 'title_not_starts_with'; alias?: string }
-  | { name: 'title_ends_with'; alias?: string }
-  | { name: 'title_not_ends_with'; alias?: string }
-  | { name: 'content'; alias?: string }
-  | { name: 'content_not'; alias?: string }
-  | { name: 'content_in'; alias?: string }
-  | { name: 'content_not_in'; alias?: string }
-  | { name: 'content_lt'; alias?: string }
-  | { name: 'content_lte'; alias?: string }
-  | { name: 'content_gt'; alias?: string }
-  | { name: 'content_gte'; alias?: string }
-  | { name: 'content_contains'; alias?: string }
-  | { name: 'content_not_contains'; alias?: string }
-  | { name: 'content_starts_with'; alias?: string }
-  | { name: 'content_not_starts_with'; alias?: string }
-  | { name: 'content_ends_with'; alias?: string }
-  | { name: 'content_not_ends_with'; alias?: string }
-  | { name: 'author'; alias?: string }
+  | { name: 'intId'; alias?: string }
+  | { name: 'intId_not'; alias?: string }
+  | { name: 'intId_in'; alias?: string }
+  | { name: 'intId_not_in'; alias?: string }
+  | { name: 'intId_lt'; alias?: string }
+  | { name: 'intId_lte'; alias?: string }
+  | { name: 'intId_gt'; alias?: string }
+  | { name: 'intId_gte'; alias?: string }
+  | { name: 'text'; alias?: string }
+  | { name: 'text_not'; alias?: string }
+  | { name: 'text_in'; alias?: string }
+  | { name: 'text_not_in'; alias?: string }
+  | { name: 'text_lt'; alias?: string }
+  | { name: 'text_lte'; alias?: string }
+  | { name: 'text_gt'; alias?: string }
+  | { name: 'text_gte'; alias?: string }
+  | { name: 'text_contains'; alias?: string }
+  | { name: 'text_not_contains'; alias?: string }
+  | { name: 'text_starts_with'; alias?: string }
+  | { name: 'text_not_starts_with'; alias?: string }
+  | { name: 'text_ends_with'; alias?: string }
+  | { name: 'text_not_ends_with'; alias?: string }
   | { name: 'AND'; alias?: string }
   | { name: 'OR'; alias?: string }
   | { name: 'NOT'; alias?: string };
 
-export interface UserWhereInput {
-  id?: string | null;
-  id_not?: string | null;
-  id_in?: string[];
-  id_not_in?: string[];
-  id_lt?: string | null;
-  id_lte?: string | null;
-  id_gt?: string | null;
-  id_gte?: string | null;
-  id_contains?: string | null;
-  id_not_contains?: string | null;
-  id_starts_with?: string | null;
-  id_not_starts_with?: string | null;
-  id_ends_with?: string | null;
-  id_not_ends_with?: string | null;
-  email?: string | null;
-  email_not?: string | null;
-  email_in?: string[];
-  email_not_in?: string[];
-  email_lt?: string | null;
-  email_lte?: string | null;
-  email_gt?: string | null;
-  email_gte?: string | null;
-  email_contains?: string | null;
-  email_not_contains?: string | null;
-  email_starts_with?: string | null;
-  email_not_starts_with?: string | null;
-  email_ends_with?: string | null;
-  email_not_ends_with?: string | null;
-  password?: string | null;
-  password_not?: string | null;
-  password_in?: string[];
-  password_not_in?: string[];
-  password_lt?: string | null;
-  password_lte?: string | null;
-  password_gt?: string | null;
-  password_gte?: string | null;
-  password_contains?: string | null;
-  password_not_contains?: string | null;
-  password_starts_with?: string | null;
-  password_not_starts_with?: string | null;
-  password_ends_with?: string | null;
-  password_not_ends_with?: string | null;
-  name?: string | null;
-  name_not?: string | null;
-  name_in?: string[];
-  name_not_in?: string[];
-  name_lt?: string | null;
-  name_lte?: string | null;
-  name_gt?: string | null;
-  name_gte?: string | null;
-  name_contains?: string | null;
-  name_not_contains?: string | null;
-  name_starts_with?: string | null;
-  name_not_starts_with?: string | null;
-  name_ends_with?: string | null;
-  name_not_ends_with?: string | null;
-  posts_every?: PostWhereInput | null;
-  posts_some?: PostWhereInput | null;
-  posts_none?: PostWhereInput | null;
-  AND?: UserWhereInput[];
-  OR?: UserWhereInput[];
-  NOT?: UserWhereInput[];
+export interface AlarmCreateInput {
+  intId?: number;
+  text?: string | null;
 }
-export type UserWhereInputInputObject =
-  | Extract<keyof UserWhereInput, string>
-  | { name: 'id'; alias?: string }
-  | { name: 'id_not'; alias?: string }
-  | { name: 'id_in'; alias?: string }
-  | { name: 'id_not_in'; alias?: string }
-  | { name: 'id_lt'; alias?: string }
-  | { name: 'id_lte'; alias?: string }
-  | { name: 'id_gt'; alias?: string }
-  | { name: 'id_gte'; alias?: string }
-  | { name: 'id_contains'; alias?: string }
-  | { name: 'id_not_contains'; alias?: string }
-  | { name: 'id_starts_with'; alias?: string }
-  | { name: 'id_not_starts_with'; alias?: string }
-  | { name: 'id_ends_with'; alias?: string }
-  | { name: 'id_not_ends_with'; alias?: string }
-  | { name: 'email'; alias?: string }
-  | { name: 'email_not'; alias?: string }
-  | { name: 'email_in'; alias?: string }
-  | { name: 'email_not_in'; alias?: string }
-  | { name: 'email_lt'; alias?: string }
-  | { name: 'email_lte'; alias?: string }
-  | { name: 'email_gt'; alias?: string }
-  | { name: 'email_gte'; alias?: string }
-  | { name: 'email_contains'; alias?: string }
-  | { name: 'email_not_contains'; alias?: string }
-  | { name: 'email_starts_with'; alias?: string }
-  | { name: 'email_not_starts_with'; alias?: string }
-  | { name: 'email_ends_with'; alias?: string }
-  | { name: 'email_not_ends_with'; alias?: string }
-  | { name: 'password'; alias?: string }
-  | { name: 'password_not'; alias?: string }
-  | { name: 'password_in'; alias?: string }
-  | { name: 'password_not_in'; alias?: string }
-  | { name: 'password_lt'; alias?: string }
-  | { name: 'password_lte'; alias?: string }
-  | { name: 'password_gt'; alias?: string }
-  | { name: 'password_gte'; alias?: string }
-  | { name: 'password_contains'; alias?: string }
-  | { name: 'password_not_contains'; alias?: string }
-  | { name: 'password_starts_with'; alias?: string }
-  | { name: 'password_not_starts_with'; alias?: string }
-  | { name: 'password_ends_with'; alias?: string }
-  | { name: 'password_not_ends_with'; alias?: string }
-  | { name: 'name'; alias?: string }
-  | { name: 'name_not'; alias?: string }
-  | { name: 'name_in'; alias?: string }
-  | { name: 'name_not_in'; alias?: string }
-  | { name: 'name_lt'; alias?: string }
-  | { name: 'name_lte'; alias?: string }
-  | { name: 'name_gt'; alias?: string }
-  | { name: 'name_gte'; alias?: string }
-  | { name: 'name_contains'; alias?: string }
-  | { name: 'name_not_contains'; alias?: string }
-  | { name: 'name_starts_with'; alias?: string }
-  | { name: 'name_not_starts_with'; alias?: string }
-  | { name: 'name_ends_with'; alias?: string }
-  | { name: 'name_not_ends_with'; alias?: string }
-  | { name: 'posts_every'; alias?: string }
-  | { name: 'posts_some'; alias?: string }
-  | { name: 'posts_none'; alias?: string }
-  | { name: 'AND'; alias?: string }
-  | { name: 'OR'; alias?: string }
-  | { name: 'NOT'; alias?: string };
+export type AlarmCreateInputInputObject =
+  | Extract<keyof AlarmCreateInput, string>
+  | { name: 'intId'; alias?: string }
+  | { name: 'text'; alias?: string };
 
-export interface UserWhereUniqueInput {
-  id?: string | null;
-  email?: string | null;
+export interface AlarmUpdateInput {
+  intId?: number | null;
+  text?: string | null;
 }
-export type UserWhereUniqueInputInputObject =
-  | Extract<keyof UserWhereUniqueInput, string>
-  | { name: 'id'; alias?: string }
-  | { name: 'email'; alias?: string };
+export type AlarmUpdateInputInputObject =
+  | Extract<keyof AlarmUpdateInput, string>
+  | { name: 'intId'; alias?: string }
+  | { name: 'text'; alias?: string };
 
-export interface PostCreateInput {
-  published?: boolean | null;
-  title?: string;
-  content?: string | null;
-  author?: UserCreateOneWithoutPostsInput;
+export interface AlarmUpdateManyMutationInput {
+  intId?: number | null;
+  text?: string | null;
 }
-export type PostCreateInputInputObject =
-  | Extract<keyof PostCreateInput, string>
-  | { name: 'published'; alias?: string }
-  | { name: 'title'; alias?: string }
-  | { name: 'content'; alias?: string }
-  | { name: 'author'; alias?: string };
+export type AlarmUpdateManyMutationInputInputObject =
+  | Extract<keyof AlarmUpdateManyMutationInput, string>
+  | { name: 'intId'; alias?: string }
+  | { name: 'text'; alias?: string };
 
-export interface UserCreateOneWithoutPostsInput {
-  create?: UserCreateWithoutPostsInput | null;
-  connect?: UserWhereUniqueInput | null;
-}
-export type UserCreateOneWithoutPostsInputInputObject =
-  | Extract<keyof UserCreateOneWithoutPostsInput, string>
-  | { name: 'create'; alias?: string }
-  | { name: 'connect'; alias?: string };
-
-export interface UserCreateWithoutPostsInput {
-  email?: string;
-  password?: string;
-  name?: string | null;
-}
-export type UserCreateWithoutPostsInputInputObject =
-  | Extract<keyof UserCreateWithoutPostsInput, string>
-  | { name: 'email'; alias?: string }
-  | { name: 'password'; alias?: string }
-  | { name: 'name'; alias?: string };
-
-export interface PostUpdateInput {
-  published?: boolean | null;
-  title?: string | null;
-  content?: string | null;
-  author?: UserUpdateOneRequiredWithoutPostsInput | null;
-}
-export type PostUpdateInputInputObject =
-  | Extract<keyof PostUpdateInput, string>
-  | { name: 'published'; alias?: string }
-  | { name: 'title'; alias?: string }
-  | { name: 'content'; alias?: string }
-  | { name: 'author'; alias?: string };
-
-export interface UserUpdateOneRequiredWithoutPostsInput {
-  create?: UserCreateWithoutPostsInput | null;
-  update?: UserUpdateWithoutPostsDataInput | null;
-  upsert?: UserUpsertWithoutPostsInput | null;
-  connect?: UserWhereUniqueInput | null;
-}
-export type UserUpdateOneRequiredWithoutPostsInputInputObject =
-  | Extract<keyof UserUpdateOneRequiredWithoutPostsInput, string>
-  | { name: 'create'; alias?: string }
-  | { name: 'update'; alias?: string }
-  | { name: 'upsert'; alias?: string }
-  | { name: 'connect'; alias?: string };
-
-export interface UserUpdateWithoutPostsDataInput {
-  email?: string | null;
-  password?: string | null;
-  name?: string | null;
-}
-export type UserUpdateWithoutPostsDataInputInputObject =
-  | Extract<keyof UserUpdateWithoutPostsDataInput, string>
-  | { name: 'email'; alias?: string }
-  | { name: 'password'; alias?: string }
-  | { name: 'name'; alias?: string };
-
-export interface UserUpsertWithoutPostsInput {
-  update?: UserUpdateWithoutPostsDataInput;
-  create?: UserCreateWithoutPostsInput;
-}
-export type UserUpsertWithoutPostsInputInputObject =
-  | Extract<keyof UserUpsertWithoutPostsInput, string>
-  | { name: 'update'; alias?: string }
-  | { name: 'create'; alias?: string };
-
-export interface PostUpdateManyMutationInput {
-  published?: boolean | null;
-  title?: string | null;
-  content?: string | null;
-}
-export type PostUpdateManyMutationInputInputObject =
-  | Extract<keyof PostUpdateManyMutationInput, string>
-  | { name: 'published'; alias?: string }
-  | { name: 'title'; alias?: string }
-  | { name: 'content'; alias?: string };
-
-export interface UserCreateInput {
-  email?: string;
-  password?: string;
-  name?: string | null;
-  posts?: PostCreateManyWithoutAuthorInput | null;
-}
-export type UserCreateInputInputObject =
-  | Extract<keyof UserCreateInput, string>
-  | { name: 'email'; alias?: string }
-  | { name: 'password'; alias?: string }
-  | { name: 'name'; alias?: string }
-  | { name: 'posts'; alias?: string };
-
-export interface PostCreateManyWithoutAuthorInput {
-  create?: PostCreateWithoutAuthorInput[];
-  connect?: PostWhereUniqueInput[];
-}
-export type PostCreateManyWithoutAuthorInputInputObject =
-  | Extract<keyof PostCreateManyWithoutAuthorInput, string>
-  | { name: 'create'; alias?: string }
-  | { name: 'connect'; alias?: string };
-
-export interface PostCreateWithoutAuthorInput {
-  published?: boolean | null;
-  title?: string;
-  content?: string | null;
-}
-export type PostCreateWithoutAuthorInputInputObject =
-  | Extract<keyof PostCreateWithoutAuthorInput, string>
-  | { name: 'published'; alias?: string }
-  | { name: 'title'; alias?: string }
-  | { name: 'content'; alias?: string };
-
-export interface UserUpdateInput {
-  email?: string | null;
-  password?: string | null;
-  name?: string | null;
-  posts?: PostUpdateManyWithoutAuthorInput | null;
-}
-export type UserUpdateInputInputObject =
-  | Extract<keyof UserUpdateInput, string>
-  | { name: 'email'; alias?: string }
-  | { name: 'password'; alias?: string }
-  | { name: 'name'; alias?: string }
-  | { name: 'posts'; alias?: string };
-
-export interface PostUpdateManyWithoutAuthorInput {
-  create?: PostCreateWithoutAuthorInput[];
-  delete?: PostWhereUniqueInput[];
-  connect?: PostWhereUniqueInput[];
-  set?: PostWhereUniqueInput[];
-  disconnect?: PostWhereUniqueInput[];
-  update?: PostUpdateWithWhereUniqueWithoutAuthorInput[];
-  upsert?: PostUpsertWithWhereUniqueWithoutAuthorInput[];
-  deleteMany?: PostScalarWhereInput[];
-  updateMany?: PostUpdateManyWithWhereNestedInput[];
-}
-export type PostUpdateManyWithoutAuthorInputInputObject =
-  | Extract<keyof PostUpdateManyWithoutAuthorInput, string>
-  | { name: 'create'; alias?: string }
-  | { name: 'delete'; alias?: string }
-  | { name: 'connect'; alias?: string }
-  | { name: 'set'; alias?: string }
-  | { name: 'disconnect'; alias?: string }
-  | { name: 'update'; alias?: string }
-  | { name: 'upsert'; alias?: string }
-  | { name: 'deleteMany'; alias?: string }
-  | { name: 'updateMany'; alias?: string };
-
-export interface PostUpdateWithWhereUniqueWithoutAuthorInput {
-  where?: PostWhereUniqueInput;
-  data?: PostUpdateWithoutAuthorDataInput;
-}
-export type PostUpdateWithWhereUniqueWithoutAuthorInputInputObject =
-  | Extract<keyof PostUpdateWithWhereUniqueWithoutAuthorInput, string>
-  | { name: 'where'; alias?: string }
-  | { name: 'data'; alias?: string };
-
-export interface PostUpdateWithoutAuthorDataInput {
-  published?: boolean | null;
-  title?: string | null;
-  content?: string | null;
-}
-export type PostUpdateWithoutAuthorDataInputInputObject =
-  | Extract<keyof PostUpdateWithoutAuthorDataInput, string>
-  | { name: 'published'; alias?: string }
-  | { name: 'title'; alias?: string }
-  | { name: 'content'; alias?: string };
-
-export interface PostUpsertWithWhereUniqueWithoutAuthorInput {
-  where?: PostWhereUniqueInput;
-  update?: PostUpdateWithoutAuthorDataInput;
-  create?: PostCreateWithoutAuthorInput;
-}
-export type PostUpsertWithWhereUniqueWithoutAuthorInputInputObject =
-  | Extract<keyof PostUpsertWithWhereUniqueWithoutAuthorInput, string>
-  | { name: 'where'; alias?: string }
-  | { name: 'update'; alias?: string }
-  | { name: 'create'; alias?: string };
-
-export interface PostScalarWhereInput {
-  id?: string | null;
-  id_not?: string | null;
-  id_in?: string[];
-  id_not_in?: string[];
-  id_lt?: string | null;
-  id_lte?: string | null;
-  id_gt?: string | null;
-  id_gte?: string | null;
-  id_contains?: string | null;
-  id_not_contains?: string | null;
-  id_starts_with?: string | null;
-  id_not_starts_with?: string | null;
-  id_ends_with?: string | null;
-  id_not_ends_with?: string | null;
-  createdAt?: string | null;
-  createdAt_not?: string | null;
-  createdAt_in?: string[];
-  createdAt_not_in?: string[];
-  createdAt_lt?: string | null;
-  createdAt_lte?: string | null;
-  createdAt_gt?: string | null;
-  createdAt_gte?: string | null;
-  updatedAt?: string | null;
-  updatedAt_not?: string | null;
-  updatedAt_in?: string[];
-  updatedAt_not_in?: string[];
-  updatedAt_lt?: string | null;
-  updatedAt_lte?: string | null;
-  updatedAt_gt?: string | null;
-  updatedAt_gte?: string | null;
-  published?: boolean | null;
-  published_not?: boolean | null;
-  title?: string | null;
-  title_not?: string | null;
-  title_in?: string[];
-  title_not_in?: string[];
-  title_lt?: string | null;
-  title_lte?: string | null;
-  title_gt?: string | null;
-  title_gte?: string | null;
-  title_contains?: string | null;
-  title_not_contains?: string | null;
-  title_starts_with?: string | null;
-  title_not_starts_with?: string | null;
-  title_ends_with?: string | null;
-  title_not_ends_with?: string | null;
-  content?: string | null;
-  content_not?: string | null;
-  content_in?: string[];
-  content_not_in?: string[];
-  content_lt?: string | null;
-  content_lte?: string | null;
-  content_gt?: string | null;
-  content_gte?: string | null;
-  content_contains?: string | null;
-  content_not_contains?: string | null;
-  content_starts_with?: string | null;
-  content_not_starts_with?: string | null;
-  content_ends_with?: string | null;
-  content_not_ends_with?: string | null;
-  AND?: PostScalarWhereInput[];
-  OR?: PostScalarWhereInput[];
-  NOT?: PostScalarWhereInput[];
-}
-export type PostScalarWhereInputInputObject =
-  | Extract<keyof PostScalarWhereInput, string>
-  | { name: 'id'; alias?: string }
-  | { name: 'id_not'; alias?: string }
-  | { name: 'id_in'; alias?: string }
-  | { name: 'id_not_in'; alias?: string }
-  | { name: 'id_lt'; alias?: string }
-  | { name: 'id_lte'; alias?: string }
-  | { name: 'id_gt'; alias?: string }
-  | { name: 'id_gte'; alias?: string }
-  | { name: 'id_contains'; alias?: string }
-  | { name: 'id_not_contains'; alias?: string }
-  | { name: 'id_starts_with'; alias?: string }
-  | { name: 'id_not_starts_with'; alias?: string }
-  | { name: 'id_ends_with'; alias?: string }
-  | { name: 'id_not_ends_with'; alias?: string }
-  | { name: 'createdAt'; alias?: string }
-  | { name: 'createdAt_not'; alias?: string }
-  | { name: 'createdAt_in'; alias?: string }
-  | { name: 'createdAt_not_in'; alias?: string }
-  | { name: 'createdAt_lt'; alias?: string }
-  | { name: 'createdAt_lte'; alias?: string }
-  | { name: 'createdAt_gt'; alias?: string }
-  | { name: 'createdAt_gte'; alias?: string }
-  | { name: 'updatedAt'; alias?: string }
-  | { name: 'updatedAt_not'; alias?: string }
-  | { name: 'updatedAt_in'; alias?: string }
-  | { name: 'updatedAt_not_in'; alias?: string }
-  | { name: 'updatedAt_lt'; alias?: string }
-  | { name: 'updatedAt_lte'; alias?: string }
-  | { name: 'updatedAt_gt'; alias?: string }
-  | { name: 'updatedAt_gte'; alias?: string }
-  | { name: 'published'; alias?: string }
-  | { name: 'published_not'; alias?: string }
-  | { name: 'title'; alias?: string }
-  | { name: 'title_not'; alias?: string }
-  | { name: 'title_in'; alias?: string }
-  | { name: 'title_not_in'; alias?: string }
-  | { name: 'title_lt'; alias?: string }
-  | { name: 'title_lte'; alias?: string }
-  | { name: 'title_gt'; alias?: string }
-  | { name: 'title_gte'; alias?: string }
-  | { name: 'title_contains'; alias?: string }
-  | { name: 'title_not_contains'; alias?: string }
-  | { name: 'title_starts_with'; alias?: string }
-  | { name: 'title_not_starts_with'; alias?: string }
-  | { name: 'title_ends_with'; alias?: string }
-  | { name: 'title_not_ends_with'; alias?: string }
-  | { name: 'content'; alias?: string }
-  | { name: 'content_not'; alias?: string }
-  | { name: 'content_in'; alias?: string }
-  | { name: 'content_not_in'; alias?: string }
-  | { name: 'content_lt'; alias?: string }
-  | { name: 'content_lte'; alias?: string }
-  | { name: 'content_gt'; alias?: string }
-  | { name: 'content_gte'; alias?: string }
-  | { name: 'content_contains'; alias?: string }
-  | { name: 'content_not_contains'; alias?: string }
-  | { name: 'content_starts_with'; alias?: string }
-  | { name: 'content_not_starts_with'; alias?: string }
-  | { name: 'content_ends_with'; alias?: string }
-  | { name: 'content_not_ends_with'; alias?: string }
-  | { name: 'AND'; alias?: string }
-  | { name: 'OR'; alias?: string }
-  | { name: 'NOT'; alias?: string };
-
-export interface PostUpdateManyWithWhereNestedInput {
-  where?: PostScalarWhereInput;
-  data?: PostUpdateManyDataInput;
-}
-export type PostUpdateManyWithWhereNestedInputInputObject =
-  | Extract<keyof PostUpdateManyWithWhereNestedInput, string>
-  | { name: 'where'; alias?: string }
-  | { name: 'data'; alias?: string };
-
-export interface PostUpdateManyDataInput {
-  published?: boolean | null;
-  title?: string | null;
-  content?: string | null;
-}
-export type PostUpdateManyDataInputInputObject =
-  | Extract<keyof PostUpdateManyDataInput, string>
-  | { name: 'published'; alias?: string }
-  | { name: 'title'; alias?: string }
-  | { name: 'content'; alias?: string };
-
-export interface UserUpdateManyMutationInput {
-  email?: string | null;
-  password?: string | null;
-  name?: string | null;
-}
-export type UserUpdateManyMutationInputInputObject =
-  | Extract<keyof UserUpdateManyMutationInput, string>
-  | { name: 'email'; alias?: string }
-  | { name: 'password'; alias?: string }
-  | { name: 'name'; alias?: string };
-
-export interface PostSubscriptionWhereInput {
+export interface AlarmSubscriptionWhereInput {
   mutation_in?: prisma.MutationType[];
   updatedFields_contains?: string | null;
   updatedFields_contains_every?: string[];
   updatedFields_contains_some?: string[];
-  node?: PostWhereInput | null;
-  AND?: PostSubscriptionWhereInput[];
-  OR?: PostSubscriptionWhereInput[];
-  NOT?: PostSubscriptionWhereInput[];
+  node?: AlarmWhereInput | null;
+  AND?: AlarmSubscriptionWhereInput[];
+  OR?: AlarmSubscriptionWhereInput[];
+  NOT?: AlarmSubscriptionWhereInput[];
 }
-export type PostSubscriptionWhereInputInputObject =
-  | Extract<keyof PostSubscriptionWhereInput, string>
+export type AlarmSubscriptionWhereInputInputObject =
+  | Extract<keyof AlarmSubscriptionWhereInput, string>
   | { name: 'mutation_in'; alias?: string }
   | { name: 'updatedFields_contains'; alias?: string }
   | { name: 'updatedFields_contains_every'; alias?: string }
@@ -1918,50 +768,13 @@ export type PostSubscriptionWhereInputInputObject =
   | { name: 'OR'; alias?: string }
   | { name: 'NOT'; alias?: string };
 
-export interface UserSubscriptionWhereInput {
-  mutation_in?: prisma.MutationType[];
-  updatedFields_contains?: string | null;
-  updatedFields_contains_every?: string[];
-  updatedFields_contains_some?: string[];
-  node?: UserWhereInput | null;
-  AND?: UserSubscriptionWhereInput[];
-  OR?: UserSubscriptionWhereInput[];
-  NOT?: UserSubscriptionWhereInput[];
-}
-export type UserSubscriptionWhereInputInputObject =
-  | Extract<keyof UserSubscriptionWhereInput, string>
-  | { name: 'mutation_in'; alias?: string }
-  | { name: 'updatedFields_contains'; alias?: string }
-  | { name: 'updatedFields_contains_every'; alias?: string }
-  | { name: 'updatedFields_contains_some'; alias?: string }
-  | { name: 'node'; alias?: string }
-  | { name: 'AND'; alias?: string }
-  | { name: 'OR'; alias?: string }
-  | { name: 'NOT'; alias?: string };
-
-export type PostOrderByInputValues =
+export type AlarmOrderByInputValues =
   | 'id_ASC'
   | 'id_DESC'
-  | 'createdAt_ASC'
-  | 'createdAt_DESC'
-  | 'updatedAt_ASC'
-  | 'updatedAt_DESC'
-  | 'published_ASC'
-  | 'published_DESC'
-  | 'title_ASC'
-  | 'title_DESC'
-  | 'content_ASC'
-  | 'content_DESC';
-
-export type UserOrderByInputValues =
-  | 'id_ASC'
-  | 'id_DESC'
-  | 'email_ASC'
-  | 'email_DESC'
-  | 'password_ASC'
-  | 'password_DESC'
-  | 'name_ASC'
-  | 'name_DESC'
+  | 'intId_ASC'
+  | 'intId_DESC'
+  | 'text_ASC'
+  | 'text_DESC'
   | 'createdAt_ASC'
   | 'createdAt_DESC'
   | 'updatedAt_ASC'

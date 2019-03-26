@@ -3,131 +3,283 @@
  * Do not make changes to this file directly
  */
 
-import * as types from "../types"
-
+import * as types from '../types';
 
 declare global {
   interface NexusGen extends NexusGenTypes {}
 }
 
 export interface NexusGenInputs {
+  AlarmCreateInput: {
+    // input type
+    intId: number; // Int!
+    text?: string | null; // String
+  };
+  AlarmUpdateInput: {
+    // input type
+    intId?: number | null; // Int
+    text?: string | null; // String
+  };
+  AlarmUpdateManyMutationInput: {
+    // input type
+    intId?: number | null; // Int
+    text?: string | null; // String
+  };
+  AlarmWhereInput: {
+    // input type
+    AND?: NexusGenInputs['AlarmWhereInput'][] | null; // [AlarmWhereInput!]
+    id?: string | null; // ID
+    id_contains?: string | null; // ID
+    id_ends_with?: string | null; // ID
+    id_gt?: string | null; // ID
+    id_gte?: string | null; // ID
+    id_in?: string[] | null; // [ID!]
+    id_lt?: string | null; // ID
+    id_lte?: string | null; // ID
+    id_not?: string | null; // ID
+    id_not_contains?: string | null; // ID
+    id_not_ends_with?: string | null; // ID
+    id_not_in?: string[] | null; // [ID!]
+    id_not_starts_with?: string | null; // ID
+    id_starts_with?: string | null; // ID
+    intId?: number | null; // Int
+    intId_gt?: number | null; // Int
+    intId_gte?: number | null; // Int
+    intId_in?: number[] | null; // [Int!]
+    intId_lt?: number | null; // Int
+    intId_lte?: number | null; // Int
+    intId_not?: number | null; // Int
+    intId_not_in?: number[] | null; // [Int!]
+    NOT?: NexusGenInputs['AlarmWhereInput'][] | null; // [AlarmWhereInput!]
+    OR?: NexusGenInputs['AlarmWhereInput'][] | null; // [AlarmWhereInput!]
+    text?: string | null; // String
+    text_contains?: string | null; // String
+    text_ends_with?: string | null; // String
+    text_gt?: string | null; // String
+    text_gte?: string | null; // String
+    text_in?: string[] | null; // [String!]
+    text_lt?: string | null; // String
+    text_lte?: string | null; // String
+    text_not?: string | null; // String
+    text_not_contains?: string | null; // String
+    text_not_ends_with?: string | null; // String
+    text_not_in?: string[] | null; // [String!]
+    text_not_starts_with?: string | null; // String
+    text_starts_with?: string | null; // String
+  };
+  AlarmWhereUniqueInput: {
+    // input type
+    id?: string | null; // ID
+    intId?: number | null; // Int
+  };
 }
 
 export interface NexusGenEnums {
+  AlarmOrderByInput:
+    | 'createdAt_ASC'
+    | 'createdAt_DESC'
+    | 'id_ASC'
+    | 'id_DESC'
+    | 'intId_ASC'
+    | 'intId_DESC'
+    | 'text_ASC'
+    | 'text_DESC'
+    | 'updatedAt_ASC'
+    | 'updatedAt_DESC';
 }
 
 export interface NexusGenRootTypes {
-  AuthPayload: { // root type
-    token?: string | null; // String
-    user?: NexusGenRootTypes['User'] | null; // User
-  }
+  AggregateAlarm: {
+    // root type
+    count: number; // Int!
+  };
+  Alarm: {
+    // root type
+    id: string; // ID!
+    intId: number; // Int!
+    text?: string | null; // String
+  };
+  AlarmConnection: {
+    // root type
+    edges: NexusGenRootTypes['AlarmEdge'][]; // [AlarmEdge!]!
+    pageInfo: NexusGenRootTypes['PageInfo']; // PageInfo!
+  };
+  AlarmEdge: {
+    // root type
+    cursor: string; // String!
+    node: NexusGenRootTypes['Alarm']; // Alarm!
+  };
+  BatchPayload: {
+    // root type
+    count: any; // Long!
+  };
   Mutation: {};
-  Post: { // root type
-    content?: string | null; // String
-    createdAt: any; // DateTime!
-    id: string; // ID!
-    published: boolean; // Boolean!
-    title: string; // String!
-    updatedAt: any; // DateTime!
-  }
+  PageInfo: {
+    // root type
+    endCursor?: string | null; // String
+    hasNextPage: boolean; // Boolean!
+    hasPreviousPage: boolean; // Boolean!
+    startCursor?: string | null; // String
+  };
   Query: {};
-  User: { // root type
-    email: string; // String!
-    id: string; // ID!
-    name?: string | null; // String
-  }
   String: string;
   Int: number;
   Float: number;
   Boolean: boolean;
   ID: string;
-  DateTime: any;
+  Long: any;
 }
 
 export interface NexusGenAllTypes extends NexusGenRootTypes {
+  AlarmCreateInput: NexusGenInputs['AlarmCreateInput'];
+  AlarmUpdateInput: NexusGenInputs['AlarmUpdateInput'];
+  AlarmUpdateManyMutationInput: NexusGenInputs['AlarmUpdateManyMutationInput'];
+  AlarmWhereInput: NexusGenInputs['AlarmWhereInput'];
+  AlarmWhereUniqueInput: NexusGenInputs['AlarmWhereUniqueInput'];
+  AlarmOrderByInput: NexusGenEnums['AlarmOrderByInput'];
 }
 
 export interface NexusGenFieldTypes {
-  AuthPayload: { // field return type
-    token: string | null; // String
-    user: NexusGenRootTypes['User'] | null; // User
-  }
-  Mutation: { // field return type
-    createDraft: NexusGenRootTypes['Post'] | null; // Post
-    deletePost: NexusGenRootTypes['Post'] | null; // Post
-    login: NexusGenRootTypes['AuthPayload'] | null; // AuthPayload
-    publish: NexusGenRootTypes['Post'] | null; // Post
-    signup: NexusGenRootTypes['AuthPayload'] | null; // AuthPayload
-  }
-  Post: { // field return type
-    author: NexusGenRootTypes['User']; // User!
-    content: string | null; // String
-    createdAt: any; // DateTime!
+  AggregateAlarm: {
+    // field return type
+    count: number; // Int!
+  };
+  Alarm: {
+    // field return type
     id: string; // ID!
-    published: boolean; // Boolean!
-    title: string; // String!
-    updatedAt: any; // DateTime!
-  }
-  Query: { // field return type
-    feed: NexusGenRootTypes['Post'][] | null; // [Post!]
-    filterPosts: NexusGenRootTypes['Post'][] | null; // [Post!]
-    me: NexusGenRootTypes['User'] | null; // User
-    post: NexusGenRootTypes['Post'] | null; // Post
-  }
-  User: { // field return type
-    email: string; // String!
-    id: string; // ID!
-    name: string | null; // String
-    posts: NexusGenRootTypes['Post'][] | null; // [Post!]
-  }
+    intId: number; // Int!
+    text: string | null; // String
+  };
+  AlarmConnection: {
+    // field return type
+    aggregate: NexusGenRootTypes['AggregateAlarm']; // AggregateAlarm!
+    edges: NexusGenRootTypes['AlarmEdge'][]; // [AlarmEdge!]!
+    pageInfo: NexusGenRootTypes['PageInfo']; // PageInfo!
+  };
+  AlarmEdge: {
+    // field return type
+    cursor: string; // String!
+    node: NexusGenRootTypes['Alarm']; // Alarm!
+  };
+  BatchPayload: {
+    // field return type
+    count: any; // Long!
+  };
+  Mutation: {
+    // field return type
+    createAlarm: NexusGenRootTypes['Alarm']; // Alarm!
+    deleteAlarm: NexusGenRootTypes['Alarm'] | null; // Alarm
+    deleteManyAlarms: NexusGenRootTypes['BatchPayload']; // BatchPayload!
+    updateAlarm: NexusGenRootTypes['Alarm'] | null; // Alarm
+    updateManyAlarms: NexusGenRootTypes['BatchPayload']; // BatchPayload!
+    upsertAlarm: NexusGenRootTypes['Alarm']; // Alarm!
+  };
+  PageInfo: {
+    // field return type
+    endCursor: string | null; // String
+    hasNextPage: boolean; // Boolean!
+    hasPreviousPage: boolean; // Boolean!
+    startCursor: string | null; // String
+  };
+  Query: {
+    // field return type
+    alarm: NexusGenRootTypes['Alarm'] | null; // Alarm
+    alarms: NexusGenRootTypes['Alarm'][]; // [Alarm!]!
+    alarmsConnection: NexusGenRootTypes['AlarmConnection']; // AlarmConnection!
+  };
 }
 
 export interface NexusGenArgTypes {
   Mutation: {
-    createDraft: { // args
-      content?: string | null; // String
-      title?: string | null; // String
-    }
-    deletePost: { // args
-      id?: string | null; // ID
-    }
-    login: { // args
-      email?: string | null; // String
-      password?: string | null; // String
-    }
-    publish: { // args
-      id?: string | null; // ID
-    }
-    signup: { // args
-      email?: string | null; // String
-      name?: string | null; // String
-      password?: string | null; // String
-    }
-  }
+    createAlarm: {
+      // args
+      data: NexusGenInputs['AlarmCreateInput']; // AlarmCreateInput!
+    };
+    deleteAlarm: {
+      // args
+      where: NexusGenInputs['AlarmWhereUniqueInput']; // AlarmWhereUniqueInput!
+    };
+    deleteManyAlarms: {
+      // args
+      where?: NexusGenInputs['AlarmWhereInput'] | null; // AlarmWhereInput
+    };
+    updateAlarm: {
+      // args
+      data: NexusGenInputs['AlarmUpdateInput']; // AlarmUpdateInput!
+      where: NexusGenInputs['AlarmWhereUniqueInput']; // AlarmWhereUniqueInput!
+    };
+    updateManyAlarms: {
+      // args
+      data: NexusGenInputs['AlarmUpdateManyMutationInput']; // AlarmUpdateManyMutationInput!
+      where?: NexusGenInputs['AlarmWhereInput'] | null; // AlarmWhereInput
+    };
+    upsertAlarm: {
+      // args
+      create: NexusGenInputs['AlarmCreateInput']; // AlarmCreateInput!
+      update: NexusGenInputs['AlarmUpdateInput']; // AlarmUpdateInput!
+      where: NexusGenInputs['AlarmWhereUniqueInput']; // AlarmWhereUniqueInput!
+    };
+  };
   Query: {
-    filterPosts: { // args
-      searchString?: string | null; // String
-    }
-    post: { // args
-      id?: string | null; // ID
-    }
-  }
+    alarm: {
+      // args
+      where: NexusGenInputs['AlarmWhereUniqueInput']; // AlarmWhereUniqueInput!
+    };
+    alarms: {
+      // args
+      after?: string | null; // String
+      before?: string | null; // String
+      first?: number | null; // Int
+      last?: number | null; // Int
+      orderBy?: NexusGenEnums['AlarmOrderByInput'] | null; // AlarmOrderByInput
+      skip?: number | null; // Int
+      where?: NexusGenInputs['AlarmWhereInput'] | null; // AlarmWhereInput
+    };
+    alarmsConnection: {
+      // args
+      after?: string | null; // String
+      before?: string | null; // String
+      first?: number | null; // Int
+      last?: number | null; // Int
+      orderBy?: NexusGenEnums['AlarmOrderByInput'] | null; // AlarmOrderByInput
+      skip?: number | null; // Int
+      where?: NexusGenInputs['AlarmWhereInput'] | null; // AlarmWhereInput
+    };
+  };
 }
 
-export interface NexusGenAbstractResolveReturnTypes {
-}
+export interface NexusGenAbstractResolveReturnTypes {}
 
 export interface NexusGenInheritedFields {}
 
-export type NexusGenObjectNames = "AuthPayload" | "Mutation" | "Post" | "Query" | "User";
+export type NexusGenObjectNames =
+  | 'AggregateAlarm'
+  | 'Alarm'
+  | 'AlarmConnection'
+  | 'AlarmEdge'
+  | 'BatchPayload'
+  | 'Mutation'
+  | 'PageInfo'
+  | 'Query';
 
-export type NexusGenInputNames = never;
+export type NexusGenInputNames =
+  | 'AlarmCreateInput'
+  | 'AlarmUpdateInput'
+  | 'AlarmUpdateManyMutationInput'
+  | 'AlarmWhereInput'
+  | 'AlarmWhereUniqueInput';
 
-export type NexusGenEnumNames = never;
+export type NexusGenEnumNames = 'AlarmOrderByInput';
 
 export type NexusGenInterfaceNames = never;
 
-export type NexusGenScalarNames = "Boolean" | "DateTime" | "Float" | "ID" | "Int" | "String";
+export type NexusGenScalarNames =
+  | 'Boolean'
+  | 'Float'
+  | 'ID'
+  | 'Int'
+  | 'Long'
+  | 'String';
 
 export type NexusGenUnionNames = never;
 
@@ -145,9 +297,19 @@ export interface NexusGenTypes {
   interfaceNames: NexusGenInterfaceNames;
   scalarNames: NexusGenScalarNames;
   unionNames: NexusGenUnionNames;
-  allInputTypes: NexusGenTypes['inputNames'] | NexusGenTypes['enumNames'] | NexusGenTypes['scalarNames'];
-  allOutputTypes: NexusGenTypes['objectNames'] | NexusGenTypes['enumNames'] | NexusGenTypes['unionNames'] | NexusGenTypes['interfaceNames'] | NexusGenTypes['scalarNames'];
-  allNamedTypes: NexusGenTypes['allInputTypes'] | NexusGenTypes['allOutputTypes']
+  allInputTypes:
+    | NexusGenTypes['inputNames']
+    | NexusGenTypes['enumNames']
+    | NexusGenTypes['scalarNames'];
+  allOutputTypes:
+    | NexusGenTypes['objectNames']
+    | NexusGenTypes['enumNames']
+    | NexusGenTypes['unionNames']
+    | NexusGenTypes['interfaceNames']
+    | NexusGenTypes['scalarNames'];
+  allNamedTypes:
+    | NexusGenTypes['allInputTypes']
+    | NexusGenTypes['allOutputTypes'];
   abstractTypes: NexusGenTypes['interfaceNames'] | NexusGenTypes['unionNames'];
   abstractResolveReturn: NexusGenAbstractResolveReturnTypes;
 }
