@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import ApolloClient from 'apollo-boost';
 import { ApolloProvider } from 'react-apollo-hooks';
 import Alarms from './Alarms';
@@ -13,7 +13,9 @@ const client = new ApolloClient({
 const App: React.FC = () => {
   return (
     <ApolloProvider client={client}>
-      <Alarms />
+      <Suspense fallback={<div>Loading...</div>}>
+        <Alarms />
+      </Suspense>
     </ApolloProvider>
   );
 };

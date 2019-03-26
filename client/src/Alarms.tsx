@@ -14,10 +14,9 @@ const GET_ALARMS = gql`
 `;
 
 const Alarms: React.FC = () => {
-  const { data, error, loading } = useQuery<AlarmsQuery>(GET_ALARMS);
-  if (loading) {
-    return <div>Loading...</div>;
-  }
+  const { data, error } = useQuery<AlarmsQuery>(GET_ALARMS, {
+    suspend: true,
+  });
   if (error) {
     return <div>Error! {error.message}</div>;
   }
