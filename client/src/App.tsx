@@ -3,6 +3,7 @@ import ApolloClient from 'apollo-boost';
 import { ApolloProvider } from 'react-apollo-hooks';
 import Alarms from './Alarms';
 import './App.css';
+import CreateAlarm from './CreateAlarm';
 
 const SERVER_URL = 'http://localhost:4000';
 
@@ -15,6 +16,7 @@ const App: React.FC = () => {
     <ApolloProvider client={client}>
       <Suspense fallback={<div>Loading...</div>}>
         <Alarms />
+        <CreateAlarm />
       </Suspense>
     </ApolloProvider>
   );

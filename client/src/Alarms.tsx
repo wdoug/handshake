@@ -27,7 +27,8 @@ const Alarms: React.FC = () => {
       <ul>
         {data &&
           data.alarms.map(alarm => (
-            <li key={alarm.id}>{`${alarm.intId} -- ${alarm.text}`}</li>
+            <li key={alarm.id}>{`${alarm.intId} -- ${alarm.text &&
+              alarm.text.toUpperCase()}`}</li>
           ))}
       </ul>
     </React.Fragment>

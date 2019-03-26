@@ -110,7 +110,7 @@ export type BatchPayload = {
 };
 
 export type Mutation = {
-  createAlarm: Alarm;
+  createAlarm?: Maybe<Alarm>;
   updateAlarm?: Maybe<Alarm>;
   updateManyAlarms: BatchPayload;
   upsertAlarm: Alarm;
@@ -119,7 +119,7 @@ export type Mutation = {
 };
 
 export type MutationCreateAlarmArgs = {
-  data: AlarmCreateInput;
+  text?: Maybe<Scalars['String']>;
 };
 
 export type MutationUpdateAlarmArgs = {
@@ -188,4 +188,12 @@ export type AlarmsQuery = { __typename?: 'Query' } & {
   alarms: Array<
     { __typename?: 'Alarm' } & Pick<Alarm, 'id' | 'intId' | 'text'>
   >;
+};
+
+export type CreateAlarmMutationVariables = {
+  text?: Maybe<Scalars['String']>;
+};
+
+export type CreateAlarmMutation = { __typename?: 'Mutation' } & {
+  createAlarm: Maybe<{ __typename?: 'Alarm' } & Pick<Alarm, 'intId' | 'text'>>;
 };
