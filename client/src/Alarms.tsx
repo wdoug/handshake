@@ -1,6 +1,7 @@
 import React from 'react';
 import gql from 'graphql-tag';
 import { useQuery } from 'react-apollo-hooks';
+import { AlarmsQuery } from './generated/graphql';
 
 const GET_ALARMS = gql`
   query alarms {
@@ -13,7 +14,7 @@ const GET_ALARMS = gql`
 `;
 
 const Alarms: React.FC = () => {
-  const { data, error, loading } = useQuery(GET_ALARMS);
+  const { data, error, loading } = useQuery<AlarmsQuery>(GET_ALARMS);
   if (loading) {
     return <div>Loading...</div>;
   }
@@ -25,9 +26,10 @@ const Alarms: React.FC = () => {
     <React.Fragment>
       <h1>Alarms</h1>
       <ul>
-        {data.alarms.map((alarm: any) => (
-          <li key={alarm.id}>{`${alarm.intId} -- ${alarm.text}`}</li>
-        ))}
+        {data &&
+          data.alarms.map(alarm => (
+            <li key={alarm.id}>{`${alarm.intId} -- ${alarm.text}`}</li>
+          ))}
       </ul>
     </React.Fragment>
   );
