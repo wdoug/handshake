@@ -1,4 +1,4 @@
-# Starter Template
+# Handshake Example Web App
 
 ## Setup
 
