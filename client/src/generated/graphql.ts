@@ -201,6 +201,10 @@ export type QueryAlarmsConnectionArgs = {
   first?: Maybe<Scalars['Int']>;
   last?: Maybe<Scalars['Int']>;
 };
+
+export type Subscription = {
+  feedAlarms?: Maybe<Alarm>;
+};
 export type UpvoteMutationVariables = {
   intId: Scalars['Int'];
 };

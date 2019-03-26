@@ -26,7 +26,7 @@ const CreateAlarm: React.FC = () => {
         type="submit"
         onClick={async e => {
           e.preventDefault();
-          await addAlarm();
+          await addAlarm({ refetchQueries: ['alarms'] });
           setText('');
         }}
       >

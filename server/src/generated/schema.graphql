@@ -140,3 +140,7 @@ type Query {
   alarms(after: String, before: String, first: Int, last: Int, orderBy: AlarmOrderByInput, skip: Int, where: AlarmWhereInput): [Alarm!]!
   alarmsConnection(after: String, before: String, first: Int, last: Int, orderBy: AlarmOrderByInput, skip: Int, where: AlarmWhereInput): AlarmConnection!
 }
+
+type Subscription {
+  feedAlarms: Alarm
+}

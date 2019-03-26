@@ -28,7 +28,9 @@ const Alarm: React.FC<AlarmProps> = ({ alarm }) => {
     <div>
       {`${alarm.intId} -- ${alarm.text && alarm.text.toUpperCase()} `}
       <span>{alarm.upvotes}</span>
-      <button onClick={() => upvote()}>Upvote</button>
+      <button onClick={() => upvote({ refetchQueries: ['alarms'] })}>
+        Upvote
+      </button>
     </div>
   );
 };

@@ -114,6 +114,7 @@ export interface NexusGenRootTypes {
     startCursor?: string | null; // String
   }
   Query: {};
+  Subscription: {};
   String: string;
   Int: number;
   Float: number;
@@ -172,6 +173,9 @@ export interface NexusGenFieldTypes {
     alarm: NexusGenRootTypes['Alarm'] | null; // Alarm
     alarms: NexusGenRootTypes['Alarm'][]; // [Alarm!]!
     alarmsConnection: NexusGenRootTypes['AlarmConnection']; // AlarmConnection!
+  }
+  Subscription: { // field return type
+    feedAlarms: NexusGenRootTypes['Alarm'] | null; // Alarm
   }
 }
 
@@ -233,7 +237,7 @@ export interface NexusGenAbstractResolveReturnTypes {
 
 export interface NexusGenInheritedFields {}
 
-export type NexusGenObjectNames = "AggregateAlarm" | "Alarm" | "AlarmConnection" | "AlarmEdge" | "BatchPayload" | "Mutation" | "PageInfo" | "Query";
+export type NexusGenObjectNames = "AggregateAlarm" | "Alarm" | "AlarmConnection" | "AlarmEdge" | "BatchPayload" | "Mutation" | "PageInfo" | "Query" | "Subscription";
 
 export type NexusGenInputNames = "AlarmCreateInput" | "AlarmUpdateInput" | "AlarmUpdateManyMutationInput" | "AlarmWhereInput" | "AlarmWhereUniqueInput";
 
