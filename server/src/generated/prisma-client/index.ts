@@ -2,13 +2,13 @@
 // Please don't change this file manually but run `prisma generate` to update it.
 // For more information, please read the docs: https://www.prisma.io/docs/prisma-client/
 
-import { DocumentNode } from 'graphql';
+import { DocumentNode } from "graphql";
 import {
   makePrismaClientClass,
   BaseClientOptions,
-  Model,
-} from 'prisma-client-lib';
-import { typeDefs } from './prisma-schema';
+  Model
+} from "prisma-client-lib";
+import { typeDefs } from "./prisma-schema";
 
 export type AtLeastOne<T, U = { [K in keyof T]: Pick<T, K> }> = Partial<T> &
   U[keyof U];
@@ -29,7 +29,7 @@ export interface Prisma {
   $exists: Exists;
   $graphql: <T = any>(
     query: string,
-    variables?: { [key: string]: any },
+    variables?: { [key: string]: any }
   ) => Promise<T>;
 
   /**
@@ -37,24 +37,28 @@ export interface Prisma {
    */
 
   alarm: (where: AlarmWhereUniqueInput) => AlarmPromise;
-  alarms: (args?: {
-    where?: AlarmWhereInput;
-    orderBy?: AlarmOrderByInput;
-    skip?: Int;
-    after?: String;
-    before?: String;
-    first?: Int;
-    last?: Int;
-  }) => FragmentableArray<Alarm>;
-  alarmsConnection: (args?: {
-    where?: AlarmWhereInput;
-    orderBy?: AlarmOrderByInput;
-    skip?: Int;
-    after?: String;
-    before?: String;
-    first?: Int;
-    last?: Int;
-  }) => AlarmConnectionPromise;
+  alarms: (
+    args?: {
+      where?: AlarmWhereInput;
+      orderBy?: AlarmOrderByInput;
+      skip?: Int;
+      after?: String;
+      before?: String;
+      first?: Int;
+      last?: Int;
+    }
+  ) => FragmentableArray<Alarm>;
+  alarmsConnection: (
+    args?: {
+      where?: AlarmWhereInput;
+      orderBy?: AlarmOrderByInput;
+      skip?: Int;
+      after?: String;
+      before?: String;
+      first?: Int;
+      last?: Int;
+    }
+  ) => AlarmConnectionPromise;
   node: (args: { id: ID_Output }) => Node;
 
   /**
@@ -62,19 +66,19 @@ export interface Prisma {
    */
 
   createAlarm: (data: AlarmCreateInput) => AlarmPromise;
-  updateAlarm: (args: {
-    data: AlarmUpdateInput;
-    where: AlarmWhereUniqueInput;
-  }) => AlarmPromise;
-  updateManyAlarms: (args: {
-    data: AlarmUpdateManyMutationInput;
-    where?: AlarmWhereInput;
-  }) => BatchPayloadPromise;
-  upsertAlarm: (args: {
-    where: AlarmWhereUniqueInput;
-    create: AlarmCreateInput;
-    update: AlarmUpdateInput;
-  }) => AlarmPromise;
+  updateAlarm: (
+    args: { data: AlarmUpdateInput; where: AlarmWhereUniqueInput }
+  ) => AlarmPromise;
+  updateManyAlarms: (
+    args: { data: AlarmUpdateManyMutationInput; where?: AlarmWhereInput }
+  ) => BatchPayloadPromise;
+  upsertAlarm: (
+    args: {
+      where: AlarmWhereUniqueInput;
+      create: AlarmCreateInput;
+      update: AlarmUpdateInput;
+    }
+  ) => AlarmPromise;
   deleteAlarm: (where: AlarmWhereUniqueInput) => AlarmPromise;
   deleteManyAlarms: (where?: AlarmWhereInput) => BatchPayloadPromise;
 
@@ -87,7 +91,7 @@ export interface Prisma {
 
 export interface Subscription {
   alarm: (
-    where?: AlarmSubscriptionWhereInput,
+    where?: AlarmSubscriptionWhereInput
   ) => AlarmSubscriptionPayloadSubscription;
 }
 
@@ -100,27 +104,31 @@ export interface ClientConstructor<T> {
  */
 
 export type AlarmOrderByInput =
-  | 'id_ASC'
-  | 'id_DESC'
-  | 'intId_ASC'
-  | 'intId_DESC'
-  | 'text_ASC'
-  | 'text_DESC'
-  | 'createdAt_ASC'
-  | 'createdAt_DESC'
-  | 'updatedAt_ASC'
-  | 'updatedAt_DESC';
+  | "id_ASC"
+  | "id_DESC"
+  | "intId_ASC"
+  | "intId_DESC"
+  | "text_ASC"
+  | "text_DESC"
+  | "upvotes_ASC"
+  | "upvotes_DESC"
+  | "createdAt_ASC"
+  | "createdAt_DESC"
+  | "updatedAt_ASC"
+  | "updatedAt_DESC";
 
-export type MutationType = 'CREATED' | 'UPDATED' | 'DELETED';
+export type MutationType = "CREATED" | "UPDATED" | "DELETED";
 
 export interface AlarmCreateInput {
   intId: Int;
   text?: String;
+  upvotes?: Int;
 }
 
 export interface AlarmUpdateInput {
   intId?: Int;
   text?: String;
+  upvotes?: Int;
 }
 
 export interface AlarmWhereInput {
@@ -160,6 +168,14 @@ export interface AlarmWhereInput {
   text_not_starts_with?: String;
   text_ends_with?: String;
   text_not_ends_with?: String;
+  upvotes?: Int;
+  upvotes_not?: Int;
+  upvotes_in?: Int[] | Int;
+  upvotes_not_in?: Int[] | Int;
+  upvotes_lt?: Int;
+  upvotes_lte?: Int;
+  upvotes_gt?: Int;
+  upvotes_gte?: Int;
   AND?: AlarmWhereInput[] | AlarmWhereInput;
   OR?: AlarmWhereInput[] | AlarmWhereInput;
   NOT?: AlarmWhereInput[] | AlarmWhereInput;
@@ -168,6 +184,7 @@ export interface AlarmWhereInput {
 export interface AlarmUpdateManyMutationInput {
   intId?: Int;
   text?: String;
+  upvotes?: Int;
 }
 
 export interface AlarmSubscriptionWhereInput {
@@ -226,6 +243,7 @@ export interface AlarmPreviousValues {
   id: ID_Output;
   intId: Int;
   text?: String;
+  upvotes?: Int;
 }
 
 export interface AlarmPreviousValuesPromise
@@ -234,6 +252,7 @@ export interface AlarmPreviousValuesPromise
   id: () => Promise<ID_Output>;
   intId: () => Promise<Int>;
   text: () => Promise<String>;
+  upvotes: () => Promise<Int>;
 }
 
 export interface AlarmPreviousValuesSubscription
@@ -242,6 +261,7 @@ export interface AlarmPreviousValuesSubscription
   id: () => Promise<AsyncIterator<ID_Output>>;
   intId: () => Promise<AsyncIterator<Int>>;
   text: () => Promise<AsyncIterator<String>>;
+  upvotes: () => Promise<AsyncIterator<Int>>;
 }
 
 export interface AlarmEdge {
@@ -290,12 +310,14 @@ export interface Alarm {
   id: ID_Output;
   intId: Int;
   text?: String;
+  upvotes?: Int;
 }
 
 export interface AlarmPromise extends Promise<Alarm>, Fragmentable {
   id: () => Promise<ID_Output>;
   intId: () => Promise<Int>;
   text: () => Promise<String>;
+  upvotes: () => Promise<Int>;
 }
 
 export interface AlarmSubscription
@@ -304,6 +326,7 @@ export interface AlarmSubscription
   id: () => Promise<AsyncIterator<ID_Output>>;
   intId: () => Promise<AsyncIterator<Int>>;
   text: () => Promise<AsyncIterator<String>>;
+  upvotes: () => Promise<AsyncIterator<Int>>;
 }
 
 export interface AlarmConnection {
@@ -379,9 +402,9 @@ export type Boolean = boolean;
 
 export const models: Model[] = [
   {
-    name: 'Alarm',
-    embedded: false,
-  },
+    name: "Alarm",
+    embedded: false
+  }
 ];
 
 /**
@@ -391,6 +414,6 @@ export const models: Model[] = [
 export const Prisma = makePrismaClientClass<ClientConstructor<Prisma>>({
   typeDefs,
   models,
-  endpoint: `http://localhost:4466`,
+  endpoint: `http://localhost:4466`
 });
 export const prisma = new Prisma();

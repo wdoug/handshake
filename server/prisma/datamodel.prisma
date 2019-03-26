@@ -2,4 +2,5 @@ type Alarm {
   id: ID! @unique
   intId: Int! @unique
   text: String
+  upvotes: Int @default(value: 0)
 }

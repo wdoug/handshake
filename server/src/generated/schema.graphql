@@ -10,6 +10,7 @@ type Alarm {
   id: ID!
   intId: Int!
   text: String
+  upvotes: Int
 }
 
 type AlarmConnection {
@@ -21,6 +22,7 @@ type AlarmConnection {
 input AlarmCreateInput {
   intId: Int!
   text: String
+  upvotes: Int
 }
 
 type AlarmEdge {
@@ -39,16 +41,20 @@ enum AlarmOrderByInput {
   text_DESC
   updatedAt_ASC
   updatedAt_DESC
+  upvotes_ASC
+  upvotes_DESC
 }
 
 input AlarmUpdateInput {
   intId: Int
   text: String
+  upvotes: Int
 }
 
 input AlarmUpdateManyMutationInput {
   intId: Int
   text: String
+  upvotes: Int
 }
 
 input AlarmWhereInput {
@@ -91,6 +97,14 @@ input AlarmWhereInput {
   text_not_in: [String!]
   text_not_starts_with: String
   text_starts_with: String
+  upvotes: Int
+  upvotes_gt: Int
+  upvotes_gte: Int
+  upvotes_in: [Int!]
+  upvotes_lt: Int
+  upvotes_lte: Int
+  upvotes_not: Int
+  upvotes_not_in: [Int!]
 }
 
 input AlarmWhereUniqueInput {
@@ -111,6 +125,7 @@ type Mutation {
   updateAlarm(data: AlarmUpdateInput!, where: AlarmWhereUniqueInput!): Alarm
   updateManyAlarms(data: AlarmUpdateManyMutationInput!, where: AlarmWhereInput): BatchPayload!
   upsertAlarm(create: AlarmCreateInput!, update: AlarmUpdateInput!, where: AlarmWhereUniqueInput!): Alarm!
+  upvote(intId: Int): Alarm
 }
 
 type PageInfo {

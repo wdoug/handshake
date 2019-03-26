@@ -2,6 +2,7 @@ import React from 'react';
 import gql from 'graphql-tag';
 import { useQuery } from 'react-apollo-hooks';
 import { AlarmsQuery } from './generated/graphql';
+import Alarm from './AlarmItem';
 
 export const GET_ALARMS = gql`
   query alarms {
@@ -9,6 +10,7 @@ export const GET_ALARMS = gql`
       id
       intId
       text
+      upvotes
     }
   }
 `;
@@ -25,8 +27,9 @@ const AlarmsList: React.FC = () => {
     <ul>
       {data &&
         data.alarms.map(alarm => (
-          <li key={alarm.id}>{`${alarm.intId} -- ${alarm.text &&
-            alarm.text.toUpperCase()}`}</li>
+          <li key={alarm.id}>
+            <Alarm alarm={alarm} />
+          </li>
         ))}
     </ul>
   );

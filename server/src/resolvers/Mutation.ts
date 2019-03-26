@@ -1,5 +1,5 @@
 import { prismaObjectType } from 'nexus-prisma';
-import { stringArg } from 'nexus';
+import { stringArg, intArg } from 'nexus';
 import fetch from 'node-fetch';
 
 async function sendNotification(intId: number) {
@@ -46,6 +46,22 @@ export const Mutation = prismaObjectType({
         sendNotification(lastInt + 1);
 
         return newAlarm;
+      },
+    });
+
+    t.field('upvote', {
+      type: 'Alarm',
+      args: { intId: intArg() },
+      resolve: async (_, { intId }, ctx) => {
+        const alarm = await ctx.prisma.alarm({ intId });
+        return ctx.prisma.updateAlarm({
+          where: {
+            intId,
+          },
+          data: {
+            upvotes: alarm.upvotes + 1,
+          },
+        });
       },
     });
   },

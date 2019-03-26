@@ -17,6 +17,7 @@ export type Alarm = {
   id: Scalars['ID'];
   intId: Scalars['Int'];
   text?: Maybe<Scalars['String']>;
+  upvotes?: Maybe<Scalars['Int']>;
 };
 
 export type AlarmConnection = {
@@ -28,6 +29,7 @@ export type AlarmConnection = {
 export type AlarmCreateInput = {
   intId: Scalars['Int'];
   text?: Maybe<Scalars['String']>;
+  upvotes?: Maybe<Scalars['Int']>;
 };
 
 export type AlarmEdge = {
@@ -42,6 +44,8 @@ export enum AlarmOrderByInput {
   IntId_Desc = 'intId_DESC',
   Text_Asc = 'text_ASC',
   Text_Desc = 'text_DESC',
+  Upvotes_Asc = 'upvotes_ASC',
+  Upvotes_Desc = 'upvotes_DESC',
   CreatedAt_Asc = 'createdAt_ASC',
   CreatedAt_Desc = 'createdAt_DESC',
   UpdatedAt_Asc = 'updatedAt_ASC',
@@ -51,11 +55,13 @@ export enum AlarmOrderByInput {
 export type AlarmUpdateInput = {
   intId?: Maybe<Scalars['Int']>;
   text?: Maybe<Scalars['String']>;
+  upvotes?: Maybe<Scalars['Int']>;
 };
 
 export type AlarmUpdateManyMutationInput = {
   intId?: Maybe<Scalars['Int']>;
   text?: Maybe<Scalars['String']>;
+  upvotes?: Maybe<Scalars['Int']>;
 };
 
 export type AlarmWhereInput = {
@@ -95,6 +101,14 @@ export type AlarmWhereInput = {
   text_not_starts_with?: Maybe<Scalars['String']>;
   text_ends_with?: Maybe<Scalars['String']>;
   text_not_ends_with?: Maybe<Scalars['String']>;
+  upvotes?: Maybe<Scalars['Int']>;
+  upvotes_not?: Maybe<Scalars['Int']>;
+  upvotes_in?: Maybe<Array<Scalars['Int']>>;
+  upvotes_not_in?: Maybe<Array<Scalars['Int']>>;
+  upvotes_lt?: Maybe<Scalars['Int']>;
+  upvotes_lte?: Maybe<Scalars['Int']>;
+  upvotes_gt?: Maybe<Scalars['Int']>;
+  upvotes_gte?: Maybe<Scalars['Int']>;
   AND?: Maybe<Array<AlarmWhereInput>>;
   OR?: Maybe<Array<AlarmWhereInput>>;
   NOT?: Maybe<Array<AlarmWhereInput>>;
@@ -116,6 +130,7 @@ export type Mutation = {
   upsertAlarm: Alarm;
   deleteAlarm?: Maybe<Alarm>;
   deleteManyAlarms: BatchPayload;
+  upvote?: Maybe<Alarm>;
 };
 
 export type MutationCreateAlarmArgs = {
@@ -144,6 +159,10 @@ export type MutationDeleteAlarmArgs = {
 
 export type MutationDeleteManyAlarmsArgs = {
   where?: Maybe<AlarmWhereInput>;
+};
+
+export type MutationUpvoteArgs = {
+  intId?: Maybe<Scalars['Int']>;
 };
 
 export type PageInfo = {
@@ -182,11 +201,21 @@ export type QueryAlarmsConnectionArgs = {
   first?: Maybe<Scalars['Int']>;
   last?: Maybe<Scalars['Int']>;
 };
+export type UpvoteMutationVariables = {
+  intId: Scalars['Int'];
+};
+
+export type UpvoteMutation = { __typename?: 'Mutation' } & {
+  upvote: Maybe<
+    { __typename?: 'Alarm' } & Pick<Alarm, 'text' | 'intId' | 'upvotes'>
+  >;
+};
+
 export type AlarmsQueryVariables = {};
 
 export type AlarmsQuery = { __typename?: 'Query' } & {
   alarms: Array<
-    { __typename?: 'Alarm' } & Pick<Alarm, 'id' | 'intId' | 'text'>
+    { __typename?: 'Alarm' } & Pick<Alarm, 'id' | 'intId' | 'text' | 'upvotes'>
   >;
 };
 

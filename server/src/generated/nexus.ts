@@ -14,14 +14,17 @@ export interface NexusGenInputs {
   AlarmCreateInput: { // input type
     intId: number; // Int!
     text?: string | null; // String
+    upvotes?: number | null; // Int
   }
   AlarmUpdateInput: { // input type
     intId?: number | null; // Int
     text?: string | null; // String
+    upvotes?: number | null; // Int
   }
   AlarmUpdateManyMutationInput: { // input type
     intId?: number | null; // Int
     text?: string | null; // String
+    upvotes?: number | null; // Int
   }
   AlarmWhereInput: { // input type
     AND?: NexusGenInputs['AlarmWhereInput'][] | null; // [AlarmWhereInput!]
@@ -63,6 +66,14 @@ export interface NexusGenInputs {
     text_not_in?: string[] | null; // [String!]
     text_not_starts_with?: string | null; // String
     text_starts_with?: string | null; // String
+    upvotes?: number | null; // Int
+    upvotes_gt?: number | null; // Int
+    upvotes_gte?: number | null; // Int
+    upvotes_in?: number[] | null; // [Int!]
+    upvotes_lt?: number | null; // Int
+    upvotes_lte?: number | null; // Int
+    upvotes_not?: number | null; // Int
+    upvotes_not_in?: number[] | null; // [Int!]
   }
   AlarmWhereUniqueInput: { // input type
     id?: string | null; // ID
@@ -71,7 +82,7 @@ export interface NexusGenInputs {
 }
 
 export interface NexusGenEnums {
-  AlarmOrderByInput: "createdAt_ASC" | "createdAt_DESC" | "id_ASC" | "id_DESC" | "intId_ASC" | "intId_DESC" | "text_ASC" | "text_DESC" | "updatedAt_ASC" | "updatedAt_DESC"
+  AlarmOrderByInput: "createdAt_ASC" | "createdAt_DESC" | "id_ASC" | "id_DESC" | "intId_ASC" | "intId_DESC" | "text_ASC" | "text_DESC" | "updatedAt_ASC" | "updatedAt_DESC" | "upvotes_ASC" | "upvotes_DESC"
 }
 
 export interface NexusGenRootTypes {
@@ -82,6 +93,7 @@ export interface NexusGenRootTypes {
     id: string; // ID!
     intId: number; // Int!
     text?: string | null; // String
+    upvotes?: number | null; // Int
   }
   AlarmConnection: { // root type
     edges: NexusGenRootTypes['AlarmEdge'][]; // [AlarmEdge!]!
@@ -127,6 +139,7 @@ export interface NexusGenFieldTypes {
     id: string; // ID!
     intId: number; // Int!
     text: string | null; // String
+    upvotes: number | null; // Int
   }
   AlarmConnection: { // field return type
     aggregate: NexusGenRootTypes['AggregateAlarm']; // AggregateAlarm!
@@ -147,6 +160,7 @@ export interface NexusGenFieldTypes {
     updateAlarm: NexusGenRootTypes['Alarm'] | null; // Alarm
     updateManyAlarms: NexusGenRootTypes['BatchPayload']; // BatchPayload!
     upsertAlarm: NexusGenRootTypes['Alarm']; // Alarm!
+    upvote: NexusGenRootTypes['Alarm'] | null; // Alarm
   }
   PageInfo: { // field return type
     endCursor: string | null; // String
@@ -184,6 +198,9 @@ export interface NexusGenArgTypes {
       create: NexusGenInputs['AlarmCreateInput']; // AlarmCreateInput!
       update: NexusGenInputs['AlarmUpdateInput']; // AlarmUpdateInput!
       where: NexusGenInputs['AlarmWhereUniqueInput']; // AlarmWhereUniqueInput!
+    }
+    upvote: { // args
+      intId?: number | null; // Int
     }
   }
   Query: {
