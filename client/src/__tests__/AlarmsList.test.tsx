@@ -2,7 +2,7 @@ import React, { Suspense } from 'react';
 import { render, wait } from 'react-testing-library';
 import { createClient, getQueries } from '../testUtils';
 import { ApolloProvider } from 'react-apollo-hooks';
-import Alarms, { GET_ALARMS } from '../Alarms';
+import Alarms, { GET_ALARMS } from '../AlarmsList';
 
 const mocks = [
   {

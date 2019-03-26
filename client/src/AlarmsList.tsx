@@ -5,7 +5,7 @@ import { AlarmsQuery } from './generated/graphql';
 
 export const GET_ALARMS = gql`
   query alarms {
-    alarms {
+    alarms(orderBy: createdAt_DESC) {
       id
       intId
       text
@@ -13,7 +13,7 @@ export const GET_ALARMS = gql`
   }
 `;
 
-const Alarms: React.FC = () => {
+const AlarmsList: React.FC = () => {
   const { data, error } = useQuery<AlarmsQuery>(GET_ALARMS, {
     suspend: true,
   });
@@ -22,17 +22,14 @@ const Alarms: React.FC = () => {
   }
 
   return (
-    <React.Fragment>
-      <h1>Alarms</h1>
-      <ul>
-        {data &&
-          data.alarms.map(alarm => (
-            <li key={alarm.id}>{`${alarm.intId} -- ${alarm.text &&
-              alarm.text.toUpperCase()}`}</li>
-          ))}
-      </ul>
-    </React.Fragment>
+    <ul>
+      {data &&
+        data.alarms.map(alarm => (
+          <li key={alarm.id}>{`${alarm.intId} -- ${alarm.text &&
+            alarm.text.toUpperCase()}`}</li>
+        ))}
+    </ul>
   );
 };
 
-export default Alarms;
+export default AlarmsList;
