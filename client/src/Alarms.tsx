@@ -3,7 +3,7 @@ import gql from 'graphql-tag';
 import { useQuery } from 'react-apollo-hooks';
 import { AlarmsQuery } from './generated/graphql';
 
-const GET_ALARMS = gql`
+export const GET_ALARMS = gql`
   query alarms {
     alarms {
       id
