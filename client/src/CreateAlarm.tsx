@@ -24,9 +24,10 @@ const CreateAlarm: React.FC = () => {
       <input type="text" value={text} onChange={e => setText(e.target.value)} />
       <button
         type="submit"
-        onClick={e => {
+        onClick={async e => {
           e.preventDefault();
-          addAlarm();
+          await addAlarm();
+          setText('');
         }}
       >
         Add Alarm
